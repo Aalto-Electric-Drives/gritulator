@@ -8,9 +8,9 @@ control algortihms are also included as well as various utilities.
 """
 
 from motulator._helpers import (
-    abc2complex, complex2abc, BaseValues, Sequence, Step)
+    abc2complex, complex2abc, BaseValues, BaseValuesElectrical, Sequence, Step)
 
-from motulator._plots import plot, plot_extra
+from motulator._plots import plot_grid
 
 from motulator import control
 from motulator import model
@@ -19,10 +19,10 @@ __all__ = [
     "abc2complex",
     "complex2abc",
     "BaseValues",
+    "BaseValuesElectrical",
     "Sequence",
     "Step",
     "control",
     "model",
-    "plot",
-    "plot_extra",
+    "plot_grid",
 ]
