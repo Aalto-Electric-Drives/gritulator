@@ -10,7 +10,8 @@ implemented in stationary coordinates.
 
 import numpy as np
 
-from motulator.helpers import Bunch, complex2abc
+from motulator._helpers import complex2abc
+from motulator._utils import Bunch
 
 # %%
 class ACFlexSourceAndLFilterModel:

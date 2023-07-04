@@ -6,7 +6,7 @@ of a grid.
 """
 import numpy as np
 
-from motulator.helpers import (
+from motulator._helpers import (
     complex2abc,
     abc2complex
     )

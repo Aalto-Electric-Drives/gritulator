@@ -12,8 +12,9 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass, field
 import numpy as np
-from motulator.helpers import Bunch, abc2complex
-from motulator.control.common import Ctrl, PWM
+from motulator._helpers import abc2complex
+from motulator._utils import Bunch
+from motulator.control._common import Ctrl, PWM, Clock
 
 
 # %%
@@ -88,7 +89,8 @@ class GridFollowingCtrl(Ctrl):
         self.t = 0
         self.T_s = pars.T_s
         # Instantiate classes
-        self.pwm = PWM(pars)
+        self.pwm = PWM(six_step=False)
+        self.clock = Clock()
         self.pll = PLL(pars)
         self.current_ref_calc = CurrentRefCalc(pars)
         self.dc_voltage_control = DCVoltageControl(pars)
@@ -144,23 +146,26 @@ class GridFollowingCtrl(Ctrl):
         """
         # Measure the feedback signals
         i_c_abc = mdl.grid_filter.meas_currents()
-        u_dc = mdl.conv.meas_dc_voltage()
+        u_dc = mdl.converter.meas_dc_voltage()
         if self.on_u_cap == True:
             u_g_abc = mdl.grid_filter.meas_cap_voltage()
         else:
             u_g_abc = mdl.grid_filter.meas_pcc_voltage()
             
+        # Get the controller states
+        
+            
         # Define the active and reactive power references at the given time
-        u_dc_ref = self.u_dc_ref(self.t)
+        u_dc_ref = self.u_dc_ref(self.clock.t)
         if self.on_v_dc:
             e_dc, p_dc_ref, p_dc_ref_lim =self.dc_voltage_control.output(
                 u_dc_ref,
                 u_dc)
             p_g_ref = p_dc_ref_lim
-            q_g_ref = self.q_g_ref(self.t)
+            q_g_ref = self.q_g_ref(self.clock.t)
         else:
-            p_g_ref = self.p_g_ref(self.t)
-            q_g_ref = self.q_g_ref(self.t)
+            p_g_ref = self.p_g_ref(self.clock.t)
+            q_g_ref = self.q_g_ref(self.clock.t)
       
         # Generate the current references
         i_c_ref = self.current_ref_calc.output(p_g_ref, q_g_ref)
@@ -200,16 +205,16 @@ class GridFollowingCtrl(Ctrl):
             self.R_f*i_c + 1j*self.w_g*self.L_f*i_c + u_g_filt)
              
         # Use the function from control commons:
-        # d_abc_ref = self.pwm(uc_ref, udc, self.theta_p, self.wg)
-        d_abc_ref, u_c_ref_lim = self.pwm.output(u_c_ref, u_dc,
+        d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_p, self.w_g)
+        u_c_ref_lim = self.pwm.realized_voltage
 
         # Data logging
         data = Bunch(
             err_i = err_i, w_c = w_pll, theta_c = theta_pll,
                      u_c_ref = u_c_ref, u_c_ref_lim = u_c_ref_lim, i_c = i_c,
                      abs_u_g =abs_u_g, d_abc_ref = d_abc_ref, i_c_ref = i_c_ref,
-                     u_dc=u_dc, t=self.t, p_g_ref=p_g_ref,
+                     u_dc=u_dc, t=self.clock.t, p_g_ref=p_g_ref,
                      u_dc_ref = u_dc_ref, q_g_ref=q_g_ref, u_g = u_g,
                      )
         self.save(data)
@@ -219,8 +224,8 @@ class GridFollowingCtrl(Ctrl):
         self.u_c_ref_lim = u_c_ref_lim
         self.u_c_i = self.u_c_i + self.T_s*self.k_i_i*(
             err_i + (u_c_ref_lim - u_c_ref)/self.k_p_i)
-        self.update_clock(self.T_s)
-        self.pwm.update(u_c_ref_lim)
+        self.clock.update(self.T_s)
+        # self.pwm.update(u_c_ref_lim)
         self.pll.update(u_g_q)
         if self.on_v_dc == 1:
             self.dc_voltage_control.update(e_dc, p_dc_ref, p_dc_ref_lim)

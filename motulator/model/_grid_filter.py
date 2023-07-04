@@ -5,7 +5,7 @@ This module contains continuous-time models for AC filters
 """
 import numpy as np
 
-from motulator.helpers import complex2abc
+from motulator._helpers import complex2abc
 
 
 # %%

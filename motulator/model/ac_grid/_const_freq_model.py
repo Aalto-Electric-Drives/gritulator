@@ -12,7 +12,7 @@ implemented in stationary coordinates.
 
 import numpy as np
 
-from motulator.helpers import Bunch
+from motulator._utils import Bunch
 
 # %%
 class StiffSourceAndLFilterModel:
@@ -29,15 +29,15 @@ class StiffSourceAndLFilterModel:
         RL line dynamic model.
     grid_model : Grid
         Constant voltage source model.
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
-    def __init__(self, grid_filter=None, grid_model=None, conv=None):
+    def __init__(self, grid_filter=None, grid_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -75,7 +75,7 @@ class StiffSourceAndLFilterModel:
         self.t0 = t0
         self.grid_filter.i_gs0 = x0[0]
         # calculation of converter-side voltage
-        u_cs0 = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs0 = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         # calculation of grid-side voltage
         e_gs0 = self.grid_model.voltages(t0)
         # update pcc voltage
@@ -101,7 +101,7 @@ class StiffSourceAndLFilterModel:
         # Unpack the states
         i_gs = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         e_gs = self.grid_model.voltages(t)
         # State derivatives
         rl_f = self.grid_filter.f(i_gs, u_cs, e_gs)
@@ -136,7 +136,7 @@ class StiffSourceAndLFilterModel:
         # Some useful variables
         self.data.e_gs = self.grid_model.voltages(self.data.t)
         self.data.theta = np.mod(self.data.t*self.grid_model.w_N, 2*np.pi)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_cs,
@@ -158,15 +158,15 @@ class StiffSourceAndLCLFilterModel:
         LCL dynamic model.
     grid_model : Grid
         Constant voltage source model.
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
-    def __init__(self, grid_filter=None, grid_model=None, conv=None):
+    def __init__(self, grid_filter=None, grid_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -235,7 +235,7 @@ class StiffSourceAndLCLFilterModel:
         # Unpack the states
         i_cs, u_fs, i_gs = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         e_gs = self.grid_model.voltages(t)
         # State derivatives
         lcl_f = self.grid_filter.f(i_cs, u_fs, i_gs, u_cs, e_gs)
@@ -267,13 +267,13 @@ class StiffSourceAndLCLFilterModel:
         self.data.i_cs = np.asarray(self.data.i_cs)
         self.data.u_fs = np.asarray(self.data.u_fs)
         self.data.i_gs = np.asarray(self.data.i_gs)
-        self.data.u_dc = self.conv.u_dc0
+        self.data.u_dc = self.converter.u_dc0
         self.data.q = np.asarray(self.data.q)
         #self.data.theta = np.asarray(self.data.theta)
         # Some useful variables
         self.data.e_gs = self.grid_model.voltages(self.data.t)
         self.data.theta = np.mod(self.data.t*self.grid_model.w_N, 2*np.pi)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_fs,

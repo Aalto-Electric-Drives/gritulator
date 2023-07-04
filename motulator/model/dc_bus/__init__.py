@@ -1,6 +1,6 @@
-"""Continuous-time synchronous machine models."""
+"""Continuous-time DC-bus models."""
 
-from motulator.model.sm._dc_dyn_model import (
+from motulator.model.dc_bus._dc_dyn_model import (
     DCBusAndLFilterModel,
     DCBusAndLCLFilterModel,
 )
