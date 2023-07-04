@@ -1,10 +1,6 @@
 # pylint: disable=C0103
 '''
-This module contains grid-following control for grid-connected converters
-
-This control scheme is based on teaching material from Prof. Marko
-Hinkkanen's course entitled "ELEC-E8402 Control of Electric Drives and Power
-Converters" given at Aalto University.
+This module contains grid-following control for grid-connected converters.
 
 '''
 # %%
@@ -81,7 +77,13 @@ class GridFollowingCtrl(Ctrl):
     pars : GridFollowingCtrlPars
         Control parameters.
 
-    """
+    References
+    ----------
+    .. [#Har2009] L. Harnefors and M. Bongiorno, "Current controller design
+       for passivity of the input admittance," 2009 13th European Conference
+       on Power Electronics and Applications, Barcelona, Spain, 2009, pp. 1-8.
+
+    """   
 
     # pylint: disable=too-many-instance-attributes
     def __init__(self, pars):
@@ -132,9 +134,11 @@ class GridFollowingCtrl(Ctrl):
 
         Parameters
         ----------
-        mdl : GridCompleteModel / ACDCGridCompleteModel
-            Continuous-time model of  a grid model with an RL impedance for
-            getting the feedback signals.
+        mdl : StiffSourceAndLFilterModel / StiffSourceAndLCLFilterModel /
+              ACFlexSourceAndLFilterModel / ACFlexSourceAndLCLFilterModel /
+              DCBusAndLFilterModel / DCBusAndLCLFilterModel
+            Continuous-time model of a voltage-source grid model with a filter
+            and a resistive-inductive line for getting the feedback signals.
 
         Returns
         -------
@@ -151,9 +155,6 @@ class GridFollowingCtrl(Ctrl):
             u_g_abc = mdl.grid_filter.meas_cap_voltage()
         else:
             u_g_abc = mdl.grid_filter.meas_pcc_voltage()
-            
-        # Get the controller states
-        
             
         # Define the active and reactive power references at the given time
         u_dc_ref = self.u_dc_ref(self.clock.t)
@@ -408,6 +409,14 @@ class DCVoltageControl:
         ----------
         pars : GridFollowingCtrlPars
             Control parameters.
+            
+        References
+        ----------
+        .. [#Hur2001] N. Hur, J. Jung and K. Nam, "A fast dynamic DC-link
+            power-balancing scheme for a PWM converter-inverter system,"
+            in IEEE Transactions on Industrial Electronics, vol. 48, no. 4,
+            pp. 794-803, Aug. 2001,
+            doi: 10.1109/41.937412.
      
         """
         self.T_s = pars.T_s
