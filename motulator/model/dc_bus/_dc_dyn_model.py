@@ -30,17 +30,18 @@ class DCBusAndLFilterModel:
         Constant voltage source model.
     dc_model : DcGrid
         DC grid voltage dynamics (capacitance model)
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
     def __init__(
-            self, grid_filter=None, grid_model=None, dc_model=None, conv=None):
+            self, grid_filter=None, grid_model=None,
+            dc_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
         self.dc_model = dc_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -78,9 +79,9 @@ class DCBusAndLFilterModel:
         self.t0 = t0
         self.grid_filter.i_gs0 = x0[0]
         self.dc_model.u_dc0 = x0[1].real
-        self.conv.u_dc0 = x0[1].real
+        self.converter.u_dc0 = x0[1].real
         # calculation of converter-side voltage
-        u_cs0 = self.conv.ac_voltage(self.conv.q, x0[1].real)
+        u_cs0 = self.converter.ac_voltage(self.converter.q, x0[1].real)
         # calculation of grid-side voltage
         e_gs0 = self.grid_model.voltages(t0)
         # update pcc voltage
@@ -107,9 +108,9 @@ class DCBusAndLFilterModel:
         # Unpack the states
         i_gs, u_dc = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, u_dc)
+        u_cs = self.converter.ac_voltage(self.converter.q, u_dc)
         e_gs = self.grid_model.voltages(t)
-        q = self.conv.q
+        q = self.converter.q
         i_g_abc = complex2abc(i_gs)
         # State derivatives
         rl_f = self.grid_filter.f(i_gs, u_cs, e_gs)
@@ -151,7 +152,8 @@ class DCBusAndLFilterModel:
         self.data.i_dc = np.asarray(self.data.i_dc)
         self.data.e_gs = self.grid_model.voltages(self.data.t)
         self.data.theta = np.mod(self.data.t*self.grid_model.w_N, 2*np.pi)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(
+            self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_cs,
@@ -175,17 +177,18 @@ class DCBusAndLCLFilterModel:
         Constant voltage source model.
     dc_model : DcGrid
         DC grid voltage dynamics (capacitance model)
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
     def __init__(
-            self, grid_filter=None, grid_model=None, dc_model=None, conv=None):
+            self, grid_filter=None, grid_model=None, 
+            dc_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
         self.dc_model = dc_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -232,7 +235,7 @@ class DCBusAndLCLFilterModel:
         self.grid_filter.u_fs0 = x0[1]
         self.grid_filter.i_gs0 = x0[2]
         self.dc_model.u_dc0 = x0[3].real
-        self.conv.u_dc0 = x0[3].real
+        self.converter.u_dc0 = x0[3].real
         # calculation of grid-side voltage
         e_gs0 = self.grid_model.voltages(t0)
         # update pcc voltage
@@ -259,9 +262,9 @@ class DCBusAndLCLFilterModel:
         # Unpack the states
         i_cs, u_fs, i_gs, u_dc = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         e_gs = self.grid_model.voltages(t)
-        q = self.conv.q
+        q = self.converter.q
         i_c_abc = complex2abc(i_cs)
         # State derivatives
         lcl_f = self.grid_filter.f(i_cs, u_fs, i_gs, u_cs, e_gs)
@@ -307,7 +310,7 @@ class DCBusAndLCLFilterModel:
         self.data.i_dc = np.asarray(self.data.i_dc)
         self.data.e_gs = self.grid_model.voltages(self.data.t)
         self.data.theta = np.mod(self.data.t*self.grid_model.w_N, 2*np.pi)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_fs,

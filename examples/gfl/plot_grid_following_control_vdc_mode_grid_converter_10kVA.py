@@ -13,7 +13,8 @@ The control system includes
 # Import the packages.
 
 import numpy as np
-import motulator as mt
+from motulator import model, control
+from motulator import BaseValuesElectrical, plot_grid
 
 # To check the computation time of the program
 import time
@@ -21,16 +22,16 @@ start_time = time.time()
 
 # %%
 # Compute base values based on the nominal values (just for figures).
-base_values = mt.BaseValuesElectrical(
+base_values = BaseValuesElectrical(
     U_nom=400, I_nom=14.5, f_nom=50.0, P_nom=10e3)
 
 
 # %%
 # Configure the system model (grid model)
-grid_filter = mt.LFilter(L_f = 10e-3, L_g=0, R_g=0)
-grid_model = mt.StiffSource(w_N=2*np.pi*50)
-dc_model = mt.DCBus(C_dc = 1e-3, u_dc0=600, G_dc=0)
-conv = mt.Inverter(u_dc=600)
+grid_filter = model.LFilter(L_f=10e-3, L_g=0, R_g=0)
+grid_model = model.StiffSource(w_N=2*np.pi*50)
+dc_model = model.dc_bus.DCBus(C_dc = 1e-3, u_dc0=600, G_dc=0)
+converter = model.Inverter(u_dc=650)
 """
 REMARK:
     if you do not want to simulate any DC bus dynamics, you should define
@@ -40,12 +41,13 @@ REMARK:
 """
     
 if dc_model == None:
-    mdl = mt.StiffSourceAndLFilterModel(grid_filter, grid_model, conv)
+    mdl = model.ac_grid.StiffSourceAndLFilterModel(
+        grid_filter, grid_model, converter)
 else:
-    mdl = mt.DCBusAndLFilterModel(
-        grid_filter, grid_model, dc_model, conv)
+    mdl = model.dc_bus.DCBusAndLFilterModel(
+        grid_filter, grid_model, dc_model, converter)
 
-pars = mt.GridFollowingCtrlPars(
+pars = control.gfl.GridFollowingCtrlPars(
             L_f=10e-3,
             R_f=0,
             C_dc = 1e-3,
@@ -55,7 +57,7 @@ pars = mt.GridFollowingCtrlPars(
             I_max = 1.5*base_values.i,
             p_max = base_values.p,
             )
-ctrl = mt.GridFollowingCtrl(pars)
+ctrl = control.gfl.GridFollowingCtrl(pars)
 
 
 # %%
@@ -75,12 +77,11 @@ mdl.grid_model.e_g_abs = e_g_abs_var # grid voltage magnitude
 ctrl.u_dc_ref = lambda t: 600 + (t > .02)*(50)
 
 # Create the simulation object and simulate it
-sim = mt.simulation.Simulation(mdl, ctrl, pwm=False)
+sim = model.Simulation(mdl, ctrl, pwm=False)
 sim.simulate(t_stop = .1)
 
 # Print the execution time
 print('\nExecution time: {:.2f} s'.format((time.time() - start_time)))
 
 # Plot results in SI or per unit values
-mt.plot_grid(sim)
-#mt.plot_grid(sim, base=base_values)
+plot_grid(sim, base=None)
