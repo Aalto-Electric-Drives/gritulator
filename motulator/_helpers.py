@@ -123,6 +123,31 @@ class BaseValues:
         self.L = self.Z/self.w
         self.tau = self.n_p*self.p/self.w
 
+@dataclass
+class BaseValuesElectrical:
+    """
+    Base values.
+
+    Base values are computed from the nominal values.
+    They can be used, e.g., for scaling the plotted waveforms.
+
+    """
+
+    # pylint: disable=too-many-instance-attributes
+    U_nom: float
+    I_nom: float
+    f_nom: float
+    P_nom: float
+
+    def __post_init__(self):
+        """Compute the base values."""
+        self.u = np.sqrt(2/3)*self.U_nom
+        self.i = np.sqrt(2)*self.I_nom
+        self.w = 2*np.pi*self.f_nom
+        self.p = 1.5*self.u*self.i
+        self.Z = self.u/self.i
+        self.L = self.Z/self.w
+        self.C = 1/(self.Z*self.w)
 
 # %%
 class Sequence:
