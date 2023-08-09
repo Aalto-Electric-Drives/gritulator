@@ -3,3 +3,5 @@
 Introduction
 ------------
 This open-source repository (under development) is intended to host a grid converter simulator in Python.
+
+Documentation link: https://aalto-electric-drives.github.io/gritulator/
