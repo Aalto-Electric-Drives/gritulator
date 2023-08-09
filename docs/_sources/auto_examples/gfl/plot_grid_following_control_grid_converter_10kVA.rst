@@ -149,7 +149,7 @@ Configure the system model
  .. code-block:: none
 
 
-    Execution time: 0.99 s
+    Execution time: 0.61 s
 
 
 
@@ -157,7 +157,7 @@ Configure the system model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.466 seconds)
+   **Total running time of the script:** ( 0 minutes  1.616 seconds)
 
 
 .. _sphx_glr_download_auto_examples_gfl_plot_grid_following_control_grid_converter_10kVA.py:
