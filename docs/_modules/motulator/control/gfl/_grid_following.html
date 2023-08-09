@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>motulator.control.gfl._grid_following &#8212; gritulator 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/motulator/control/gfl/_grid_following';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">gritulator 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../usage.html">Usage</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../autoapi/motulator/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/motulator/control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/motulator/control/gfl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.gfl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/motulator/control/gfm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.control.gfm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/motulator/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.model</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/motulator/model/ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.model.ac_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/motulator/model/dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motulator.model.dc_bus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/system.html">Drive System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/machines.html">Electric Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/mechanics.html">Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/converters.html">Converters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../control/design_notes.html">Design Notes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/speed_ctrl.html">Speed Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/current_ctrl.html">Current Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/observers.html">Observers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../auto_examples/gfl/index.html">Grid-following control</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Aalto-Electric-Drives/gritulator" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for motulator.control.gfl._grid_following</h1><div class="highlight"><pre>
+<span></span><span class="c1"># pylint: disable=C0103</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This module contains grid-following control for grid-connected converters.</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1"># %%</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motulator._helpers</span> <span class="kn">import</span> <span class="n">abc2complex</span>
+<span class="kn">from</span> <span class="nn">motulator._utils</span> <span class="kn">import</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">motulator.control._common</span> <span class="kn">import</span> <span class="n">Ctrl</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">Clock</span>
+
+
+<span class="c1"># %%</span>
+<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="GridFollowingCtrlPars"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/index.html#motulator.control.gfl._grid_following.GridFollowingCtrlPars">[docs]</a><span class="k">class</span> <span class="nc">GridFollowingCtrlPars</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    grid-following control parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-instance-attributes</span>
+    <span class="c1"># General control parameters</span>
+    <span class="n">p_g_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># active power reference</span>
+    <span class="n">q_g_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># reactive power reference</span>
+    <span class="n">u_dc_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">650</span><span class="p">)</span> <span class="c1"># DC voltage reference, only used if</span>
+                                    <span class="c1"># the dc voltage control mode is activated.</span>
+    <span class="n">T_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">16e3</span><span class="p">)</span> <span class="c1"># sampling time of the controller.</span>
+    <span class="n">delay</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">u_gN</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">400</span>  <span class="c1"># PCC voltage, in volts.</span>
+    <span class="n">w_g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span> <span class="c1"># grid frequency, in Hz</span>
+    <span class="n">f_sw</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8e3</span> <span class="c1"># switching frequency, in Hz.</span>
+    
+    <span class="c1"># Scaling ratio of the abc/dq transformation</span>
+    <span class="n">k_scal</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span> 
+    
+    <span class="c1"># Current controller parameters</span>
+    <span class="n">alpha_c</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">400</span> <span class="c1"># current controller bandwidth.</span>
+    
+    <span class="c1"># Phase Locked Loop (PLL) control parameters</span>
+    <span class="n">w_0_pll</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">20</span> <span class="c1"># undamped natural frequency</span>
+    <span class="n">zeta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># damping ratio</span>
+    
+    <span class="c1"># Low pass filter for voltage feedforward term</span>
+    <span class="n">alpha_ff</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># low pass filter bandwidth</span>
+    
+    <span class="c1"># Use the filter capacitance voltage measurement or PCC voltage</span>
+    <span class="n">on_u_cap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 1 if capacitor voltage is used, 0 if PCC is used</span>
+    
+    <span class="c1"># DC-voltage controller</span>
+    <span class="n">on_v_dc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># put 1 to activate dc voltage controller. 0 is p-mode</span>
+    <span class="n">zeta_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># damping ratio</span>
+    <span class="n">p_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10e3</span> <span class="c1"># maximum power reference, in W.</span>
+    <span class="n">w_0_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">30</span> <span class="c1"># controller undamped natural frequency, in rad/s.</span>
+    
+    <span class="c1"># Current limitation</span>
+    <span class="n">I_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># maximum current modulus in A</span>
+    
+    <span class="c1"># Passive component parameter estimates</span>
+    <span class="n">L_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10e-3</span> <span class="c1"># filter inductance, in H.</span>
+    <span class="n">R_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># filter resistance, in Ohm.</span>
+    <span class="n">C_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># DC bus capacitance, in F.</span></div>
+
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="GridFollowingCtrl"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/index.html#motulator.control.gfl._grid_following.GridFollowingCtrl">[docs]</a><span class="k">class</span> <span class="nc">GridFollowingCtrl</span><span class="p">(</span><span class="n">Ctrl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grid following control with the current controller and PLL to synchronize</span>
+<span class="sd">    with the AC grid.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pars : GridFollowingCtrlPars</span>
+<span class="sd">        Control parameters.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [#Har2009] L. Harnefors and M. Bongiorno, &quot;Current controller design</span>
+<span class="sd">       for passivity of the input admittance,&quot; 2009 13th European Conference</span>
+<span class="sd">       on Power Electronics and Applications, Barcelona, Spain, 2009, pp. 1-8.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>   
+
+    <span class="c1"># pylint: disable=too-many-instance-attributes</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="c1"># Instantiate classes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">six_step</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">Clock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pll</span> <span class="o">=</span> <span class="n">PLL</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_ref_calc</span> <span class="o">=</span> <span class="n">CurrentRefCalc</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span> <span class="o">=</span> <span class="n">DCVoltageControl</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="c1"># Parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_gN</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_g</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_sw</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">f_sw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">L_f</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">L_f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R_f</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">R_f</span>
+        <span class="c1"># Power references</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">p_g_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">q_g_ref</span>
+        <span class="c1"># Activation/deactivation of the DC voltage controller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_v_dc</span>
+        <span class="c1"># DC voltage reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_dc_ref</span>
+        <span class="c1"># Calculated current controller gains:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_i</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">alpha_c</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">L_f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_i_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">pars</span><span class="o">.</span><span class="n">alpha_c</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">L_f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r_i</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">alpha_c</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">L_f</span>
+        <span class="c1"># Calculated maximum current in A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">I_max</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">I_max</span>
+        <span class="c1"># Calculated PLL estimator gains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_pll</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">zeta</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">/</span><span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_i_pll</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">/</span><span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+        <span class="c1"># Low pass filter for voltage feedforward term</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha_ff</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">alpha_ff</span>
+        <span class="c1"># Measure the voltage at the PCC or the capacitor of LCL (if used)?</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_u_cap</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_u_cap</span>
+        <span class="c1"># States</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_i</span> <span class="o">=</span> <span class="mi">0</span><span class="n">j</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_g_filt</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">0</span>
+ 
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the main control loop.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mdl : StiffSourceAndLFilterModel / StiffSourceAndLCLFilterModel /</span>
+<span class="sd">              ACFlexSourceAndLFilterModel / ACFlexSourceAndLCLFilterModel /</span>
+<span class="sd">              DCBusAndLFilterModel / DCBusAndLCLFilterModel</span>
+<span class="sd">            Continuous-time model of a voltage-source grid model with a filter</span>
+<span class="sd">            and a resistive-inductive line for getting the feedback signals.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        T_s : float</span>
+<span class="sd">            Sampling period.</span>
+<span class="sd">        d_abc_ref : ndarray, shape (3,)</span>
+<span class="sd">            Duty ratio references.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Measure the feedback signals</span>
+        <span class="n">i_c_abc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">meas_currents</span><span class="p">()</span>
+        <span class="n">u_dc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">converter</span><span class="o">.</span><span class="n">meas_dc_voltage</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_u_cap</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">u_g_abc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">meas_cap_voltage</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">u_g_abc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">meas_pcc_voltage</span><span class="p">()</span>
+            
+        <span class="c1"># Define the active and reactive power references at the given time</span>
+        <span class="n">u_dc_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_dc_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span><span class="p">:</span>
+            <span class="n">e_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span><span class="o">.</span><span class="n">output</span><span class="p">(</span>
+                <span class="n">u_dc_ref</span><span class="p">,</span>
+                <span class="n">u_dc</span><span class="p">)</span>
+            <span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">p_dc_ref_lim</span>
+            <span class="n">q_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">q_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+      
+        <span class="c1"># Generate the current references</span>
+        <span class="n">i_c_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_ref_calc</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">p_g_ref</span><span class="p">,</span> <span class="n">q_g_ref</span><span class="p">)</span>
+        
+        <span class="c1">#Transform the measured current in dq frame</span>
+        <span class="n">i_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span><span class="p">)</span><span class="o">*</span><span class="n">abc2complex</span><span class="p">(</span><span class="n">i_c_abc</span><span class="p">)</span>
+        
+        <span class="c1"># Calculation of PCC voltage in synchronous frame</span>
+        <span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span><span class="p">)</span><span class="o">*</span><span class="n">abc2complex</span><span class="p">(</span><span class="n">u_g_abc</span><span class="p">)</span>
+                
+        <span class="c1"># Use of PLL to bring ugq to zero</span>
+        <span class="n">u_g_q</span><span class="p">,</span> <span class="n">abs_u_g</span><span class="p">,</span> <span class="n">w_pll</span><span class="p">,</span> <span class="n">theta_pll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pll</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">u_g_abc</span><span class="p">)</span>
+        
+        <span class="c1">#Calculation of the modulus of current reference</span>
+        <span class="n">i_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+        <span class="n">i_c_d_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+        <span class="n">i_c_q_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+        
+        <span class="c1">#And current limitation algorithm</span>
+        <span class="k">if</span> <span class="n">i_abs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">i_ratio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">I_max</span><span class="o">/</span><span class="n">i_abs</span>
+            <span class="n">i_c_d_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span>
+                <span class="n">i_ratio</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">)])</span>
+            <span class="n">i_c_q_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span>
+                <span class="n">i_ratio</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">)])</span>
+            <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_d_ref</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">i_c_q_ref</span>
+        
+        
+        <span class="c1"># Low pass filter for the feedforward PCC voltage:</span>
+        <span class="n">u_g_filt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_g_filt</span>
+        
+        <span class="c1"># Voltage reference in synchronous coordinates</span>
+        <span class="n">err_i</span> <span class="o">=</span> <span class="n">i_c_ref</span> <span class="o">-</span> <span class="n">i_c</span> <span class="c1"># current controller error signal</span>
+        <span class="n">u_c_ref</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_i</span><span class="o">*</span><span class="n">err_i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_c_i</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_i</span><span class="o">*</span><span class="n">i_c</span> <span class="o">-</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">R_f</span><span class="o">*</span><span class="n">i_c</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">L_f</span><span class="o">*</span><span class="n">i_c</span> <span class="o">+</span> <span class="n">u_g_filt</span><span class="p">)</span>
+             
+        <span class="c1"># Use the function from control commons:</span>
+        <span class="n">d_abc_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">,</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="p">)</span>
+        <span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span><span class="o">.</span><span class="n">realized_voltage</span>
+
+        <span class="c1"># Data logging</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span>
+            <span class="n">err_i</span> <span class="o">=</span> <span class="n">err_i</span><span class="p">,</span> <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_pll</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="n">theta_pll</span><span class="p">,</span>
+                     <span class="n">u_c_ref</span> <span class="o">=</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">u_c_ref_lim</span><span class="p">,</span> <span class="n">i_c</span> <span class="o">=</span> <span class="n">i_c</span><span class="p">,</span>
+                     <span class="n">abs_u_g</span> <span class="o">=</span><span class="n">abs_u_g</span><span class="p">,</span> <span class="n">d_abc_ref</span> <span class="o">=</span> <span class="n">d_abc_ref</span><span class="p">,</span> <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_ref</span><span class="p">,</span>
+                     <span class="n">u_dc</span><span class="o">=</span><span class="n">u_dc</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="o">=</span><span class="n">p_g_ref</span><span class="p">,</span>
+                     <span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">u_dc_ref</span><span class="p">,</span> <span class="n">q_g_ref</span><span class="o">=</span><span class="n">q_g_ref</span><span class="p">,</span> <span class="n">u_g</span> <span class="o">=</span> <span class="n">u_g</span><span class="p">,</span>
+                     <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Update the states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="n">theta_pll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">u_c_ref_lim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_c_i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">k_i_i</span><span class="o">*</span><span class="p">(</span>
+            <span class="n">err_i</span> <span class="o">+</span> <span class="p">(</span><span class="n">u_c_ref_lim</span> <span class="o">-</span> <span class="n">u_c_ref</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_i</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">)</span>
+        <span class="c1"># self.pwm.update(u_c_ref_lim)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pll</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">u_g_q</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">e_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span><span class="p">)</span>
+        <span class="c1"># Update the low pass filer integrator for feedforward action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_g_filt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha_ff</span><span class="p">)</span><span class="o">*</span><span class="n">u_g_filt</span> <span class="o">+</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha_ff</span><span class="o">*</span><span class="n">u_g</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">,</span> <span class="n">d_abc_ref</span></div>
+    
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="PLL"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.PLL">[docs]</a><span class="k">class</span> <span class="nc">PLL</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PLL synchronizing loop.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    u_g_abc : ndarray, shape (3,)</span>
+<span class="sd">        Phase voltages at the PCC.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    u_g_q : float</span>
+<span class="sd">        q-axis of the PCC voltage (V)</span>
+<span class="sd">    abs_u_g : float</span>
+<span class="sd">        amplitude of the voltage waveform, in V</span>
+<span class="sd">    theta_pll : float</span>
+<span class="sd">        estimated phase angle (in rad).</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : GridFollowingCtrlPars</span>
+<span class="sd">           Control parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_0_pll</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_pll</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">zeta</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">/</span><span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_i_pll</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_pll</span><span class="o">/</span><span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+        <span class="c1"># Initial states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_pll</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_g</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="mi">0</span>
+    
+            
+<div class="viewcode-block" id="PLL.output"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.PLL.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_g_abc</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the estimated frequency and phase angle using the PLL.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u_g_abc : ndarray, shape (3,)</span>
+<span class="sd">            Grid 3-phase voltage.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        u_g_q : float</span>
+<span class="sd">            Error signal (in V, corresponds to the q-axis grid voltage).</span>
+<span class="sd">        abs_u_g : float</span>
+<span class="sd">            magnitude of the grid voltage vector (in V).</span>
+<span class="sd">        w_g_pll : float</span>
+<span class="sd">            estimated grid frequency (in rad/s).</span>
+<span class="sd">        theta_pll : float</span>
+<span class="sd">            estimated phase angle (in rad).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">u_g_ab</span> <span class="o">=</span> <span class="n">u_g_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">u_g_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># calculation of phase-to-phase voltages</span>
+        <span class="n">u_g_bc</span> <span class="o">=</span> <span class="n">u_g_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">u_g_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># calculation of phase-to-phase voltages</span>
+        
+        <span class="c1"># Calculation of u_g in complex form (stationary coordinates)</span>
+        <span class="n">u_g_s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">u_g_ab</span> <span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">u_g_bc</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">*</span><span class="n">u_g_bc</span>
+        <span class="c1"># And then in general coordinates</span>
+        <span class="n">u_g</span> <span class="o">=</span> <span class="n">u_g_s</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span><span class="p">)</span>
+        <span class="c1"># Definition of the error using the q-axis voltage</span>
+        <span class="n">u_g_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">u_g</span><span class="p">)</span> 
+                
+        <span class="c1"># Absolute value of the grid-voltage vector</span>
+        <span class="n">abs_u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_g</span><span class="p">)</span>
+        
+        <span class="c1"># Calculation of the estimated PLL frequency</span>
+        <span class="n">w_g_pll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_p_pll</span><span class="o">*</span><span class="n">u_g_q</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_pll</span>
+        
+        <span class="c1"># Estimated phase angle</span>
+        <span class="n">theta_pll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="n">w_g_pll</span>
+        
+        <span class="k">return</span> <span class="n">u_g_q</span><span class="p">,</span> <span class="n">abs_u_g</span><span class="p">,</span> <span class="n">w_g_pll</span><span class="p">,</span> <span class="n">theta_pll</span></div>
+    
+        
+<div class="viewcode-block" id="PLL.update"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.PLL.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_g_q</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the integral state.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u_g_q : real</span>
+<span class="sd">            Error signal (in V, corresponds to the q-axis grid voltage).</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Calculation of the estimated PLL frequency</span>
+        <span class="n">w_g_pll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_p_pll</span><span class="o">*</span><span class="n">u_g_q</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_pll</span>
+        
+        <span class="c1"># Update the integrator state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_pll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_pll</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">k_i_pll</span><span class="o">*</span><span class="n">u_g_q</span>
+        <span class="c1"># Update the grid-voltage angle state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="n">w_g_pll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>    <span class="c1"># Limit to [0, 2*pi]</span></div></div>
+        
+        
+<span class="c1"># %%        </span>
+<div class="viewcode-block" id="CurrentRefCalc"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.CurrentRefCalc">[docs]</a><span class="k">class</span> <span class="nc">CurrentRefCalc</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Current controller reference generator</span>
+<span class="sd">    </span>
+<span class="sd">    This class is used to generate the current references for the current</span>
+<span class="sd">    controllers based on the active and reactive power references.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : GridFollowingCtrlPars</span>
+<span class="sd">            Control parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_gN</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_gN</span>
+
+    
+<div class="viewcode-block" id="CurrentRefCalc.output"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.CurrentRefCalc.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">q_g_ref</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Power reference genetator.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        p_g_ref : float</span>
+<span class="sd">            active power reference</span>
+<span class="sd">        q_g_ref : float</span>
+<span class="sd">            reactive power reference</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        i_c_ref : float</span>
+<span class="sd">            current reference in the rotationary frame</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+    
+        <span class="c1"># Calculation of the current references in the stationary frame:</span>
+        <span class="n">i_c_ref</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">p_g_ref</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u_gN</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">q_g_ref</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u_gN</span><span class="p">)</span>  
+        
+        <span class="k">return</span> <span class="n">i_c_ref</span></div></div>
+
+
+<span class="c1"># %%        </span>
+<div class="viewcode-block" id="DCVoltageControl"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.DCVoltageControl">[docs]</a><span class="k">class</span> <span class="nc">DCVoltageControl</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DC voltage controller</span>
+<span class="sd">    </span>
+<span class="sd">    This class is used to generate the active power reference for the converter</span>
+<span class="sd">    controller to ensure that the DC voltage is regulated.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : GridFollowingCtrlPars</span>
+<span class="sd">            Control parameters.</span>
+<span class="sd">            </span>
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        .. [#Hur2001] N. Hur, J. Jung and K. Nam, &quot;A fast dynamic DC-link</span>
+<span class="sd">            power-balancing scheme for a PWM converter-inverter system,&quot;</span>
+<span class="sd">            in IEEE Transactions on Industrial Electronics, vol. 48, no. 4,</span>
+<span class="sd">            pp. 794-803, Aug. 2001,</span>
+<span class="sd">            doi: 10.1109/41.937412.</span>
+<span class="sd">     </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_0_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeta_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">zeta_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">zeta_dc</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_i_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">C_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">C_dc</span>
+        <span class="c1"># Saturation of power reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">p_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># integrator state of the controller</span>
+    
+<div class="viewcode-block" id="DCVoltageControl.output"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.DCVoltageControl.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_dc_ref</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the active power reference sent to the converter control system</span>
+<span class="sd">        to regulate the DC-bus voltage.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u_dc_ref : float</span>
+<span class="sd">            DC-bus voltage reference</span>
+<span class="sd">        u_dc : float</span>
+<span class="sd">            DC-bus voltage</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        err_dc: float</span>
+<span class="sd">            DC capacitance energy error signal</span>
+<span class="sd">        p_dc_ref: float</span>
+<span class="sd">            power reference based on DC voltage controller</span>
+<span class="sd">        p_dc_ref_lim: float</span>
+<span class="sd">            saturated power reference based on DC voltage controller</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Compute the error signal (the capacitor energy)</span>
+        <span class="n">err_dc</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">C_dc</span><span class="o">*</span><span class="p">(</span><span class="n">u_dc_ref</span><span class="o">*</span><span class="n">u_dc_ref</span> <span class="o">-</span> <span class="n">u_dc</span><span class="o">*</span><span class="n">u_dc</span><span class="p">)</span>
+
+        <span class="c1"># PI controller</span>
+        <span class="n">p_dc_ref</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span><span class="o">*</span><span class="n">err_dc</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span>
+        
+        
+        <span class="c1"># Limit the output reference</span>
+        <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="n">p_dc_ref</span>
+        <span class="k">if</span> <span class="n">p_dc_ref_lim</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">:</span>
+            <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span>
+        <span class="k">elif</span> <span class="n">p_dc_ref_lim</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">:</span>
+            <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_max</span>
+           
+        
+        <span class="k">return</span> <span class="n">err_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span></div>
+    
+        
+<div class="viewcode-block" id="DCVoltageControl.update"><a class="viewcode-back" href="../../../../autoapi/motulator/control/gfl/_grid_following/index.html#motulator.control.gfl._grid_following.DCVoltageControl.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the state of the DC-voltage controller with anti-windup.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        err_dc: float</span>
+<span class="sd">            DC capacitance energy error signal</span>
+<span class="sd">        p_dc_ref: float</span>
+<span class="sd">            power reference based on DC voltage controller</span>
+<span class="sd">        p_dc_ref_lim: float</span>
+<span class="sd">            saturated power reference based on DC voltage controller</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Update the integrator state (the last term is antiwindup)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">k_i_dc</span><span class="o">*</span><span class="p">(</span><span class="n">err_dc</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">p_dc_ref_lim</span> <span class="o">-</span> <span class="n">p_dc_ref</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span><span class="p">))</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aalto Electric Drives
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Aalto Electric Drives.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
