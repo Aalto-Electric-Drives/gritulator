@@ -46,7 +46,7 @@ class StiffSource:
             grid complex voltage.
 
         """
-        # Integration of frequency to obtain the angle
+        # Calculation of theta angle based on time and grid fixed frequency
         theta = self.w_N*t        
         
         # Calculation of the three-phase voltage
