@@ -1,33 +1,35 @@
-# pylint: disable=C0103
 """
-This module contains continuous-time models for AC filters
+Grid and converter filter impedance models.
+
+This module contains continuous-time models for the AC impedance between the 
+converter output and the AC grid. In this module, all space vectors are in
+stationary coordinates.
 
 """
 import numpy as np
-
 from motulator._helpers import complex2abc
 
 
 # %%
 class LFilter:
     """
-    Inductive filter model with a connection made to the inverter outputs. 
+    Inductive-resistive filter dynamic model. 
 
     An inductive filter model is built using a simple inductance model where
     the two output voltages are imposed and the current can be calculated using
     dynamic equations. This model includes a model for an inductive-resistive
-    impedance of the grid combined with the L-filter model.
+    impedance of the grid combined with the L-filter model. 
 
     Parameters
     ----------
     L_f : float
-        Filter inductance (in H)
+        Filter inductance (H)
     R_f : float
-        Filter resistance (in Ohm)
+        Filter resistance (Ω)
     L_g : float
-        Grid inductance (in H)
+        Grid inductance (H)
     R_g : float
-        Grid resistance (in Ohm)
+        Grid resistance (Ω)
 
     """
     def __init__(self, U_gN=400*np.sqrt(2/3), L_f = 6e-3, R_f=0, L_g=0, R_g=0):
@@ -41,12 +43,13 @@ class LFilter:
         self.i_gs0 = 0j
 
 
-
     def pcc_voltages(self, i_gs, u_cs, e_gs):
         """
-        Compute the PCC voltage, located in-between the filter and the line
-        impedances
-
+        Compute the point of common coupling voltage.
+        
+        point of common coupling (PCC) is located at the other end of the
+        converter output filter.
+        
         Parameters
         ----------
         i_gs : complex
@@ -59,11 +62,11 @@ class LFilter:
         Returns
         -------
         u_gs : complex
-            Voltage at the point of common coupling (PCC).
+            Voltage at the point of common coupling (V).
 
         """
 
-        # PCC voltage in alpha-beta coordinates
+        # PCC voltage in stationary coordinates
         u_gs = (self.L_g*u_cs + self.L_f*e_gs + 
             (self.R_g*self.L_f - self.R_f*self.L_g)*i_gs)/(self.L_g+self.L_f)
         
@@ -86,16 +89,14 @@ class LFilter:
 
         Returns
         -------
-        di_gs: complex
-            Time derivative of the complex state i_gs (line current, in A)
+        complex list, length 1
+            Time derivative of the complex state vector, [di_gs]
 
         """
         # Calculation of the total impedance
         L_t = self.L_f + self.L_g
         R_t = self.R_f + self.R_g
-        
         di_gs = (u_cs - e_gs - R_t*i_gs)/L_t
-        
         return di_gs
 
     def meas_currents(self):
@@ -105,11 +106,11 @@ class LFilter:
         Returns
         -------
         i_g_abc : 3-tuple of floats
-            Phase currents.
+            Phase currents (A).
 
         """
         # Line current space vector in stationary coordinates
-        i_g_abc = complex2abc(self.i_gs0)  # + noise + offset ...
+        i_g_abc = complex2abc(self.i_gs0)
         return i_g_abc
     
     
@@ -120,44 +121,43 @@ class LFilter:
         Returns
         -------
         u_g_abc : 3-tuple of floats
-            Phase voltage at the point of common coupling (PCC).
+            Phase voltage at the point of common coupling (V).
 
         """  
         # PCC voltage space vector in stationary coordinates
-        u_g_abc = complex2abc(self.u_gs0)  # + noise + offset ...
+        u_g_abc = complex2abc(self.u_gs0)
         return u_g_abc
     
     
     # %%
 class LCLFilter:
     """
-    LCL filter and inductive grid model with a connection made to the 
-    inverter outputs.
+    Inductive-capacitive-inductive (LCL) filter dynamic model. 
 
-    An LCL-type grid model is built using an LCL model where the two output
-    voltages are imposed and the grid-side current, the converter-side
-    current and the capacitance voltage can be calculated using dynamic
-    equations. This model includes a model for an inductive-resistive
+    An LCL-type grid model is built using inductive and capacitive dynamic
+    models. The two output voltages are imposed and the grid-side current, the
+    converter-side current and the capacitance voltage can be calculated using
+    dynamic equations. This model includes a model for an inductive-resistive
     impedance of the grid combined with the LCL-filter model.
 
     Parameters
     ----------
     L_fc : float
-        Converter-side filter inductance (in H)
+        Converter-side filter inductance (H)
     R_fc : float
-        Converter-side filter resistance (in Ohm)
+        Converter-side filter resistance (Ω)
     L_fg : float
-        Grid-side filter inductance (in H)
+        Grid-side filter inductance (H)
     R_fg : float
-        Grid-side filter resistance (in Ohm)
+        Grid-side filter resistance (Ω)
     C_f : float
-        Filter capacitance (in F)
+        Filter capacitance (F)
     G_f : float
-        LCL filter conductance (in S)
+        LCL filter conductance (S)
     L_g : float
-        Grid inductance (in H)
+        Grid inductance (H)
     R_g : float
-        Grid resistance (in Ohm)
+        Grid resistance (Ω)
 
 
     """
@@ -182,8 +182,10 @@ class LCLFilter:
 
     def pcc_voltages(self, i_gs, u_fs, e_gs):
         """
-        Compute the PCC voltage, located in-between the filter and the line
-        impedances
+        Compute the point of common coupling voltage.
+        
+        point of common coupling (PCC) is located at the other end of the
+        converter output filter.
 
         Parameters
         ----------
@@ -197,21 +199,18 @@ class LCLFilter:
         Returns
         -------
         u_gs : complex
-            Voltage at the point of common coupling (PCC).
+            Voltage at the point of common coupling (V).
 
         """
-        # calculation of voltage-related term
-        v_tu = ((self.L_g/(self.L_g+self.L_fg))*u_fs + 
-            (self.L_fg/(self.L_g+self.L_fg))*e_gs)
-        # calculation of current-related term
-        v_ti = (
-            ((self.R_g*self.L_fg-self.R_fg*self.L_g)/(self.L_g+self.L_fg))*i_gs)
-        
+        # calculation of the voltage-related term
+        v_tu = e_gs*((self.L_g/(self.L_g+self.L_fg))*u_fs + 
+            self.L_fg/(self.L_g+self.L_fg))
+        # calculation of the current-related term
+        v_ti = i_gs*((self.R_g*self.L_fg - self.R_fg*self.L_g)/
+                 (self.L_g+self.L_fg))
         # PCC voltage in alpha-beta coordinates
         u_gs = v_tu + v_ti
-        
         return u_gs
-    
     
     def f(self, i_cs, u_fs, i_gs, u_cs, e_gs):
         # pylint: disable=R0913
@@ -233,26 +232,18 @@ class LCLFilter:
 
         Returns
         -------
-        i_cs : complex
-            Time derivative of the complex i_cs (in A).
-        u_fs : complex
-            Time derivative of the complex u_fs (in V).
-        di_gs: complex
-            Time derivative of the complex state i_gs (in A)
+        complex list, length 3
+            Time derivative of the complex state vector, [di_cs, du_fs, di_gs]
 
         """
         # Converter-side dynamics
         di_cs = (u_cs - u_fs - self.R_fc*i_cs)/self.L_fc
-        
         # Capacitance dynamics
         du_fs = (i_cs - i_gs - self.G_f*u_fs)/self.C_f
-        
         # Calculation of the total grid-side impedance
         L_t = self.L_fg + self.L_g
         R_t = self.R_fg + self.R_g
-        
         di_gs = (u_fs - e_gs - R_t*i_gs)/L_t
-        
         return [di_cs, du_fs, di_gs]
 
     def meas_currents(self):
@@ -266,9 +257,8 @@ class LCLFilter:
 
         """
         # Line current space vector in stationary coordinates
-        i_c_abc = complex2abc(self.i_cs0)  # + noise + offset ...
+        i_c_abc = complex2abc(self.i_cs0)
         return i_c_abc
-    
     
     def meas_grid_currents(self):
         """
@@ -277,11 +267,11 @@ class LCLFilter:
         Returns
         -------
         i_g_abc : 3-tuple of floats
-            Phase currents.
+            Phase currents (A).
 
         """
         # Line current space vector in stationary coordinates
-        i_g_abc = complex2abc(self.i_gs0)  # + noise + offset ...
+        i_g_abc = complex2abc(self.i_gs0)
         return i_g_abc
 
     def meas_cap_voltage(self):
@@ -291,7 +281,7 @@ class LCLFilter:
         Returns
         -------
         u_f_abc : 3-tuple of floats
-            Phase voltage through the capacitance of the LCL filter.
+            Phase voltage through the capacitance of the LCL filter (V).
 
         """  
         # Capacitor voltage space vector in stationary coordinates
@@ -305,9 +295,9 @@ class LCLFilter:
         Returns
         -------
         u_g_abc : 3-tuple of floats
-            Phase voltage at the point of common coupling (PCC).
+            Phase voltage at the point of common coupling (V).
 
         """  
         # PCC voltage space vector in stationary coordinates
-        u_g_abc = complex2abc(self.u_gs0)  # + noise + offset ...
+        u_g_abc = complex2abc(self.u_gs0)
         return u_g_abc
