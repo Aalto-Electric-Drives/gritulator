@@ -1,10 +1,10 @@
-# pylint: disable=C0103
 """
-This module contains continuous-time models for grid connected converters when
-the DC bus is modelled using a current-source model.
+Collector models with DC-bus and filter models.
 
-Peak-valued complex space vectors are used. The space vector models are
-implemented in stationary coordinates.
+This module contains continuous-time models for grid connected converters when
+the DC bus is modelled using a current source and a capacitive-resistive
+admittance connected in parallel. Peak-valued complex space vectors are used.
+The space vector models are implemented in stationary coordinates.
 
 """
 
@@ -16,7 +16,7 @@ from gritulator._utils import Bunch
 # %%
 class DCBusAndLFilterModel:
     """
-    Continuous-time model for a grid model with an RL impedance model.
+    Continuous-time model for an AC grid connected with an RL impedance.
 
     This interconnects the subsystems of a converter with a grid and provides
     an interface to the solver. More complicated systems could be modeled using
@@ -29,7 +29,7 @@ class DCBusAndLFilterModel:
     grid_model : Grid
         Constant voltage source model.
     dc_model : DcGrid
-        DC grid voltage dynamics (capacitance model)
+        DC-bus voltage dynamics.
     converter : Inverter | PWMInverter
         Inverter model.
 
@@ -163,7 +163,7 @@ class DCBusAndLFilterModel:
 # %%
 class DCBusAndLCLFilterModel:
     """
-    Continuous-time model for a grid model with an LCL impedance model.
+    Continuous-time model for an AC grid connected with an LCL impedance.
 
     This interconnects the subsystems of a converter with a grid and provides
     an interface to the solver. More complicated systems could be modeled using
@@ -172,11 +172,11 @@ class DCBusAndLCLFilterModel:
     Parameters
     ----------
     grid_filter : LCLFilter
-        LCL dynamic model.
+        LCL filter dynamic model.
     grid_model : Grid
         Constant voltage source model.
     dc_model : DcGrid
-        DC grid voltage dynamics (capacitance model)
+        DC-bus voltage dynamics.
     converter : Inverter | PWMInverter
         Inverter model.
 
