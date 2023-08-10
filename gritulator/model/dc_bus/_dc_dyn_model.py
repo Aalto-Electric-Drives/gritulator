@@ -10,8 +10,8 @@ implemented in stationary coordinates.
 
 import numpy as np
 
-from motulator._helpers import complex2abc
-from motulator._utils import Bunch
+from gritulator._helpers import complex2abc
+from gritulator._utils import Bunch
 
 # %%
 class DCBusAndLFilterModel:

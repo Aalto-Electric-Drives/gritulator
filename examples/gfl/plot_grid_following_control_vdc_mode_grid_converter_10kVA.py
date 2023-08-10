@@ -14,8 +14,8 @@ current controller.
 # Imports.
 
 import numpy as np
-from motulator import model, control
-from motulator import BaseValuesElectrical, plot_grid
+from gritulator import model, control
+from gritulator import BaseValuesElectrical, plot_grid
 
 # To check the computation time of the program
 import time

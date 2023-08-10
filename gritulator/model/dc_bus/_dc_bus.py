@@ -6,7 +6,7 @@ The dc grid model defined here is used if the dc bus is modelled as a current
 source and the capacitance dynamics need to be modeled.
 
 """
-from motulator._helpers import complex2abc
+from gritulator._helpers import complex2abc
 
 # %%
 class DCBus:

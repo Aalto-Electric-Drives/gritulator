@@ -1,6 +1,6 @@
 """This package contains example controllers for grid forming converters."""
 
-from motulator.control.gfm._power_synchronization import (
+from gritulator.control.gfm._power_synchronization import (
     PSCtrl,
     PSCtrlPars,
 )

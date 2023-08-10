@@ -8,9 +8,9 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass, field
 import numpy as np
-from motulator._helpers import abc2complex
-from motulator._utils import Bunch
-from motulator.control._common import Ctrl, PWM, Clock
+from gritulator._helpers import abc2complex
+from gritulator._utils import Bunch
+from gritulator.control._common import Ctrl, PWM, Clock
 
 
 # %%

@@ -10,7 +10,7 @@ stationary coordinates.
 
 """
 import numpy as np
-from motulator._helpers import (
+from gritulator._helpers import (
     complex2abc,
     abc2complex
     )
