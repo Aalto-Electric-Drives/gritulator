@@ -1,4 +1,3 @@
-# pylint: disable=C0103
 '''
 This module contains grid-following control for grid-connected converters.
 
