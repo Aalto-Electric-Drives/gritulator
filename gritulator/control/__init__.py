@@ -4,7 +4,6 @@ from gritulator.control._common import (
     ComplexFFPICtrl,
     ComplexPICtrl,
     RateLimiter,
-    SpeedCtrl,
     DCBusCtrl,
     PICtrl,
     PWM
