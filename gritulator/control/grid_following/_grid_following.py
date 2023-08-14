@@ -9,7 +9,8 @@ from dataclasses import dataclass, field
 import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
-from gritulator.control._common import Ctrl, PWM, Clock
+from gritulator.control._common import (
+        Ctrl, PWM, Clock, ComplexFFPICtrl)
 
 
 # %%
@@ -78,9 +79,9 @@ class GridFollowingCtrl(Ctrl):
 
     References
     ----------
-    .. [#Har2009] L. Harnefors and M. Bongiorno, "Current controller design
+    .. [#Har2009] Harnefors and Bongiorno, "Current controller design
        for passivity of the input admittance," 2009 13th European Conference
-       on Power Electronics and Applications, Barcelona, Spain, 2009, pp. 1-8.
+       on Power Electronics and Applications, Barcelona, Spain, 2009.
 
     """   
 
@@ -93,6 +94,7 @@ class GridFollowingCtrl(Ctrl):
         self.pwm = PWM(six_step=False)
         self.clock = Clock()
         self.pll = PLL(pars)
+        self.current_ctrl = CurrentCtrl(pars, pars.alpha_c)
         self.current_ref_calc = CurrentRefCalc(pars)
         self.dc_voltage_control = DCVoltageControl(pars)
         # Parameters
@@ -201,9 +203,12 @@ class GridFollowingCtrl(Ctrl):
         
         # Voltage reference in synchronous coordinates
         err_i = i_c_ref - i_c # current controller error signal
-        u_c_ref = (self.k_p_i*err_i + self.u_c_i - self.r_i*i_c -
-            self.R_f*i_c + 1j*self.w_g*self.L_f*i_c + u_g_filt)
-             
+        # u_c_ref = (self.k_p_i*err_i + self.u_c_i - self.r_i*i_c -
+        #     self.R_f*i_c + 1j*self.w_g*self.L_f*i_c + u_g_filt)
+            
+        # Voltage reference generation in synchronous coordinates
+        u_c_ref = self.current_ctrl.output(i_c_ref, i_c, u_g_filt)
+        
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_p, self.w_g)
@@ -224,6 +229,7 @@ class GridFollowingCtrl(Ctrl):
         self.u_c_ref_lim = u_c_ref_lim
         self.u_c_i = self.u_c_i + self.T_s*self.k_i_i*(
             err_i + (u_c_ref_lim - u_c_ref)/self.k_p_i)
+        self.current_ctrl.update(self.T_s, u_c_ref_lim, self.w_g)
         self.clock.update(self.T_s)
         # self.pwm.update(u_c_ref_lim)
         self.pll.update(u_g_q)
@@ -340,6 +346,32 @@ class PLL:
         # Update the grid-voltage angle state
         self.theta_p = self.theta_p + self.T_s*w_g_pll
         self.theta_p = np.mod(self.theta_p, 2*np.pi)    # Limit to [0, 2*pi]
+      
+        
+# %%
+class CurrentCtrl(ComplexFFPICtrl):
+    """
+    2DOF PI current controller for grid converters.
+
+    This class provides an interface for a current controller for grid 
+    converters. The gains are initialized based on the desired closed-loop 
+    bandwidth and the filter inductance. 
+
+    Parameters
+    ----------
+    par : ModelPars
+        Grid converter parameters, contains the filter inductance `L_f` (H).  
+    alpha_c : float
+        Closed-loop bandwidth (rad/s).
+
+    """
+
+    def __init__(self, par, alpha_c):
+        k_t = alpha_c*par.L_f
+        k_i = alpha_c*k_t
+        k_p = 2*k_t
+        super().__init__(k_p, k_i, k_t)
+
         
         
 # %%        

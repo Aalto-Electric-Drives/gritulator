@@ -399,6 +399,105 @@ class ComplexPICtrl:
 
 
 # %%
+class ComplexFFPICtrl:
+    """
+    2DOF synchronous-frame complex-vector PI controller with feedforward.
+
+    This implements a discrete-time 2DOF synchronous-frame complex-vector PI
+    controller, whose continuous-time counterpart is [#Har2009]_::
+
+        u = k_t*i_ref - k_p*i + (k_i + 1j*w*k_t)/s*(i_ref - i) + u_g_ff
+
+    where `u` is the controller output, `i_ref` is the reference signal, `i` is
+    the feedback signal, u_g_ff is the (filtered) feedforward signal, `w` is
+    the angular speed of synchronous coordinates, and `1/s` refers to
+    integration. This algorithm is compatible with both real and complex
+    signals. The 1DOF version is obtained by setting ``k_t = k_p``. The
+    integrator anti-windup is implemented based on the realized controller 
+    output.
+
+    Parameters
+    ----------
+    k_p : float
+        Proportional gain.
+    k_i : float
+        Integral gain.
+    k_t : float, optional
+        Reference-feedforward gain. The default is `k_p`.
+
+    Attributes
+    ----------
+    v : complex
+        Input disturbance estimate.
+    u_i : complex
+        Integral state.
+
+    Notes
+    -----
+    This contoller can be used, e.g., as a current controller. In this case, `i`
+    corresponds to the converter current and `u` to the converter voltage.
+    
+    References
+    ----------
+    .. [#Har2009] Harnefors and Bongiorno, "Current controller design
+       for passivity of the input admittance," 2009 13th European Conference
+       on Power Electronics and Applications, Barcelona, Spain, 2009.
+
+    """
+
+    def __init__(self, k_p, k_i, k_t=None):
+        # Gains
+        self.k_p = k_p
+        self.k_t = k_t if k_t is not None else k_p
+        self.alpha_i = k_i/self.k_t  # Inverse of the integration time T_i
+        # States
+        self.v, self.u_i = 0, 0
+
+    def output(self, i_ref, i, u_ff):
+        """
+        Compute the controller output.
+
+        Parameters
+        ----------
+        i_ref : complex
+            Reference signal.
+        i : complex
+            Feedback signal.
+        u_ff : complex
+            Feedforward signal.
+
+        Returns
+        -------
+        u : complex
+            Controller output.
+
+        """
+        # Disturbance input estimate
+        self.v = self.u_i - (self.k_p - self.k_t)*i + u_ff
+
+        # Controller output
+        u = self.k_t*(i_ref - i) + self.v
+
+        return u
+
+    def update(self, T_s, u_lim, w):
+        """
+        Update the integral state.
+
+        Parameters
+        ----------
+        T_s : float
+            Sampling period (s).
+        u_lim : complex
+            Realized (limited) controller output. If the actuator does not
+            saturate, ``u_lim = u``.
+        w : float
+            Angular speed of the reference frame (rad/s). 
+
+        """
+        self.u_i += T_s*(self.alpha_i + 1j*w)*(u_lim - self.v)
+
+# %%
 class RateLimiter:
     """
     Rate limiter.

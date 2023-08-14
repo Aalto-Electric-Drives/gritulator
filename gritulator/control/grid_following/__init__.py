@@ -1,6 +1,6 @@
 """This package contains example controllers for grid following converters."""
 
-from gritulator.control.gfl._grid_following import (
+from gritulator.control.grid_following._grid_following import (
     GridFollowingCtrl,
     GridFollowingCtrlPars,
 )
