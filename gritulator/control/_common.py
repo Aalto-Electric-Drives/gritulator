@@ -299,6 +299,33 @@ class SpeedCtrl(PICtrl):
         k_i = alpha_s**2*J
         k_t = alpha_s*J
         super().__init__(k_p, k_i, k_t, tau_M_max)
+        
+
+# %%
+class DCBusCtrl(PICtrl):
+    """
+    PI DC-bus controller.
+
+    This provides an interface for a DC-bus controller. The gains are
+    initialized based on the desired closed-loop bandwidth and the DC-bus
+    capacitance estimate.
+
+    Parameters
+    ----------
+    zeta : float
+        Damping ratio of the closed-loop system.
+    alpha_dc : float
+        Closed-loop bandwidth (rad/s). 
+    p_max : float, optional
+        Maximum converter power (W). The default is inf.
+
+    """
+
+    def __init__(self, zeta, alpha_dc, p_max=np.inf):
+        k_p = -2*zeta*alpha_dc
+        k_i = -alpha_dc**2
+        k_t = k_p
+        super().__init__(k_p, k_i, k_t, p_max)
 
 
 # %%
@@ -496,6 +523,7 @@ class ComplexFFPICtrl:
 
         """
         self.u_i += T_s*(self.alpha_i + 1j*w)*(u_lim - self.v)
+
 
 # %%
 class RateLimiter:
