@@ -282,7 +282,9 @@ class DCBusCtrl(PICtrl):
 
     This provides an interface for a DC-bus controller. The gains are
     initialized based on the desired closed-loop bandwidth and the DC-bus
-    capacitance estimate.
+    capacitance estimate. The PI controller is designed to control the energy
+    of the DC-bus capacitance and not the DC-bus voltage is order to have a
+    linear closed-loop system.
 
     Parameters
     ----------
