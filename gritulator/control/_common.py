@@ -273,32 +273,6 @@ class PICtrl:
 
         """
         self.u_i += T_s*self.alpha_i*(u_lim - self.v)
-
-
-# %%
-class SpeedCtrl(PICtrl):
-    """
-    2DOF PI speed controller.
-
-    This provides an interface for a speed controller. The gains are initialized
-    based on the desired closed-loop bandwidth and the rotor inertia estimate.
-
-    Parameters
-    ----------
-    J : float
-        Total inertia of the rotor (kgm²).
-    alpha_s : float
-        Closed-loop bandwidth (rad/s). 
-    tau_M_max : float, optional
-        Maximum motor torque (Nm). The default is inf.
-
-    """
-
-    def __init__(self, J, alpha_s, tau_M_max=np.inf):
-        k_p = 2*alpha_s*J
-        k_i = alpha_s**2*J
-        k_t = alpha_s*J
-        super().__init__(k_p, k_i, k_t, tau_M_max)
         
 
 # %%
