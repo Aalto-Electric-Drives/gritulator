@@ -13,6 +13,5 @@ import gritulator.control.grid_following as gfl
 import gritulator.control.grid_forming as gfm
 
 __all__ = [
-    "ComplexPICtrl", "RateLimiter", "SpeedCtrl", "PICtrl", "PWM", "DCBusCtrl",
-    "gfl", "gfm"
-]
+    "ComplexPICtrl", "RateLimiter", "PICtrl", "PWM", "DCBusCtrl", "gfl", "gfm",
+    ]
