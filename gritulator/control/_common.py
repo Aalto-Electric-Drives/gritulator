@@ -284,7 +284,7 @@ class DCBusCtrl(PICtrl):
     initialized based on the desired closed-loop bandwidth and the DC-bus
     capacitance estimate. The PI controller is designed to control the energy
     of the DC-bus capacitance and not the DC-bus voltage is order to have a
-    linear closed-loop system.
+    linear closed-loop system [#Hun2001]_.
 
     Parameters
     ----------
@@ -294,6 +294,12 @@ class DCBusCtrl(PICtrl):
         Closed-loop bandwidth (rad/s). 
     p_max : float, optional
         Maximum converter power (W). The default is inf.
+        
+    References
+    ----------
+    .. [#Hur2001] Hur, Jung, Nam, "A Fast Dynamic DC-Link Power-Balancing
+       Scheme for a PWM Converter–Inverter System," IEEE Trans. Ind. Electron.,
+       2001, https://doi.org/10.1109/41.937412
 
     """
 

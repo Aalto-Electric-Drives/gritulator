@@ -161,9 +161,11 @@ class GridFollowingCtrl(Ctrl):
             
         # Define the active and reactive power references at the given time  
         u_dc_ref = self.u_dc_ref(self.clock.t)
+        # Definition of capacitance energy variables for the DC-bus controller
+        W_dc_ref = 0.5*self.C_dc*u_dc_ref**2
+        W_dc = 0.5*self.C_dc*u_dc**2
         if self.on_v_dc:
-            p_g_ref = self.dc_bus_control.output(
-                0.5*self.C_dc*u_dc_ref**2,0.5*self.C_dc*u_dc**2)
+            p_g_ref = self.dc_bus_control.output(W_dc_ref, W_dc)
             q_g_ref = self.q_g_ref(self.clock.t)
         else:
             p_g_ref = self.p_g_ref(self.clock.t)
@@ -211,7 +213,7 @@ class GridFollowingCtrl(Ctrl):
 
         # Data logging
         data = Bunch(
-            w_c = w_pll, theta_c = theta_pll, u_c_ref = u_c_ref,
+            w_c = w_pll, theta_c = self.theta_p, u_c_ref = u_c_ref,
             u_c_ref_lim = u_c_ref_lim, i_c = i_c, abs_u_g = abs_u_g,
             d_abc_ref = d_abc_ref, i_c_ref = i_c_ref, u_dc = u_dc,
             t = self.clock.t, p_g_ref = p_g_ref, u_dc_ref = u_dc_ref,
@@ -221,6 +223,7 @@ class GridFollowingCtrl(Ctrl):
 
         # Update the states
         self.theta_p = theta_pll
+        self.w_p = w_pll
         self.u_c_ref_lim = u_c_ref_lim
         self.current_ctrl.update(self.T_s, u_c_ref_lim, self.w_g)
         self.clock.update(self.T_s)
