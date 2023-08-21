@@ -204,7 +204,7 @@ class GridFollowingCtrl(Ctrl):
         u_g_filt = self.u_g_filt
             
         # Voltage reference generation in synchronous coordinates
-        u_c_ref = self.current_ctrl.output(i_c_ref, i_c, u_g_filt)
+        u_c_ref = self.current_ctrl.output(i_c_ref, i_c, u_g_filt, self.w_g)
         
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
@@ -225,7 +225,7 @@ class GridFollowingCtrl(Ctrl):
         self.theta_p = theta_pll
         self.w_p = w_pll
         self.u_c_ref_lim = u_c_ref_lim
-        self.current_ctrl.update(self.T_s, u_c_ref_lim, self.w_g)
+        self.current_ctrl.update(self.T_s, u_c_ref_lim)
         self.clock.update(self.T_s)
         # self.pwm.update(u_c_ref_lim)
         self.pll.update(u_g_q)
@@ -366,7 +366,8 @@ class CurrentCtrl(ComplexFFPICtrl):
         k_t = alpha_c*par.L_f
         k_i = alpha_c*k_t
         k_p = 2*k_t
-        super().__init__(k_p, k_i, k_t)
+        L_f = None
+        super().__init__(k_p, k_i, k_t, L_f)
         
         
 # %%        

@@ -410,20 +410,21 @@ class ComplexPICtrl:
 # %%
 class ComplexFFPICtrl:
     """
-    2DOF synchronous-frame complex-vector PI controller with feedforward.
+    2DOF Synchronous-frame complex-vector PI controller with feedforward.
 
     This implements a discrete-time 2DOF synchronous-frame complex-vector PI
-    controller, whose continuous-time counterpart is [#Har2009]_::
+    controller similar to [#Bri2000]_, with an additional feedforward signal.                        
+    The gain selection corresponding to internal-model-control (IMC) is
+    equivalent to the continuous-time version given in [#Har2009]_::
 
-        u = k_t*i_ref - k_p*i + (k_i + 1j*w*k_t)/s*(i_ref - i) + u_g_ff
-
+        u = k_p*(i_ref - i) + k_i/s*(i_ref - i) + 1j*w*L_f*i + u_g_ff 
+                
     where `u` is the controller output, `i_ref` is the reference signal, `i` is
     the feedback signal, u_g_ff is the (filtered) feedforward signal, `w` is
-    the angular speed of synchronous coordinates, and `1/s` refers to
-    integration. This algorithm is compatible with both real and complex
-    signals. The 1DOF version is obtained by setting ``k_t = k_p``. The
-    integrator anti-windup is implemented based on the realized controller 
-    output.
+    the angular speed of synchronous coordinates, L_f is the decoupling term
+    estimate, and `1/s` refers to integration. This algorithm is compatible
+    with both real and complex signals. The integrator anti-windup is
+    implemented based on the realized controller output.
 
     Parameters
     ----------
@@ -433,6 +434,8 @@ class ComplexFFPICtrl:
         Integral gain.
     k_t : float, optional
         Reference-feedforward gain. The default is `k_p`.
+    L_f : float, optional
+        Synchronous frame decoupling gain. The default is 0.
 
     Attributes
     ----------
@@ -443,26 +446,31 @@ class ComplexFFPICtrl:
 
     Notes
     -----
-    This contoller can be used, e.g., as a current controller. In this case, `i`
-    corresponds to the converter current and `u` to the converter voltage.
+    This contoller can be used, e.g., as a current controller. In this case,
+    `i` corresponds to the converter current and `u` to the converter voltage.
     
     References
     ----------
+    .. [#Bri2000] Briz, Degner, Lorenz, "Analysis and design of current 
+       regulators using complex vectors," IEEE Trans. Ind. Appl., 2000,
+       https://doi.org/10.1109/28.845057
+       
     .. [#Har2009] Harnefors and Bongiorno, "Current controller design
        for passivity of the input admittance," 2009 13th European Conference
        on Power Electronics and Applications, Barcelona, Spain, 2009.
 
     """
 
-    def __init__(self, k_p, k_i, k_t=None):
+    def __init__(self, k_p, k_i, k_t=None, L_f=None):
         # Gains
         self.k_p = k_p
         self.k_t = k_t if k_t is not None else k_p
         self.alpha_i = k_i/self.k_t  # Inverse of the integration time T_i
+        self.L_f = L_f if L_f is not None else 0
         # States
         self.v, self.u_i = 0, 0
 
-    def output(self, i_ref, i, u_ff):
+    def output(self, i_ref, i, u_ff, w):
         """
         Compute the controller output.
 
@@ -474,6 +482,8 @@ class ComplexFFPICtrl:
             Feedback signal.
         u_ff : complex
             Feedforward signal.
+        w : float
+            Angular speed of the reference frame (rad/s). 
 
         Returns
         -------
@@ -483,13 +493,14 @@ class ComplexFFPICtrl:
         """
         # Disturbance input estimate
         self.v = self.u_i - (self.k_p - self.k_t)*i + u_ff
+        + 1j*w*self.L_f*i
 
         # Controller output
         u = self.k_t*(i_ref - i) + self.v
 
         return u
 
-    def update(self, T_s, u_lim, w):
+    def update(self, T_s, u_lim):
         """
         Update the integral state.
 
@@ -500,11 +511,9 @@ class ComplexFFPICtrl:
         u_lim : complex
             Realized (limited) controller output. If the actuator does not
             saturate, ``u_lim = u``.
-        w : float
-            Angular speed of the reference frame (rad/s). 
 
         """
-        self.u_i += T_s*(self.alpha_i + 1j*w)*(u_lim - self.v)
+        self.u_i += T_s*self.alpha_i*(u_lim - self.v)
 
 
 # %%
