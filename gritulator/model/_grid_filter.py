@@ -202,14 +202,10 @@ class LCLFilter:
             Voltage at the point of common coupling (V).
 
         """
-        # calculation of the voltage-related term
-        v_tu = e_gs*((self.L_g/(self.L_g+self.L_fg))*u_fs + 
-            self.L_fg/(self.L_g+self.L_fg))
-        # calculation of the current-related term
-        v_ti = i_gs*((self.R_g*self.L_fg - self.R_fg*self.L_g)/
-                 (self.L_g+self.L_fg))
         # PCC voltage in alpha-beta coordinates
-        u_gs = v_tu + v_ti
+        u_gs = (self.L_fg*e_gs + self.L_g*u_fs + 
+            (self.R_g*self.L_fg-self.R_fg*self.L_g)*i_gs)/(self.L_g+self.L_fg)
+        
         return u_gs
     
     def f(self, i_cs, u_fs, i_gs, u_cs, e_gs):

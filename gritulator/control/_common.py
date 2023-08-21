@@ -455,7 +455,7 @@ class ComplexFFPICtrl:
        regulators using complex vectors," IEEE Trans. Ind. Appl., 2000,
        https://doi.org/10.1109/28.845057
        
-    .. [#Har2009] Harnefors and Bongiorno, "Current controller design
+    .. [#Har2009] Harnefors, Bongiorno, "Current controller design
        for passivity of the input admittance," 2009 13th European Conference
        on Power Electronics and Applications, Barcelona, Spain, 2009.
 
