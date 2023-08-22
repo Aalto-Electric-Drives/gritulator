@@ -278,7 +278,7 @@ class PICtrl:
 # %%
 class DCBusCtrl(PICtrl):
     """
-    PI DC-bus controller.
+    PI DC-bus voltage controller.
 
     This provides an interface for a DC-bus controller. The gains are
     initialized based on the desired closed-loop bandwidth and the DC-bus
@@ -421,10 +421,10 @@ class ComplexFFPICtrl:
                 
     where `u` is the controller output, `i_ref` is the reference signal, `i` is
     the feedback signal, u_g_ff is the (filtered) feedforward signal, `w` is
-    the angular speed of synchronous coordinates, L_f is the decoupling term
-    estimate, and `1/s` refers to integration. This algorithm is compatible
-    with both real and complex signals. The integrator anti-windup is
-    implemented based on the realized controller output.
+    the angular speed of synchronous coordinates, '1j*w*L_f' is the decoupling
+    term estimate, and `1/s` refers to integration. This algorithm is
+    compatible with both real and complex signals. The integrator anti-windup
+    is implemented based on the realized controller output.
 
     Parameters
     ----------

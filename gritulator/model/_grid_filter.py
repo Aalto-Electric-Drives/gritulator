@@ -47,7 +47,7 @@ class LFilter:
         """
         Compute the point of common coupling voltage.
         
-        point of common coupling (PCC) is located at the other end of the
+        point of common coupling (PCC) is located at grid-side end of the
         converter output filter.
         
         Parameters
@@ -184,7 +184,7 @@ class LCLFilter:
         """
         Compute the point of common coupling voltage.
         
-        point of common coupling (PCC) is located at the other end of the
+        point of common coupling (PCC) is located at the grid-side end of the
         converter output filter.
 
         Parameters

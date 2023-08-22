@@ -1,12 +1,11 @@
 # pylint: disable=C0103
 """
-This module contains continuous-time models for grid connected converters when
-the DC bus is modeled using a voltage-source model. The grid is modeled as a
-constant frequency voltage source. L/LCL filter and grid impedance are included
-in the model as interfaces between the grid and the converter.
+Electromechanical stiff AC grid and converter model interconnectors.
 
-Peak-valued complex space vectors are used. The space vector models are
-implemented in stationary coordinates.
+    This interconnects the subsystems of a converter with a grid and provides
+    an interface to the solver. More complicated systems could be modeled using
+    a similar template. Peak-valued complex space vectors are used. The space
+    vector models are implemented in stationary coordinates.
 
 """
 
@@ -17,17 +16,13 @@ from gritulator._utils import Bunch
 # %%
 class StiffSourceAndLFilterModel:
     """
-    Continuous-time model for a grid model with an RL impedance model.
-
-    This interconnects the subsystems of a converter with a grid and provides
-    an interface to the solver. More complicated systems could be modeled using
-    a similar template.
+    Continuous-time model for a stiff grid model with an RL impedance model.
 
     Parameters
     ----------
     grid_filter : LFilter
         RL line dynamic model.
-    grid_model : Grid
+    grid_model : StiffSource
         Constant voltage source model.
     converter : Inverter | PWMInverter
         Inverter model.
@@ -146,17 +141,13 @@ class StiffSourceAndLFilterModel:
 # %%
 class StiffSourceAndLCLFilterModel:
     """
-    Continuous-time model for a grid model with an LCL impedance model.
-
-    This interconnects the subsystems of a converter with a grid and provides
-    an interface to the solver. More complicated systems could be modeled using
-    a similar template.
+    Continuous-time model for a stiff grid model with an LCL impedance model.
 
     Parameters
     ----------
     grid_filter : LCLFilter
         LCL dynamic model.
-    grid_model : Grid
+    grid_model : StiffSource
         Constant voltage source model.
     converter : Inverter | PWMInverter
         Inverter model.

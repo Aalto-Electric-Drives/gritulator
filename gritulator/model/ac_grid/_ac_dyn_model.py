@@ -1,10 +1,11 @@
 # pylint: disable=C0103
 """
-This module contains continuous-time models for grid connected converters when
-the AC grid is modelled using an electromechanical model.
+Electromechanical dynamic AC grid and converter model interconnectors.
 
-Peak-valued complex space vectors are used. The space vector models are
-implemented in stationary coordinates.
+    This interconnects the subsystems of a converter with a grid and provides
+    an interface to the solver. More complicated systems could be modeled using
+    a similar template. Peak-valued complex space vectors are used. The space
+    vector models are implemented in stationary coordinates.
 
 """
 
@@ -16,17 +17,13 @@ from gritulator._utils import Bunch
 # %%
 class ACFlexSourceAndLFilterModel:
     """
-    Continuous-time model for a grid model with an RL impedance model.
-
-    This interconnects the subsystems of a converter with a grid and provides
-    an interface to the solver. More complicated systems could be modeled using
-    a similar template.
+    Continuous-time model for a dynamic grid model with an RL impedance model.
 
     Parameters
     ----------
     grid_filter : LFilter
         RL line dynamic model.
-    grid_model : Grid
+    grid_model : FlexSource
         Voltage source model with electromechanical modes of AC grid.
     conv : Inverter | PWMInverter
         Inverter model.
@@ -176,17 +173,13 @@ class ACFlexSourceAndLFilterModel:
 # %%
 class ACFlexSourceAndLCLFilterModel:
     """
-    Continuous-time model for a grid model with an LCL impedance model.
-
-    This interconnects the subsystems of a converter with a grid and provides
-    an interface to the solver. More complicated systems could be modeled using
-    a similar template.
+    Continuous-time model for a dynamic grid model with an LCL impedance model.
 
     Parameters
     ----------
     grid_filter : LCLFilter
         LCL dynamic model.
-    grid_model : Grid
+    grid_model : FlexSource
         Voltage source model with electromechanical modes of AC grid.
     conv : Inverter | PWMInverter
         Inverter model.

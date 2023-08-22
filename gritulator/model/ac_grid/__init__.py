@@ -1,4 +1,4 @@
-"""Continuous-time synchronous machine models."""
+"""Continuous-time grid converter interconnector models."""
 
 from gritulator.model.ac_grid._const_freq_model import (
     StiffSourceAndLFilterModel,
