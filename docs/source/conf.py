@@ -16,16 +16,16 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
-sys.path.insert(0, os.path.abspath("../../motulator"))
+sys.path.insert(0, os.path.abspath("../../gritulator"))
 
 # -- Project information -----------------------------------------------------
 
-project = "motulator"
+project = "gritulator"
 copyright = "2023, Aalto Electric Drives"
 author = "Aalto Electric Drives"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.6"
+release = "0.0.1"
 
 # -- General configuration ---------------------------------------------------
 
@@ -44,7 +44,7 @@ extensions = [
 
 extensions.append("autoapi.extension")
 autoapi_type = "python"
-autoapi_dirs = ["../../motulator"]
+autoapi_dirs = ["../../gritulator"]
 autodoc_typehints = "description"
 autoapi_options = [
     "members",
@@ -66,14 +66,6 @@ sphinx_gallery_conf = {
     "auto_examples",  # path to where to save gallery generated output
     "nested_sections":
     True,
-    "subsection_order":
-    ExplicitOrder([
-        "../../examples/vector",
-        "../../examples/vhz",
-        "../../examples/obs_vhz",
-        "../../examples/flux_vector",
-        "../../examples/signal_inj",
-    ]),
 }
 
 # List of patterns, relative to source directory, that match files and
@@ -88,7 +80,7 @@ exclude_patterns = ["../../.idea", "../../__pycache__", "../../venv"]
 #
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": "https://github.com/Aalto-Electric-Drives/motulator",
+    "repository_url": "https://github.com/Aalto-Electric-Drives/gritulator",
     "use_repository_button": True,
 }
 
