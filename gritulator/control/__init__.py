@@ -9,9 +9,15 @@ from gritulator.control._common import (
     PWM
     )
 
-import gritulator.control.grid_following as gfl
-import gritulator.control.grid_forming as gfm
+import gritulator.control.grid_following
+import gritulator.control.grid_forming
 
 __all__ = [
-    "ComplexPICtrl", "RateLimiter", "PICtrl", "PWM", "DCBusCtrl", "gfl", "gfm",
+    "ComplexPICtrl",
+    "RateLimiter",
+    "PICtrl",
+    "PWM",
+    "DCBusCtrl",
+    "grid_following",
+    "grid_forming",
     ]

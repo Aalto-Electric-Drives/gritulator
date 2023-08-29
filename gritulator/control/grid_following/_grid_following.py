@@ -58,7 +58,7 @@ class GridFollowingCtrlPars:
     w_0_dc: float = 2*np.pi*30 # controller undamped natural frequency, in rad/s.
     
     # Current limitation
-    I_max: float = 20 # maximum current modulus in A
+    i_max: float = 20 # maximum current modulus in A
     
     # Passive component parameter estimates
     L_f: float = 10e-3 # filter inductance, in H.
@@ -117,7 +117,7 @@ class GridFollowingCtrl(Ctrl):
         self.k_i_i = np.power(pars.alpha_c,2)*pars.L_f
         self.r_i = pars.alpha_c*pars.L_f
         # Calculated maximum current in A
-        self.I_max = pars.I_max
+        self.i_max = pars.i_max
         # Calculated PLL estimator gains
         self.k_p_pll = 2*pars.zeta*pars.w_0_pll/pars.u_gN
         self.k_i_pll = pars.w_0_pll*pars.w_0_pll/pars.u_gN
@@ -190,7 +190,7 @@ class GridFollowingCtrl(Ctrl):
         
         #And current limitation algorithm
         if i_abs > 0:
-            i_ratio = self.I_max/i_abs
+            i_ratio = self.i_max/i_abs
             i_c_d_ref = np.sign(i_c_d_ref)*np.min([
                 i_ratio*np.abs(i_c_d_ref),
                 np.abs(i_c_d_ref)])
@@ -198,7 +198,6 @@ class GridFollowingCtrl(Ctrl):
                 i_ratio*np.abs(i_c_q_ref),
                 np.abs(i_c_q_ref)])
             i_c_ref = i_c_d_ref + 1j*i_c_q_ref
-        
         
         # Low pass filter for the feedforward PCC voltage:
         u_g_filt = self.u_g_filt

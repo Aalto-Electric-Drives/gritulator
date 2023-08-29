@@ -56,17 +56,17 @@ else:
 # Configure the control system.
 
 # Control parameters
-pars = control.gfl.GridFollowingCtrlPars(
+pars = control.grid_following.GridFollowingCtrlPars(
             L_f=10e-3,
             R_f=0,
             C_dc = 1e-3,
             f_sw = 8e3,
             T_s = 1/(16e3),
             on_v_dc=True,
-            I_max = 1.5*base_values.i,
+            i_max = 1.5*base_values.i,
             p_max = base_values.p,
             )
-ctrl = control.gfl.GridFollowingCtrl(pars)
+ctrl = control.grid_following.GridFollowingCtrl(pars)
 
 
 # %%
