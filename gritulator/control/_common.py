@@ -256,7 +256,7 @@ class PICtrl:
 
         # Limit the controller output
         u = np.clip(u, -self.u_max, self.u_max)
-
+        
         return u
 
     def update(self, T_s, u_lim):
@@ -305,7 +305,7 @@ class DCBusCtrl(PICtrl):
 
     def __init__(self, zeta, alpha_dc, p_max=np.inf):
         k_p = -2*zeta*alpha_dc
-        k_i = -alpha_dc**2
+        k_i = -(alpha_dc**2)
         k_t = k_p
         super().__init__(k_p, k_i, k_t, p_max)
 
@@ -492,8 +492,8 @@ class ComplexFFPICtrl:
 
         """
         # Disturbance input estimate
-        self.v = self.u_i - (self.k_p - self.k_t)*i + u_ff
-        + 1j*w*self.L_f*i
+        self.v = self.u_i - (self.k_p - self.k_t)*i + (u_ff
+        + 1j*w*self.L_f*i)
 
         # Controller output
         u = self.k_t*(i_ref - i) + self.v

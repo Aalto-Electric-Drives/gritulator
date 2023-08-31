@@ -174,7 +174,7 @@ class GridFollowingCtrl(Ctrl):
         # Generate the current references
         i_c_ref = self.current_ref_calc.output(p_g_ref, q_g_ref)
         
-        #Transform the measured current in dq frame
+        # Transform the measured current in dq frame
         i_c = np.exp(-1j*self.theta_p)*abc2complex(i_c_abc)
         
         # Calculation of PCC voltage in synchronous frame
@@ -183,12 +183,12 @@ class GridFollowingCtrl(Ctrl):
         # Use of PLL to bring ugq to zero
         u_g_q, abs_u_g, w_pll, theta_pll = self.pll.output(u_g_abc)
         
-        #Calculation of the modulus of current reference
+        # Calculation of the modulus of current reference
         i_abs = np.abs(i_c_ref)
         i_c_d_ref = np.real(i_c_ref)
         i_c_q_ref = np.imag(i_c_ref)
         
-        #And current limitation algorithm
+        # And current limitation algorithm
         if i_abs > 0:
             i_ratio = self.i_max/i_abs
             i_c_d_ref = np.sign(i_c_d_ref)*np.min([
@@ -365,7 +365,7 @@ class CurrentCtrl(ComplexFFPICtrl):
         k_t = alpha_c*par.L_f
         k_i = alpha_c*k_t
         k_p = 2*k_t
-        L_f = None
+        L_f = par.L_f
         super().__init__(k_p, k_i, k_t, L_f)
         
         
