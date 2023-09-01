@@ -1,0 +1,894 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gritulator.control.grid_forming._power_synchronization &#8212; gritulator 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/gritulator/control/grid_forming/_power_synchronization';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">gritulator 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../usage.html">Usage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/system.html">Drive System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/machines.html">Electric Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/mechanics.html">Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/converters.html">Converters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../control/design_notes.html">Design Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/speed_ctrl.html">Speed Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/current_ctrl.html">Current Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../control/observers.html">Observers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_grid_following_control_grid_converter_10kVA.html">10-kVA grid following converter, power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Aalto-Electric-Drives/gritulator" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for gritulator.control.grid_forming._power_synchronization</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Grid forming power synchronization control (PSC) for grid converters.</span>
+
+<span class="sd">This implements the power synchronization control (PSC) method described in</span>
+<span class="sd">[#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be </span>
+<span class="sd">used and is based on [#Har2020].</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">.. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, &quot;Robust Analytic</span>
+<span class="sd">    Design of Power-Synchronization Control,&quot; IEEE Trans. Ind. Electron., Aug.</span>
+<span class="sd">    2019, https://doi.org/10.1109/TIE.2018.2874584</span>
+<span class="sd">    </span>
+<span class="sd">.. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, &quot;Reference-Feedforward</span>
+<span class="sd">    Power-Synchronization Control,&quot; IEEE Trans. Power Electron., Sep. 2020,</span>
+<span class="sd">    https://doi.org/10.1109/TPEL.2020.2970991</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1"># %%</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">gritulator._helpers</span> <span class="kn">import</span> <span class="n">abc2complex</span>
+<span class="kn">from</span> <span class="nn">gritulator._utils</span> <span class="kn">import</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">gritulator.control._common</span> <span class="kn">import</span> <span class="n">Ctrl</span><span class="p">,</span> <span class="n">PWM</span>
+
+<span class="c1"># %%</span>
+<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="PSCtrlPars"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/index.html#gritulator.control.grid_forming._power_synchronization.PSCtrlPars">[docs]</a><span class="k">class</span> <span class="nc">PSCtrlPars</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters for the control system.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-instance-attributes</span>
+    <span class="c1"># General control parameters</span>
+    <span class="n">p_g_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">5e3</span><span class="p">))</span> <span class="c1"># active power reference</span>
+    <span class="n">q_g_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># reactive power reference</span>
+    <span class="n">w_c_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># frequency reference</span>
+    <span class="n">v_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">400</span><span class="p">)</span> <span class="c1"># voltage magnitude ref</span>
+    <span class="n">u_dc_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">650</span><span class="p">)</span> <span class="c1"># DC voltage reference, only used if</span>
+                                    <span class="c1"># the dc voltage control mode is activated.</span>
+    <span class="n">T_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">16e3</span><span class="p">)</span> <span class="c1">#sampling time of the controller.</span>
+    <span class="n">u_g_N</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">400</span>  <span class="c1"># PCC voltage, in volts.</span>
+    <span class="n">w_g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span> <span class="c1"># grid frequency, in Hz</span>
+    <span class="n">f_sw</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8e3</span> <span class="c1"># switching frequency, in Hz.</span>
+    
+    <span class="c1"># Control of the converter voltage or the PCC voltage</span>
+    <span class="n">on_u_g</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># put 1 to control PCC voltage. 0 if not.</span>
+    
+    <span class="c1"># Power synchronization loop control parameters</span>
+    <span class="n">R_a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.6</span> <span class="c1"># Damping resistance, in Ohm</span>
+    <span class="n">k_scal</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># scaling ratio of the abc/dq transformation</span>
+    <span class="n">on_rf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Boolean: 1 to activate reference-feedforward. 0 is PSC</span>
+    
+    <span class="c1"># Low pass filter for the current controller of PSC</span>
+    <span class="n">w_0_cc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">5</span> <span class="c1"># filter undamped natural frequency, in rad/s.</span>
+    <span class="n">K_cc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># low pass filter gain</span>
+    <span class="n">I_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># maximum current modulus in A</span>
+    
+    <span class="c1"># DC-voltage controller</span>
+    <span class="n">on_v_dc</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># put 1 to activate dc voltage controller. 0 is p-mode</span>
+    <span class="n">zeta_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># damping ratio</span>
+    <span class="n">p_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10e3</span> <span class="c1"># maximum power reference, in W.</span>
+    <span class="n">w_0_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">30</span> <span class="c1"># controller undamped natural frequency, in rad/s.</span>
+    
+    <span class="c1"># Passive component parameter estimates</span>
+    <span class="n">L_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10e-3</span> <span class="c1"># filter inductance, in H.</span>
+    <span class="n">R_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># filter resistance, in Ohm.</span>
+    <span class="n">C_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># DC bus capacitance, in F.</span></div>
+
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="PSCtrl"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/index.html#gritulator.control.grid_forming._power_synchronization.PSCtrl">[docs]</a><span class="k">class</span> <span class="nc">PSCtrl</span><span class="p">(</span><span class="n">Ctrl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PSC control for grid converters.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pars : PSCtrlPars</span>
+<span class="sd">        Control parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-many-instance-attributes, too-few-public-methods</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="c1"># Instantiate classes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power_calc</span> <span class="o">=</span> <span class="n">PowerCalc</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_ctrl</span> <span class="o">=</span> <span class="n">CurrentCtrl</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power_synch</span> <span class="o">=</span> <span class="n">PowerSynch</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span> <span class="o">=</span> <span class="n">DCVoltageControl</span><span class="p">(</span><span class="n">pars</span><span class="p">)</span>
+        <span class="c1"># Parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_g_N</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_g_N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_g</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_sw</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">f_sw</span>
+        <span class="c1"># Activation of reference feedforward action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_rf</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_rf</span>
+        <span class="c1"># Activation of DC-voltage controller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_v_dc</span>
+        <span class="c1"># References sent from the user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">p_g_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">q_g_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_c_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_c_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">v_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_dc_ref</span>
+        <span class="c1"># If the pcc voltage should be used as controlled voltage</span>
+        <span class="c1"># States</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Integrator state of the phase angle estimation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_g_N</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">0</span>
+        <span class="c1">####</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+        
+ 
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdl</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the main control loop.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mdl : GridCompleteModel / ACDCGridCompleteModel</span>
+<span class="sd">            Continuous-time model of  a grid model with an RL impedance for</span>
+<span class="sd">            getting the feedback signals.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        T_s : float</span>
+<span class="sd">            Sampling period.</span>
+<span class="sd">        d_abc_ref : ndarray, shape (3,)</span>
+<span class="sd">            Duty ratio references.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Measure the feedback signals</span>
+        <span class="n">i_c_abc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">meas_currents</span><span class="p">()</span>
+        <span class="n">u_dc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">meas_dc_voltage</span><span class="p">()</span>
+        <span class="n">u_g_abc</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">meas_pcc_voltage</span><span class="p">()</span>
+        
+        <span class="c1"># Calculation of PCC voltage in synchronous frame</span>
+        <span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span><span class="p">)</span><span class="o">*</span><span class="n">abc2complex</span><span class="p">(</span><span class="n">u_g_abc</span><span class="p">)</span>
+        
+        <span class="c1"># Define the active and reactive power references at the given time</span>
+        <span class="n">u_dc_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_dc_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span><span class="p">:</span>
+            <span class="n">e_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span><span class="o">.</span><span class="n">output</span><span class="p">(</span>
+                <span class="n">u_dc_ref</span><span class="p">,</span>
+                <span class="n">u_dc</span><span class="p">)</span>
+            <span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">p_dc_ref_lim</span>
+            <span class="n">q_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">q_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+            
+        <span class="c1"># Define the user-defined voltage magnitude and frequency references</span>
+        <span class="n">w_c_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_c_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">v_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        
+        <span class="c1"># Transform the measured current in dq frame</span>
+        <span class="n">i_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span><span class="p">)</span><span class="o">*</span><span class="n">abc2complex</span><span class="p">(</span><span class="n">i_c_abc</span><span class="p">)</span>
+        
+        <span class="c1"># Calculation of active and reactive powers:</span>
+        <span class="n">p_calc</span><span class="p">,</span> <span class="n">__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_calc</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">i_c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_c_ref_lim</span><span class="p">)</span>
+        <span class="c1"># remark: there is no need to use u_g when self.on_u_g = 1 if we </span>
+        <span class="c1"># make the assumption that the output filter is lossless.</span>
+        
+        <span class="c1"># Synchronization through active power variations</span>
+        <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_synch</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">)</span>
+
+        <span class="c1"># Voltage reference in synchronous coordinates</span>
+        <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">i_c_ref</span><span class="p">,</span> <span class="n">i_c_filt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_ctrl</span><span class="o">.</span><span class="n">output</span><span class="p">(</span>
+                                        <span class="n">i_c</span><span class="p">,</span><span class="n">p_g_ref</span><span class="p">,</span><span class="n">v_ref</span><span class="p">,</span><span class="n">w_c_ref</span><span class="p">)</span>
+        
+        <span class="c1"># Compute the PWM</span>
+        <span class="n">d_abc_ref</span><span class="p">,</span> <span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="p">)</span>
+
+        <span class="c1"># Data logging</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span>
+            <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span><span class="p">,</span> <span class="n">v_ref</span> <span class="o">=</span> <span class="n">v_ref</span><span class="p">,</span>
+            <span class="n">w_c_ref</span> <span class="o">=</span> <span class="n">w_c_ref</span><span class="p">,</span> <span class="n">u_c_ref</span> <span class="o">=</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">u_c_ref_lim</span><span class="p">,</span>
+            <span class="n">i_c</span> <span class="o">=</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">d_abc_ref</span> <span class="o">=</span> <span class="n">d_abc_ref</span><span class="p">,</span> <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_ref</span><span class="p">,</span>
+            <span class="n">u_dc</span> <span class="o">=</span> <span class="n">u_dc</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">u_dc_ref</span><span class="p">,</span>
+            <span class="n">q_g_ref</span> <span class="o">=</span> <span class="n">q_g_ref</span><span class="p">,</span> <span class="n">u_g</span> <span class="o">=</span> <span class="n">u_g</span>
+                     <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Update the states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u_c_ref_lim</span> <span class="o">=</span> <span class="n">u_c_ref_lim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_clock</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">u_c_ref_lim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power_synch</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">theta_c</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span> <span class="o">=</span> <span class="n">theta_c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_ctrl</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">i_c</span><span class="p">,</span> <span class="n">i_c_filt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_v_dc</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dc_voltage_control</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">e_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">,</span> <span class="n">d_abc_ref</span>
+    
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">desc</span></div>
+
+
+        
+<span class="c1"># %%        </span>
+<div class="viewcode-block" id="PowerCalc"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerCalc">[docs]</a><span class="k">class</span> <span class="nc">PowerCalc</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Internal controller power calculator</span>
+<span class="sd">    </span>
+<span class="sd">    This class is used to calculate the active and reactive powers at the</span>
+<span class="sd">    converter outputs by using voltage and current in complex form</span>
+<span class="sd">    used in the control.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">         </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : PSCtrlPars</span>
+<span class="sd">            Control parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_scal</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">k_scal</span>
+
+    
+<div class="viewcode-block" id="PowerCalc.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerCalc.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">u_c</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Power calculation.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        </span>
+<span class="sd">        i_c : complex</span>
+<span class="sd">            current in dq frame (A).</span>
+<span class="sd">        u_c : complex</span>
+<span class="sd">            voltage in dq frame (V).</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        p_calc : float</span>
+<span class="sd">            calculated active power</span>
+<span class="sd">        q_calc : float</span>
+<span class="sd">            calculated reactive power</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+    
+        <span class="c1"># Calculation of active and reactive powers:</span>
+        <span class="n">p_calc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_scal</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">u_c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">i_c</span><span class="p">))</span>
+        <span class="n">q_calc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_scal</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">u_c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">i_c</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">p_calc</span><span class="p">,</span> <span class="n">q_calc</span></div></div>
+
+
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="PowerSynch"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerSynch">[docs]</a><span class="k">class</span> <span class="nc">PowerSynch</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Active power/frequency synchronizing loop.</span>
+<span class="sd">    </span>
+<span class="sd">    This control loop is used to synchronize with the grid using the active</span>
+<span class="sd">    power variations compared to the active power reference.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">         </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : PSCtrlPars</span>
+<span class="sd">           Control parameters.</span>
+<span class="sd">     </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># controller parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_psc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_g</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">R_a</span><span class="o">/</span><span class="p">(</span><span class="n">pars</span><span class="o">.</span><span class="n">k_scal</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">u_g_N</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">u_g_N</span><span class="p">)</span>
+        <span class="c1"># Initial states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="mi">0</span>
+    
+            
+<div class="viewcode-block" id="PowerSynch.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerSynch.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the estimated frequency and phase angle using the PSC</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        p_calc : float</span>
+<span class="sd">            calculated active power at the converter outputs (W).</span>
+<span class="sd">        pg_ref : float</span>
+<span class="sd">            active power reference (W).</span>
+<span class="sd">        w_c_ref : float</span>
+<span class="sd">            frequency reference (rad/s).</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        w_c : float</span>
+<span class="sd">            estimated converter frequency (rad/s).</span>
+<span class="sd">        theta_c : float</span>
+<span class="sd">            estimated converter phase angle (rad).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Calculation of power droop</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="n">p_g_ref</span> <span class="o">-</span> <span class="n">p_calc</span>
+        <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_c_ref</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_psc</span><span class="p">)</span><span class="o">*</span><span class="n">dp</span>
+                
+        <span class="c1"># Estimated phase angle</span>
+        <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="n">w_c</span>
+        <span class="n">theta_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">theta_c</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>    <span class="c1"># Limit to [0, 2*pi]</span>
+        
+        <span class="k">return</span> <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span></div>
+    
+        
+<div class="viewcode-block" id="PowerSynch.update"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerSynch.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theta_c</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the integral state.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        theta_c : float</span>
+<span class="sd">            estimated converter phase angle (rad).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Update the grid-voltage angle state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="n">theta_c</span></div></div>
+        
+        
+<span class="c1"># %%</span>
+<div class="viewcode-block" id="CurrentCtrl"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.CurrentCtrl">[docs]</a><span class="k">class</span> <span class="nc">CurrentCtrl</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PSC-based current controller.</span>
+<span class="sd">    </span>
+<span class="sd">    PSC makes the converter operate as a voltage source, however, this block</span>
+<span class="sd">    is used to damp the current oscillations and limit the current</span>
+<span class="sd">    flowing through the converter to avoid physical damages of the device.</span>
+<span class="sd">    </span>
+<span class="sd">    It is important to note that this block uses P-type controller and can thus</span>
+<span class="sd">    encounter steady-state error when the current reference is saturated.</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">         </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : PSCtrlPars</span>
+<span class="sd">            Control parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># controller parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R_a</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">R_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">L_f</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">L_f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_0_cc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_cc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">K_cc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">K_cc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_scal</span><span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">k_scal</span>
+        <span class="c1"># activation/deactivation of reference feedforward action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_rf</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_rf</span>
+        <span class="c1"># activation/deactivation of PCC voltage control option</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_u_g</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">on_u_g</span>
+        <span class="c1"># Calculated maximum current in A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">I_max</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">I_max</span>
+        <span class="c1">#initial states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i_c_filt</span> <span class="o">=</span><span class="mi">0</span><span class="n">j</span> 
+    
+            
+<div class="viewcode-block" id="CurrentCtrl.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">v_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the converter voltage reference signal</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        i_c : complex</span>
+<span class="sd">            converter current in dq frame (A).</span>
+<span class="sd">        p_g_ref : float</span>
+<span class="sd">            active power reference (W).</span>
+<span class="sd">        v_ref : float</span>
+<span class="sd">            converter voltage magnitude reference (V).</span>
+<span class="sd">        w_c_ref : float</span>
+<span class="sd">            converter frequency reference (rad/s).</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        u_c_ref : complex</span>
+<span class="sd">            converter voltage reference (V).</span>
+<span class="sd">        i_c_ref : complex</span>
+<span class="sd">            converter current reference in dq frame (A).</span>
+<span class="sd">        i_c_filt : complex</span>
+<span class="sd">            low-pass filtered converter current in dq frame (A).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Low pass filter for the current:</span>
+        <span class="n">i_c_filt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">i_c_filt</span>
+        
+        <span class="c1"># Definition of the voltage reference in complex form</span>
+        <span class="n">v_c_ref</span> <span class="o">=</span> <span class="n">v_ref</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">0</span>
+        
+        <span class="c1"># Use of reference feedforward for d-axis current</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_rf</span><span class="p">:</span>
+            <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">p_g_ref</span><span class="o">/</span><span class="p">(</span><span class="n">v_ref</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">k_scal</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">i_c_filt</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_filt</span>
+            
+        <span class="c1"># Calculation of the modulus of current reference</span>
+        <span class="n">i_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+        <span class="n">i_c_d_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+        <span class="n">i_c_q_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">i_c_ref</span><span class="p">)</span>
+    
+        <span class="c1"># And current limitation algorithm</span>
+        <span class="k">if</span> <span class="n">i_abs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">i_ratio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">I_max</span><span class="o">/</span><span class="n">i_abs</span>
+            <span class="n">i_c_d_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">i_ratio</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_d_ref</span><span class="p">)])</span>
+            <span class="n">i_c_q_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">i_ratio</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i_c_q_ref</span><span class="p">)])</span>
+            <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_d_ref</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">i_c_q_ref</span>
+        
+                
+        <span class="c1"># Calculation of converter voltage output (reference sent to PWM)</span>
+        <span class="n">u_c_ref</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_c_ref</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_a</span><span class="o">*</span><span class="p">(</span><span class="n">i_c_ref</span> <span class="o">-</span> <span class="n">i_c</span><span class="p">)</span> <span class="o">+</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">on_u_g</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">L_f</span><span class="o">*</span><span class="n">w_c_ref</span><span class="o">*</span><span class="n">i_c</span><span class="p">)</span>
+        
+        
+        <span class="k">return</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">i_c_ref</span><span class="p">,</span> <span class="n">i_c_filt</span></div>
+    
+        
+<div class="viewcode-block" id="CurrentCtrl.update"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">i_c_filt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the integral state.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        i_c : complex</span>
+<span class="sd">            converter current in dq frame (A).</span>
+<span class="sd">        i_c_filt : complex</span>
+<span class="sd">            low-pass filtered converter current in dq frame (A).</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Update the current low pass filer integrator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i_c_filt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">w_0_cc</span><span class="p">)</span><span class="o">*</span><span class="n">i_c_filt</span> <span class="o">+</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">K_cc</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">w_0_cc</span><span class="o">*</span><span class="n">i_c</span><span class="p">)</span></div></div>
+
+<span class="c1"># %%        </span>
+<div class="viewcode-block" id="DCVoltageControl"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.DCVoltageControl">[docs]</a><span class="k">class</span> <span class="nc">DCVoltageControl</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DC voltage controller</span>
+<span class="sd">    </span>
+<span class="sd">    This class is used to generate the active power reference for the converter</span>
+<span class="sd">    controller to ensure that the DC voltage is regulated.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pars</span><span class="p">):</span>
+<span class="w">         </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pars : GridFollowingCtrlPars</span>
+<span class="sd">            Control parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">T_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_0_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeta_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">zeta_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">zeta_dc</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_i_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span><span class="o">*</span><span class="n">pars</span><span class="o">.</span><span class="n">w_0_dc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">C_dc</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">C_dc</span>
+        <span class="c1"># Saturation of power reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">p_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># integrator state of the controller</span>
+    
+<div class="viewcode-block" id="DCVoltageControl.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_dc_ref</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the active power reference sent to the converter control system</span>
+<span class="sd">        to regulate the DC-bus voltage.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u_dc_ref : float</span>
+<span class="sd">            DC-bus voltage reference</span>
+<span class="sd">        u_dc : float</span>
+<span class="sd">            DC-bus voltage</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        err_dc: float</span>
+<span class="sd">            DC capacitance energy error signal</span>
+<span class="sd">        p_dc_ref: float</span>
+<span class="sd">            power reference based on DC voltage controller (W)</span>
+<span class="sd">        p_dc_ref_lim: float</span>
+<span class="sd">            saturated power reference based on DC voltage controller (W)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Compute the error signal (the capacitor energy)</span>
+        <span class="n">err_dc</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">C_dc</span><span class="o">*</span><span class="p">(</span><span class="n">u_dc_ref</span><span class="o">*</span><span class="n">u_dc_ref</span> <span class="o">-</span> <span class="n">u_dc</span><span class="o">*</span><span class="n">u_dc</span><span class="p">)</span>
+
+        <span class="c1"># PI controller</span>
+        <span class="n">p_dc_ref</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span><span class="o">*</span><span class="n">err_dc</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span>
+        
+        
+        <span class="c1"># Limit the output reference</span>
+        <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="n">p_dc_ref</span>
+        <span class="k">if</span> <span class="n">p_dc_ref_lim</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">:</span>
+            <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_max</span>
+        <span class="k">elif</span> <span class="n">p_dc_ref_lim</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_max</span><span class="p">:</span>
+            <span class="n">p_dc_ref_lim</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p_max</span>
+           
+        
+        <span class="k">return</span> <span class="n">err_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span></div>
+    
+        
+<div class="viewcode-block" id="DCVoltageControl.update"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err_dc</span><span class="p">,</span> <span class="n">p_dc_ref</span><span class="p">,</span> <span class="n">p_dc_ref_lim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the state of the DC-voltage controller with anti-windup.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        err_dc: float</span>
+<span class="sd">            DC capacitance energy error signal</span>
+<span class="sd">        p_dc_ref: float</span>
+<span class="sd">            power reference based on DC voltage controller</span>
+<span class="sd">        p_dc_ref_lim: float</span>
+<span class="sd">            saturated power reference based on DC voltage controller</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Update the integrator state (the last term is antiwindup)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_g_i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">k_i_dc</span><span class="o">*</span><span class="p">(</span><span class="n">err_dc</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">p_dc_ref_lim</span> <span class="o">-</span> <span class="n">p_dc_ref</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_dc</span><span class="p">))</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aalto Electric Drives
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Aalto Electric Drives.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

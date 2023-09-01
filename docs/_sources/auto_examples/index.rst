@@ -14,48 +14,35 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 
 .. raw:: html
 
-    </div>
-
-Grid-following control
-------------
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Example simulation script: 10-kVA grid converter connected to a symmetrical">
+    <div class="sphx-glr-thumbcontainer" tooltip="10-kVA grid following converter, power control">
 
 .. only:: html
 
-  .. image:: /auto_examples/gfl/images/thumb/sphx_glr_plot_grid_following_control_grid_converter_10kVA_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_grid_following_control_grid_converter_10kVA_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_gfl_plot_grid_following_control_grid_converter_10kVA.py`
+  :ref:`sphx_glr_auto_examples_plot_grid_following_control_grid_converter_10kVA.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Example simulation script: 10-kVA grid converter connected to a symmetrical</div>
+      <div class="sphx-glr-thumbnail-title">10-kVA grid following converter, power control</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Example simulation script: 10-kVA grid converter connected to a symmetrical">
+    <div class="sphx-glr-thumbcontainer" tooltip="10-kVA grid following converter, dc-bus voltage control">
 
 .. only:: html
 
-  .. image:: /auto_examples/gfl/images/thumb/sphx_glr_plot_grid_following_control_vdc_mode_grid_converter_10kVA_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_grid_following_control_vdc_mode_grid_converter_10kVA_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_gfl_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py`
+  :ref:`sphx_glr_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Example simulation script: 10-kVA grid converter connected to a symmetrical</div>
+      <div class="sphx-glr-thumbnail-title">10-kVA grid following converter, dc-bus voltage control</div>
     </div>
 
 
@@ -66,10 +53,9 @@ Grid-following control
 
 .. toctree::
    :hidden:
-   :includehidden:
 
-
-   /auto_examples/gfl/index.rst
+   /auto_examples/plot_grid_following_control_grid_converter_10kVA
+   /auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA
 
 
 .. only:: html
