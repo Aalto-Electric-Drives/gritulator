@@ -1,8 +1,8 @@
 """Common control functions and classes."""
 
 import numpy as np
-from motulator._helpers import abc2complex, complex2abc
-from motulator._utils import Bunch
+from gritulator._helpers import abc2complex, complex2abc
+from gritulator._utils import Bunch
 
 
 # %%
@@ -256,7 +256,7 @@ class PICtrl:
 
         # Limit the controller output
         u = np.clip(u, -self.u_max, self.u_max)
-
+        
         return u
 
     def update(self, T_s, u_lim):
@@ -273,32 +273,41 @@ class PICtrl:
 
         """
         self.u_i += T_s*self.alpha_i*(u_lim - self.v)
-
+        
 
 # %%
-class SpeedCtrl(PICtrl):
+class DCBusCtrl(PICtrl):
     """
-    2DOF PI speed controller.
+    PI DC-bus voltage controller.
 
-    This provides an interface for a speed controller. The gains are initialized
-    based on the desired closed-loop bandwidth and the rotor inertia estimate.
+    This provides an interface for a DC-bus controller. The gains are
+    initialized based on the desired closed-loop bandwidth and the DC-bus
+    capacitance estimate. The PI controller is designed to control the energy
+    of the DC-bus capacitance and not the DC-bus voltage in order to have a
+    linear closed-loop system [#Hun2001]_.
 
     Parameters
     ----------
-    J : float
-        Total inertia of the rotor (kgm²).
-    alpha_s : float
+    zeta : float
+        Damping ratio of the closed-loop system.
+    alpha_dc : float
         Closed-loop bandwidth (rad/s). 
-    tau_M_max : float, optional
-        Maximum motor torque (Nm). The default is inf.
+    p_max : float, optional
+        Maximum converter power (W). The default is inf.
+        
+    References
+    ----------
+    .. [#Hur2001] Hur, Jung, Nam, "A Fast Dynamic DC-Link Power-Balancing
+       Scheme for a PWM Converter–Inverter System," IEEE Trans. Ind. Electron.,
+       2001, https://doi.org/10.1109/41.937412
 
     """
 
-    def __init__(self, J, alpha_s, tau_M_max=np.inf):
-        k_p = 2*alpha_s*J
-        k_i = alpha_s**2*J
-        k_t = alpha_s*J
-        super().__init__(k_p, k_i, k_t, tau_M_max)
+    def __init__(self, zeta, alpha_dc, p_max=np.inf):
+        k_p = -2*zeta*alpha_dc
+        k_i = -(alpha_dc**2)
+        k_t = k_p
+        super().__init__(k_p, k_i, k_t, p_max)
 
 
 # %%
@@ -396,6 +405,115 @@ class ComplexPICtrl:
 
         """
         self.u_i += T_s*(self.alpha_i + 1j*w)*(u_lim - self.v)
+
+
+# %%
+class ComplexFFPICtrl:
+    """
+    2DOF Synchronous-frame complex-vector PI controller with feedforward.
+
+    This implements a discrete-time 2DOF synchronous-frame complex-vector PI
+    controller similar to [#Bri2000]_, with an additional feedforward signal.                        
+    The gain selection corresponding to internal-model-control (IMC) is
+    equivalent to the continuous-time version given in [#Har2009]_::
+
+        u = k_p*(i_ref - i) + k_i/s*(i_ref - i) + 1j*w*L_f*i + u_g_ff 
+                
+    where `u` is the controller output, `i_ref` is the reference signal, `i` is
+    the feedback signal, u_g_ff is the (filtered) feedforward signal, `w` is
+    the angular speed of synchronous coordinates, '1j*w*L_f' is the decoupling
+    term estimate, and `1/s` refers to integration. This algorithm is
+    compatible with both real and complex signals. The integrator anti-windup
+    is implemented based on the realized controller output.
+
+    Parameters
+    ----------
+    k_p : float
+        Proportional gain.
+    k_i : float
+        Integral gain.
+    k_t : float, optional
+        Reference-feedforward gain. The default is `k_p`.
+    L_f : float, optional
+        Synchronous frame decoupling gain. The default is 0.
+
+    Attributes
+    ----------
+    v : complex
+        Input disturbance estimate.
+    u_i : complex
+        Integral state.
+
+    Notes
+    -----
+    This contoller can be used, e.g., as a current controller. In this case,
+    `i` corresponds to the converter current and `u` to the converter voltage.
+    
+    References
+    ----------
+    .. [#Bri2000] Briz, Degner, Lorenz, "Analysis and design of current 
+       regulators using complex vectors," IEEE Trans. Ind. Appl., 2000,
+       https://doi.org/10.1109/28.845057
+       
+    .. [#Har2009] Harnefors, Bongiorno, "Current controller design
+       for passivity of the input admittance," 2009 13th European Conference
+       on Power Electronics and Applications, Barcelona, Spain, 2009.
+
+    """
+
+    def __init__(self, k_p, k_i, k_t=None, L_f=None):
+        # Gains
+        self.k_p = k_p
+        self.k_t = k_t if k_t is not None else k_p
+        self.alpha_i = k_i/self.k_t  # Inverse of the integration time T_i
+        self.L_f = L_f if L_f is not None else 0
+        # States
+        self.v, self.u_i = 0, 0
+
+    def output(self, i_ref, i, u_ff, w):
+        """
+        Compute the controller output.
+
+        Parameters
+        ----------
+        i_ref : complex
+            Reference signal.
+        i : complex
+            Feedback signal.
+        u_ff : complex
+            Feedforward signal.
+        w : float
+            Angular speed of the reference frame (rad/s). 
+
+        Returns
+        -------
+        u : complex
+            Controller output.
+
+        """
+        # Disturbance input estimate
+        self.v = self.u_i - (self.k_p - self.k_t)*i + (u_ff
+        + 1j*w*self.L_f*i)
+
+        # Controller output
+        u = self.k_t*(i_ref - i) + self.v
+
+        return u
+
+    def update(self, T_s, u_lim):
+        """
+        Update the integral state.
+
+        Parameters
+        ----------
+        T_s : float
+            Sampling period (s).
+        u_lim : complex
+            Realized (limited) controller output. If the actuator does not
+            saturate, ``u_lim = u``.
+
+        """
+        self.u_i += T_s*self.alpha_i*(u_lim - self.v)
 
 
 # %%

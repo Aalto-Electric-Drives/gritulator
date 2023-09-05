@@ -3,7 +3,7 @@
 import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.io import savemat
-from motulator._helpers import abc2complex
+from gritulator._helpers import abc2complex
 
 
 # %%
@@ -64,7 +64,7 @@ class CarrierComparison:
 
     Examples
     --------
-    >>> from motulator.model import CarrierComparison
+    >>> from gritulator.model import CarrierComparison
     >>> carrier_cmp = CarrierComparison(return_complex=False)
     >>> # First call gives rising edges
     >>> t_steps, q_abc = carrier_cmp(1e-3, [.4, .2, .8])

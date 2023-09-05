@@ -1,11 +1,11 @@
-"""Continuous-time synchronous machine models."""
+"""Continuous-time grid converter interconnector models."""
 
-from motulator.model.ac_grid._const_freq_model import (
+from gritulator.model.ac_grid._const_freq_model import (
     StiffSourceAndLFilterModel,
     StiffSourceAndLCLFilterModel,
 )
 
-from motulator.model.ac_grid._ac_dyn_model import (
+from gritulator.model.ac_grid._ac_dyn_model import (
     ACFlexSourceAndLFilterModel,
     ACFlexSourceAndLCLFilterModel,
 )

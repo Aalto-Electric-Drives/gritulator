@@ -16,7 +16,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
-sys.path.insert(0, os.path.abspath("../../motulator"))
+sys.path.insert(0, os.path.abspath("../../gritulator"))
 
 # -- Project information -----------------------------------------------------
 
@@ -44,7 +44,7 @@ extensions = [
 
 extensions.append("autoapi.extension")
 autoapi_type = "python"
-autoapi_dirs = ["../../motulator"]
+autoapi_dirs = ["../../gritulator"]
 autodoc_typehints = "description"
 autoapi_options = [
     "members",

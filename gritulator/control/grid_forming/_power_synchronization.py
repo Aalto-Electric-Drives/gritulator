@@ -1,13 +1,19 @@
-# pylint: disable=C0103
 '''
-This module contains Power Synchronization Control (PSC) for grid converters
+Grid forming power synchronization control (PSC) for grid converters.
 
-This control scheme is based on the updated version presented in [1]. More info
-can be found in this reference.
+This implements the power synchronization control (PSC) method described in
+[#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be 
+used and is based on [#Har2020].
 
-[1] Reference-feedforward power-synchronization control, L Harnefors,
-FMM Rahman, M Hinkkanen, M Routimo - IEEE Transactions on Power Electronics,
-2020.
+References
+----------
+.. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, "Robust Analytic
+    Design of Power-Synchronization Control," IEEE Trans. Ind. Electron., Aug.
+    2019, https://doi.org/10.1109/TIE.2018.2874584
+    
+.. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, "Reference-Feedforward
+    Power-Synchronization Control," IEEE Trans. Power Electron., Sep. 2020,
+    https://doi.org/10.1109/TPEL.2020.2970991
 
 '''
 # %%
@@ -15,15 +21,15 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass, field
 import numpy as np
-from motulator._helpers import abc2complex
-from motulator._utils import Bunch
-from motulator.control._common import Ctrl, PWM
+from gritulator._helpers import abc2complex
+from gritulator._utils import Bunch
+from gritulator.control._common import Ctrl, PWM
 
 # %%
 @dataclass
 class PSCtrlPars:
     """
-    power synchronization control(PSC-)based parameters.
+    Parameters for the control system.
 
     """
     # pylint: disable=too-many-instance-attributes
@@ -72,10 +78,7 @@ class PSCtrlPars:
 # %%
 class PSCtrl(Ctrl):
     """
-    Grid forming control (PSC) with the power synchronization loop and a current
-    loop implemented as in [1].
-    
-    Can be combined with the DC-voltage controller as well.
+    PSC control for grid converters.
 
     Parameters
     ----------
