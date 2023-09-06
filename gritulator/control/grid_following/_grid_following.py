@@ -110,7 +110,7 @@ class GridFollowingCtrl(Ctrl):
         self.on_v_dc = pars.on_v_dc
         # DC voltage reference
         self.u_dc_ref = pars.u_dc_ref
-        #DC-bus capacitance
+        # DC-bus capacitance
         self.C_dc = pars.C_dc
         # Calculated current controller gains:
         self.k_p_i = pars.alpha_c*pars.L_f

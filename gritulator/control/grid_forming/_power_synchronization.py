@@ -23,7 +23,7 @@ from dataclasses import dataclass, field
 import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
-from gritulator.control._common import Ctrl, PWM, Clock
+from gritulator.control._common import Ctrl, PWM, Clock, DCBusCtrl
 
 # %%
 @dataclass
@@ -97,7 +97,7 @@ class PSCCtrl(Ctrl):
         self.power_calc = PowerCalc(pars)
         self.current_ctrl = CurrentCtrl(pars)
         self.power_synch = PowerSynch(pars)
-        self.dc_voltage_control = DCVoltageControl(pars)
+        self.dc_bus_control = DCBusCtrl(pars.zeta_dc, pars.w_0_dc, pars.p_max)
         # Parameters
         self.u_g_N = pars.u_g_N
         self.w_g = pars.w_g
@@ -106,6 +106,8 @@ class PSCCtrl(Ctrl):
         self.on_rf = pars.on_rf
         # Activation of DC-voltage controller
         self.on_v_dc = pars.on_v_dc
+        # DC-bus capacitance
+        self.C_dc = pars.C_dc
         # References sent from the user
         self.p_g_ref = pars.p_g_ref
         self.q_g_ref = pars.q_g_ref
@@ -146,13 +148,13 @@ class PSCCtrl(Ctrl):
         # Calculation of PCC voltage in synchronous frame
         u_g = np.exp(-1j*self.theta_psc)*abc2complex(u_g_abc)
         
-        # Define the active and reactive power references at the given time
+        # Define the active and reactive power references at the given time  
         u_dc_ref = self.u_dc_ref(self.clock.t)
+        # Definition of capacitance energy variables for the DC-bus controller
+        W_dc_ref = 0.5*self.C_dc*u_dc_ref**2
+        W_dc = 0.5*self.C_dc*u_dc**2
         if self.on_v_dc:
-            e_dc, p_dc_ref, p_dc_ref_lim =self.dc_voltage_control.output(
-                u_dc_ref,
-                u_dc)
-            p_g_ref = p_dc_ref_lim
+            p_g_ref = self.dc_bus_control.output(W_dc_ref, W_dc)
             q_g_ref = self.q_g_ref(self.clock.t)
         else:
             p_g_ref = self.p_g_ref(self.clock.t)
@@ -199,8 +201,8 @@ class PSCCtrl(Ctrl):
         self.power_synch.update(theta_c)
         self.theta_psc = theta_c
         self.current_ctrl.update(i_c, i_c_filt)
-        if self.on_v_dc == 1:
-            self.dc_voltage_control.update(e_dc, p_dc_ref, p_dc_ref_lim)
+        if self.on_v_dc:
+            self.dc_bus_control.update(self.T_s, p_g_ref)
         
         return self.T_s, d_abc_ref
     
@@ -462,93 +464,3 @@ class CurrentCtrl:
         self.i_c_filt = (1 - self.T_s*self.w_0_cc)*i_c_filt + (
             self.K_cc*self.T_s*self.w_0_cc*i_c)
 
-# %%        
-class DCVoltageControl:
-    
-    """
-    DC voltage controller
-    
-    This class is used to generate the active power reference for the converter
-    controller to ensure that the DC voltage is regulated.
-    
-    """
-    
-    def __init__(self, pars):
-         
-        """
-        Parameters
-        ----------
-        pars : GridFollowingCtrlPars
-            Control parameters.
-    
-        """
-        self.T_s = pars.T_s
-        self.w_0_dc = pars.w_0_dc
-        self.zeta_dc = pars.zeta_dc
-        self.k_p_dc = 2*pars.zeta_dc*pars.w_0_dc
-        self.k_i_dc = pars.w_0_dc*pars.w_0_dc
-        self.C_dc = pars.C_dc
-        # Saturation of power reference
-        self.p_max = pars.p_max
-        self.p_g_i = 0 # integrator state of the controller
-    
-    def output(self, u_dc_ref, u_dc):
-        
-        """
-        Compute the active power reference sent to the converter control system
-        to regulate the DC-bus voltage.
-    
-        Parameters
-        ----------
-        u_dc_ref : float
-            DC-bus voltage reference
-        u_dc : float
-            DC-bus voltage
-    
-        Returns
-        -------
-
-        err_dc: float
-            DC capacitance energy error signal
-        p_dc_ref: float
-            power reference based on DC voltage controller (W)
-        p_dc_ref_lim: float
-            saturated power reference based on DC voltage controller (W)
-
-        """
-
-        # Compute the error signal (the capacitor energy)
-        err_dc = 0.5*self.C_dc*(u_dc_ref*u_dc_ref - u_dc*u_dc)
-
-        # PI controller
-        p_dc_ref = -self.k_p_dc*err_dc - self.p_g_i
-        
-        
-        # Limit the output reference
-        p_dc_ref_lim = p_dc_ref
-        if p_dc_ref_lim > self.p_max:
-            p_dc_ref_lim = self.p_max
-        elif p_dc_ref_lim < -self.p_max:
-            p_dc_ref_lim = -self.p_max
-           
-        
-        return err_dc, p_dc_ref, p_dc_ref_lim
-    
-        
-    def update(self, err_dc, p_dc_ref, p_dc_ref_lim):
-        """
-        Update the state of the DC-voltage controller with anti-windup.
-
-        Parameters
-        ----------
-        err_dc: float
-            DC capacitance energy error signal
-        p_dc_ref: float
-            power reference based on DC voltage controller
-        p_dc_ref_lim: float
-            saturated power reference based on DC voltage controller
-        
-        """
-        # Update the integrator state (the last term is antiwindup)
-        self.p_g_i = (self.p_g_i + self.T_s*self.k_i_dc*(err_dc +
-            (p_dc_ref_lim - p_dc_ref)/self.k_p_dc))
