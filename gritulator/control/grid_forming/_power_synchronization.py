@@ -463,4 +463,3 @@ class CurrentCtrl:
         # Update the current low pass filer integrator
         self.i_c_filt = (1 - self.T_s*self.w_0_cc)*i_c_filt + (
             self.K_cc*self.T_s*self.w_0_cc*i_c)
-

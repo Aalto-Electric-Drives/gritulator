@@ -21,6 +21,7 @@ from gritulator import BaseValuesElectrical, plot_grid
 import time
 start_time = time.time()
 
+
 # %%
 # Compute base values based on the nominal values (just for figures).
 
@@ -86,6 +87,7 @@ mdl.grid_model.e_g_abs = e_g_abs_var # grid voltage magnitude
 # DC voltage reference
 ctrl.u_dc_ref = lambda t: 600 + (t > .02)*(50)
 
+
 # %%
 # Create the simulation object and simulate it.
 
@@ -94,6 +96,7 @@ sim.simulate(t_stop = .1)
 
 # Print the execution time
 print('\nExecution time: {:.2f} s'.format((time.time() - start_time)))
+
 
 # %%
 # Plot results in SI or per unit values.
