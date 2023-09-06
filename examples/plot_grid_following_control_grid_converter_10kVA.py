@@ -64,7 +64,7 @@ e_g_abs_var =  lambda t: np.sqrt(2/3)*400
 mdl.grid_model.e_g_abs = e_g_abs_var # grid voltage magnitude
 
 # %%
-# Create the simulation object and simulate it
+# Create the simulation object and simulate it.
 
 sim = model.Simulation(mdl, ctrl, pwm=False)
 sim.simulate(t_stop = .1)
@@ -73,6 +73,6 @@ sim.simulate(t_stop = .1)
 print('\nExecution time: {:.2f} s'.format((time.time() - start_time)))
 
 # %%
-# Plot results in SI or per unit values
+# Plot results in SI or per unit values.
 
 plot_grid(sim, base=base_values,plot_pcc_voltage=True)

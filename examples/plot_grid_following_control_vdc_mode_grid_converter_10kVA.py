@@ -37,7 +37,7 @@ grid_filter = model.LFilter(L_f=10e-3, L_g=0, R_g=0)
 grid_model = model.StiffSource(w_N=2*np.pi*50)
 # DC-bus dynamic model
 dc_model = model.dc_bus.DCBus(C_dc = 1e-3, u_dc0=600, G_dc=0)
-converter = model.Inverter(u_dc=650)
+converter = model.Inverter(u_dc=600)
 
 # if you do not want to simulate any DC bus dynamics, you should define:
 # dc_model = None
@@ -87,7 +87,7 @@ mdl.grid_model.e_g_abs = e_g_abs_var # grid voltage magnitude
 ctrl.u_dc_ref = lambda t: 600 + (t > .02)*(50)
 
 # %%
-# Create the simulation object and simulate it
+# Create the simulation object and simulate it.
 
 sim = model.Simulation(mdl, ctrl, pwm=False)
 sim.simulate(t_stop = .1)
@@ -96,6 +96,6 @@ sim.simulate(t_stop = .1)
 print('\nExecution time: {:.2f} s'.format((time.time() - start_time)))
 
 # %%
-# Plot results in SI or per unit values
+# Plot results in SI or per unit values.
 
 plot_grid(sim, base=None)

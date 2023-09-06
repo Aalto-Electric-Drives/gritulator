@@ -23,11 +23,11 @@ from dataclasses import dataclass, field
 import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
-from gritulator.control._common import Ctrl, PWM
+from gritulator.control._common import Ctrl, PWM, Clock
 
 # %%
 @dataclass
-class PSCtrlPars:
+class PSCCtrlPars:
     """
     Parameters for the control system.
 
@@ -76,7 +76,7 @@ class PSCtrlPars:
 
 
 # %%
-class PSCtrl(Ctrl):
+class PSCCtrl(Ctrl):
     """
     PSC control for grid converters.
 
@@ -90,10 +90,10 @@ class PSCtrl(Ctrl):
     # pylint: disable=too-many-instance-attributes, too-few-public-methods
     def __init__(self, pars):
         super().__init__()
-        self.t = 0
         self.T_s = pars.T_s
         # Instantiate classes
         self.pwm = PWM(pars)
+        self.clock = Clock()
         self.power_calc = PowerCalc(pars)
         self.current_ctrl = CurrentCtrl(pars)
         self.power_synch = PowerSynch(pars)
@@ -140,27 +140,27 @@ class PSCtrl(Ctrl):
         """
         # Measure the feedback signals
         i_c_abc = mdl.grid_filter.meas_currents()
-        u_dc = mdl.conv.meas_dc_voltage()
+        u_dc = mdl.converter.meas_dc_voltage()
         u_g_abc = mdl.grid_filter.meas_pcc_voltage()
         
         # Calculation of PCC voltage in synchronous frame
         u_g = np.exp(-1j*self.theta_psc)*abc2complex(u_g_abc)
         
         # Define the active and reactive power references at the given time
-        u_dc_ref = self.u_dc_ref(self.t)
+        u_dc_ref = self.u_dc_ref(self.clock.t)
         if self.on_v_dc:
             e_dc, p_dc_ref, p_dc_ref_lim =self.dc_voltage_control.output(
                 u_dc_ref,
                 u_dc)
             p_g_ref = p_dc_ref_lim
-            q_g_ref = self.q_g_ref(self.t)
+            q_g_ref = self.q_g_ref(self.clock.t)
         else:
-            p_g_ref = self.p_g_ref(self.t)
-            q_g_ref = self.q_g_ref(self.t)
+            p_g_ref = self.p_g_ref(self.clock.t)
+            q_g_ref = self.q_g_ref(self.clock.t)
             
         # Define the user-defined voltage magnitude and frequency references
-        w_c_ref = self.w_c_ref(self.t)
-        v_ref = self.v_ref(self.t)
+        w_c_ref = self.w_c_ref(self.clock.t)
+        v_ref = self.v_ref(self.clock.t)
         
         # Transform the measured current in dq frame
         i_c = np.exp(-1j*self.theta_psc)*abc2complex(i_c_abc)
@@ -177,24 +177,25 @@ class PSCtrl(Ctrl):
         u_c_ref, i_c_ref, i_c_filt = self.current_ctrl.output(
                                         i_c,p_g_ref,v_ref,w_c_ref)
         
-        # Compute the PWM
-        d_abc_ref, u_c_ref_lim = self.pwm.output(u_c_ref, u_dc,
+        # Use the function from control commons:
+        d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_psc, self.w_g)
+        u_c_ref_lim = self.pwm.realized_voltage
 
         # Data logging
         data = Bunch(
             w_c = w_c, theta_c = self.theta_psc, v_ref = v_ref,
             w_c_ref = w_c_ref, u_c_ref = u_c_ref, u_c_ref_lim = u_c_ref_lim,
             i_c = i_c, d_abc_ref = d_abc_ref, i_c_ref = i_c_ref,
-            u_dc = u_dc, t = self.t, p_g_ref = p_g_ref, u_dc_ref = u_dc_ref,
-            q_g_ref = q_g_ref, u_g = u_g
+            u_dc = u_dc, t = self.clock.t, p_g_ref = p_g_ref,
+            u_dc_ref = u_dc_ref, q_g_ref = q_g_ref, u_g = u_g
                      )
         self.save(data)
 
         # Update the states
         self.u_c_ref_lim = u_c_ref_lim
-        self.update_clock(self.T_s)
-        self.pwm.update(u_c_ref_lim)
+        self.clock.update(self.T_s)
+        # self.pwm.update(u_c_ref_lim)
         self.power_synch.update(theta_c)
         self.theta_psc = theta_c
         self.current_ctrl.update(i_c, i_c_filt)
