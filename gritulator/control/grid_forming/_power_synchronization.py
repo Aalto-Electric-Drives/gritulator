@@ -61,7 +61,7 @@ class PSCCtrlPars:
     # Low pass filter for the current controller of PSC
     w_0_cc: float = 2*np.pi*5 # filter undamped natural frequency, in rad/s.
     K_cc: float = 1 # low pass filter gain
-    I_max: float = 20 # maximum current modulus in A
+    i_max: float = 20 # maximum current modulus in A
     
     # DC-voltage controller
     on_v_dc: bool = 0 # put 1 to activate dc voltage controller. 0 is p-mode
@@ -380,7 +380,7 @@ class CurrentCtrl:
         # activation/deactivation of PCC voltage control option
         self.on_u_g = pars.on_u_g
         # Calculated maximum current in A
-        self.I_max = pars.I_max
+        self.i_max = pars.i_max
         #initial states
         self.i_c_filt =0j 
     
@@ -431,7 +431,7 @@ class CurrentCtrl:
     
         # And current limitation algorithm
         if i_abs > 0:
-            i_ratio = self.I_max/i_abs
+            i_ratio = self.i_max/i_abs
             i_c_d_ref = np.sign(i_c_d_ref)*np.min(
                 [i_ratio*np.abs(i_c_d_ref),np.abs(i_c_d_ref)])
             i_c_q_ref = np.sign(i_c_q_ref)*np.min(
