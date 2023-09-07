@@ -185,19 +185,17 @@ class GridFollowingCtrl(Ctrl):
         
         # Calculation of the modulus of current reference
         i_abs = np.abs(i_c_ref)
-        i_c_d_ref = np.real(i_c_ref)
-        i_c_q_ref = np.imag(i_c_ref)
-        
+        i_cd_ref = np.real(i_c_ref)
+        i_cq_ref = np.imag(i_c_ref)
+    
         # And current limitation algorithm
         if i_abs > 0:
             i_ratio = self.i_max/i_abs
-            i_c_d_ref = np.sign(i_c_d_ref)*np.min([
-                i_ratio*np.abs(i_c_d_ref),
-                np.abs(i_c_d_ref)])
-            i_c_q_ref = np.sign(i_c_q_ref)*np.min([
-                i_ratio*np.abs(i_c_q_ref),
-                np.abs(i_c_q_ref)])
-            i_c_ref = i_c_d_ref + 1j*i_c_q_ref
+            i_cd_ref = np.sign(i_cd_ref)*np.min(
+                [i_ratio*np.abs(i_cd_ref),np.abs(i_cd_ref)])
+            i_cq_ref = np.sign(i_cq_ref)*np.min(
+                [i_ratio*np.abs(i_cq_ref),np.abs(i_cq_ref)])
+            i_c_ref = i_cd_ref + 1j*i_cq_ref
         
         # Low pass filter for the feedforward PCC voltage:
         u_g_filt = self.u_g_filt

@@ -46,7 +46,7 @@ class PSCCtrlPars:
         repr=False, default=lambda t: 650) # DC voltage reference, only used if
                                     # the dc voltage control mode is activated.
     T_s: float = 1/(16e3) #sampling time of the controller.
-    u_g_N: float = np.sqrt(2/3)*400  # PCC voltage, in volts.
+    u_gN: float = np.sqrt(2/3)*400  # PCC voltage, in volts.
     w_g: float = 2*np.pi*50 # grid frequency, in Hz
     f_sw: float = 8e3 # switching frequency, in Hz.
     
@@ -99,7 +99,7 @@ class PSCCtrl(Ctrl):
         self.power_synch = PowerSynch(pars)
         self.dc_bus_control = DCBusCtrl(pars.zeta_dc, pars.w_0_dc, pars.p_max)
         # Parameters
-        self.u_g_N = pars.u_g_N
+        self.u_gN = pars.u_gN
         self.w_g = pars.w_g
         self.f_sw = pars.f_sw
         # Activation of reference feedforward action
@@ -117,7 +117,7 @@ class PSCCtrl(Ctrl):
         # If the pcc voltage should be used as controlled voltage
         # States
         self.theta_psc = 0 # Integrator state of the phase angle estimation
-        self.u_c_ref_lim = pars.u_g_N + 1j*0
+        self.u_c_ref_lim = pars.u_gN + 1j*0
         ####
         self.desc = pars.__repr__()
         
@@ -289,7 +289,7 @@ class PowerSynch:
         """
         # controller parameters
         self.T_s = pars.T_s
-        self.k_p_psc = pars.w_g*pars.R_a/(pars.k_scal*pars.u_g_N*pars.u_g_N)
+        self.k_p_psc = pars.w_g*pars.R_a/(pars.k_scal*pars.u_gN*pars.u_gN)
         # Initial states
         self.theta_p = 0
     
@@ -426,17 +426,17 @@ class CurrentCtrl:
             
         # Calculation of the modulus of current reference
         i_abs = np.abs(i_c_ref)
-        i_c_d_ref = np.real(i_c_ref)
-        i_c_q_ref = np.imag(i_c_ref)
+        i_cd_ref = np.real(i_c_ref)
+        i_cq_ref = np.imag(i_c_ref)
     
         # And current limitation algorithm
         if i_abs > 0:
             i_ratio = self.i_max/i_abs
-            i_c_d_ref = np.sign(i_c_d_ref)*np.min(
-                [i_ratio*np.abs(i_c_d_ref),np.abs(i_c_d_ref)])
-            i_c_q_ref = np.sign(i_c_q_ref)*np.min(
-                [i_ratio*np.abs(i_c_q_ref),np.abs(i_c_q_ref)])
-            i_c_ref = i_c_d_ref + 1j*i_c_q_ref
+            i_cd_ref = np.sign(i_cd_ref)*np.min(
+                [i_ratio*np.abs(i_cd_ref),np.abs(i_cd_ref)])
+            i_cq_ref = np.sign(i_cq_ref)*np.min(
+                [i_ratio*np.abs(i_cq_ref),np.abs(i_cq_ref)])
+            i_c_ref = i_cd_ref + 1j*i_cq_ref
         
                 
         # Calculation of converter voltage output (reference sent to PWM)
