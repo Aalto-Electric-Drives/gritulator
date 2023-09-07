@@ -393,7 +393,7 @@ class CurrentRefCalc:
     def output(self, p_g_ref, q_g_ref):
     
         """
-        Power reference genetator.
+        Current reference genetator.
     
         Parameters
         ----------
