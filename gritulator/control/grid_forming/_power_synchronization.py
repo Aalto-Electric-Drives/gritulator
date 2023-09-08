@@ -115,7 +115,6 @@ class PSCCtrl(Ctrl):
         # If the pcc voltage should be used as controlled voltage
         # States
         self.theta_psc = 0 # Integrator state of the phase angle estimation
-        self.u_c_ref_lim = pars.u_gN + 1j*0
         ####
         self.desc = pars.__repr__()
         
@@ -142,6 +141,8 @@ class PSCCtrl(Ctrl):
         i_c_abc = mdl.grid_filter.meas_currents()
         u_dc = mdl.converter.meas_dc_voltage()
         u_g_abc = mdl.grid_filter.meas_pcc_voltage()
+        # Obtain the converter voltage calculated with the PWM
+        u_c = self.pwm.realized_voltage
         
         # Calculation of PCC voltage in synchronous frame
         u_g = np.exp(-1j*self.theta_psc)*abc2complex(u_g_abc)
@@ -166,7 +167,7 @@ class PSCCtrl(Ctrl):
         i_c = np.exp(-1j*self.theta_psc)*abc2complex(i_c_abc)
         
         # Calculation of active and reactive powers:
-        p_calc, __ = self.power_calc.output(i_c, self.u_c_ref_lim)
+        p_calc, __ = self.power_calc.output(i_c, u_c)
         # remark: there is no need to use u_g when self.on_u_g = 1 if we 
         # make the assumption that the output filter is lossless.
         
@@ -180,12 +181,11 @@ class PSCCtrl(Ctrl):
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_psc, self.w_g)
-        u_c_ref_lim = self.pwm.realized_voltage
 
         # Data logging
         data = Bunch(
             w_c = w_c, theta_c = self.theta_psc, v_ref = v_ref,
-            w_c_ref = w_c_ref, u_c_ref = u_c_ref, u_c_ref_lim = u_c_ref_lim,
+            w_c_ref = w_c_ref, u_c_ref = u_c_ref, u_c = u_c,
             i_c = i_c, d_abc_ref = d_abc_ref, i_c_ref = i_c_ref,
             u_dc = u_dc, t = self.clock.t, p_g_ref = p_g_ref,
             u_dc_ref = u_dc_ref, q_g_ref = q_g_ref, u_g = u_g
@@ -193,7 +193,6 @@ class PSCCtrl(Ctrl):
         self.save(data)
 
         # Update the states
-        self.u_c_ref_lim = u_c_ref_lim
         self.clock.update(self.T_s)
         # self.pwm.update(u_c_ref_lim)
         self.power_synch.update(theta_c)

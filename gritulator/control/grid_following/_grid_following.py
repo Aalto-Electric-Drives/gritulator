@@ -125,7 +125,6 @@ class GridFollowingCtrl(Ctrl):
         # States
         self.u_c_i = 0j
         self.theta_p = 0
-        self.u_c_ref_lim = pars.u_gN + 1j*0
         self.u_g_filt = pars.u_gN + 1j*0
  
     def __call__(self, mdl):
@@ -155,6 +154,8 @@ class GridFollowingCtrl(Ctrl):
             u_g_abc = mdl.grid_filter.meas_cap_voltage()
         else:
             u_g_abc = mdl.grid_filter.meas_pcc_voltage()
+        # Obtain the converter voltage calculated with the PWM
+        u_c = self.pwm.realized_voltage
             
         # Define the active and reactive power references at the given time  
         u_dc_ref = self.u_dc_ref(self.clock.t)
@@ -208,7 +209,7 @@ class GridFollowingCtrl(Ctrl):
         # Data logging
         data = Bunch(
             w_c = w_pll, theta_c = self.theta_p, u_c_ref = u_c_ref,
-            u_c_ref_lim = u_c_ref_lim, i_c = i_c, abs_u_g = abs_u_g,
+            u_c = u_c, i_c = i_c, abs_u_g = abs_u_g,
             d_abc_ref = d_abc_ref, i_c_ref = i_c_ref, u_dc = u_dc,
             t = self.clock.t, p_g_ref = p_g_ref, u_dc_ref = u_dc_ref,
             q_g_ref=q_g_ref, u_g = u_g,
@@ -218,10 +219,8 @@ class GridFollowingCtrl(Ctrl):
         # Update the states
         self.theta_p = theta_pll
         self.w_p = w_pll
-        self.u_c_ref_lim = u_c_ref_lim
-        self.current_ctrl.update(self.T_s, u_c_ref_lim)
+        self.current_ctrl.update(self.T_s, u_c)
         self.clock.update(self.T_s)
-        # self.pwm.update(u_c_ref_lim)
         self.pll.update(u_g_q)
         if self.on_v_dc:
             self.dc_bus_control.update(self.T_s, p_g_ref)
