@@ -1,21 +1,5 @@
-'''
-Grid forming power synchronization control (PSC) for grid converters.
+"""power synchronization control methods for grid converters."""
 
-This implements the power synchronization control (PSC) method described in
-[#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be 
-used and is based on [#Har2020].
-
-References
-----------
-.. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, "Robust Analytic
-    Design of Power-Synchronization Control," IEEE Trans. Ind. Electron., Aug.
-    2019, https://doi.org/10.1109/TIE.2018.2874584
-    
-.. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, "Reference-Feedforward
-    Power-Synchronization Control," IEEE Trans. Power Electron., Sep. 2020,
-    https://doi.org/10.1109/TPEL.2020.2970991
-
-'''
 # %%
 from __future__ import annotations
 from collections.abc import Callable
@@ -78,12 +62,26 @@ class PSCCtrlPars:
 # %%
 class PSCCtrl(Ctrl):
     """
-    PSC control for grid converters.
+    power synchronization control for grid converters.
+    
+    This implements the power synchronization control (PSC) method described in
+    [#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be 
+    used and is based on [#Har2020]_.
 
     Parameters
     ----------
     pars : PSCtrlPars
         Control parameters.
+
+    References
+    ----------
+    .. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, "Robust Analytic
+        Design of Power-Synchronization Control," IEEE Trans. Ind. Electron., Aug.
+        2019, https://doi.org/10.1109/TIE.2018.2874584
+        
+    .. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, "Reference-Feedforward
+        Power-Synchronization Control," IEEE Trans. Power Electron., Sep. 2020,
+        https://doi.org/10.1109/TPEL.2020.2970991
 
     """
 

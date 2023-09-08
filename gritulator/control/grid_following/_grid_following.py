@@ -1,7 +1,5 @@
-'''
-This module contains grid-following control for grid-connected converters.
+"""grid following control methods for grid onverters."""
 
-'''
 # %%
 from __future__ import annotations
 from collections.abc import Callable
@@ -69,8 +67,7 @@ class GridFollowingCtrlPars:
 # %%
 class GridFollowingCtrl(Ctrl):
     """
-    Grid following control with the current controller and PLL to synchronize
-    with the AC grid.
+    Grid following control for power converters.
 
     Parameters
     ----------
