@@ -2,16 +2,15 @@
 """
 Electromechanical dynamic AC grid and converter model interconnectors.
 
-    This interconnects the subsystems of a converter with a grid and provides
-    an interface to the solver. More complicated systems could be modeled using
-    a similar template. Peak-valued complex space vectors are used. The space
-    vector models are implemented in stationary coordinates.
+This interconnects the subsystems of a converter with a grid and provides
+an interface to the solver. More complicated systems could be modeled using
+a similar template. Peak-valued complex space vectors are used. The space
+vector models are implemented in stationary coordinates.
 
 """
 
 import numpy as np
 
-from gritulator._helpers import complex2abc
 from gritulator._utils import Bunch
 
 # %%
@@ -25,16 +24,16 @@ class ACFlexSourceAndLFilterModel:
         RL line dynamic model.
     grid_model : FlexSource
         Voltage source model with electromechanical modes of AC grid.
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
     def __init__(
-            self, grid_filter=None, grid_model=None, conv=None):
+            self, grid_filter=None, grid_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -88,8 +87,8 @@ class ACFlexSourceAndLFilterModel:
         self.grid_model.w_g0 = self.grid_model.w_N + x0[1].real
         theta_g0 = np.mod(x0[4].real, 2*np.pi)
         self.grid_model.theta_g0 = theta_g0
-        # calculation of converter-side voltage
-        u_cs0 = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        # calculation of convertererter-side voltage
+        u_cs0 = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         # calculation of grid-side voltage
         e_gs0 = self.grid_model.voltages(t0, theta_g0)
         # update pcc voltage
@@ -116,7 +115,7 @@ class ACFlexSourceAndLFilterModel:
         # Unpack the states
         i_gs, err_w_g, p_gov, x_turb, theta_g = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         e_gs = self.grid_model.voltages(t, theta_g)
         # State derivatives
         rl_f = self.grid_filter.f(i_gs, u_cs, e_gs)
@@ -163,7 +162,7 @@ class ACFlexSourceAndLFilterModel:
         #self.data.theta = np.asarray(self.data.theta)
         # Some useful variables
         self.data.e_gs = self.grid_model.voltages(self.data.t, self.data.theta)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_cs,
@@ -181,16 +180,16 @@ class ACFlexSourceAndLCLFilterModel:
         LCL dynamic model.
     grid_model : FlexSource
         Voltage source model with electromechanical modes of AC grid.
-    conv : Inverter | PWMInverter
+    converter : Inverter | PWMInverter
         Inverter model.
 
     """
     
     def __init__(
-            self, grid_filter=None, grid_model=None, conv=None):
+            self, grid_filter=None, grid_model=None, converter=None):
         self.grid_filter = grid_filter
         self.grid_model = grid_model
-        self.conv = conv
+        self.converter = converter
 
         # Initial time
         self.t0 = 0
@@ -276,7 +275,7 @@ class ACFlexSourceAndLCLFilterModel:
         # Unpack the states
         i_cs, u_fs, i_gs, err_w_g, p_gov, x_turb, theta_g = x
         # Interconnections: outputs for computing the state derivatives
-        u_cs = self.conv.ac_voltage(self.conv.q, self.conv.u_dc0)
+        u_cs = self.converter.ac_voltage(self.converter.q, self.converter.u_dc0)
         e_gs = self.grid_model.voltages(t, theta_g)
         # State derivatives
         lcl_f = self.grid_filter.f(i_cs, u_fs, i_gs, u_cs, e_gs)
@@ -328,7 +327,7 @@ class ACFlexSourceAndLCLFilterModel:
         #self.data.theta = np.asarray(self.data.theta)
         # Some useful variables
         self.data.e_gs = self.grid_model.voltages(self.data.t, self.data.theta)
-        self.data.u_cs = self.conv.ac_voltage(self.data.q, self.conv.u_dc0)
+        self.data.u_cs = self.converter.ac_voltage(self.data.q, self.converter.u_dc0)
         self.data.u_gs = self.grid_filter.pcc_voltages(
             self.data.i_gs,
             self.data.u_cs,
