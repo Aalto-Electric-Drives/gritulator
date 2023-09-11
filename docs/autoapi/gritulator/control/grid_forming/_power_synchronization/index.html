@@ -148,7 +148,11 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_grid_following_control_grid_converter_10kVA.html">10-kVA grid following converter, power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_grid_following_control_LCL_grid_converter_10kVA.html">10-kVA grid following converter with LCL filter, power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
@@ -315,8 +319,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCtrlPars"><code class="docutils literal notranslate"><span class="pre">PSCtrlPars</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCtrl"><code class="docutils literal notranslate"><span class="pre">PSCtrl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrlPars"><code class="docutils literal notranslate"><span class="pre">PSCCtrlPars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrl"><code class="docutils literal notranslate"><span class="pre">PSCCtrl</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PowerCalc"><code class="docutils literal notranslate"><span class="pre">PowerCalc</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PowerCalc.output"><code class="docutils literal notranslate"><span class="pre">PowerCalc.output()</span></code></a></li>
 </ul>
@@ -329,11 +333,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl.output()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.update"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl.update()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.output"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl.output()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.update"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -353,36 +352,18 @@ document.write(`
                   
   <section id="module-gritulator.control.grid_forming._power_synchronization">
 <span id="gritulator-control-grid-forming-power-synchronization"></span><h1><a class="reference internal" href="#module-gritulator.control.grid_forming._power_synchronization" title="gritulator.control.grid_forming._power_synchronization"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming._power_synchronization</span></code></a><a class="headerlink" href="#module-gritulator.control.grid_forming._power_synchronization" title="Permalink to this heading">#</a></h1>
-<p>Grid forming power synchronization control (PSC) for grid converters.</p>
-<p>This implements the power synchronization control (PSC) method described in
-<a class="footnote-reference brackets" href="#har2019" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The alternative reference-feedforward PSC (RFPSC) can also be
-used and is based on [#Har2020].</p>
-<p class="rubric">References</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="har2019" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Harnefors, Hinkkanen, Riaz, Rahman, Zhang, “Robust Analytic
-Design of Power-Synchronization Control,” IEEE Trans. Ind. Electron., Aug.
-2019, <a class="reference external" href="https://doi.org/10.1109/TIE.2018.2874584">https://doi.org/10.1109/TIE.2018.2874584</a></p>
-</aside>
-<aside class="footnote brackets" id="har2020" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>Harnefors, Rahman, Hinkkanen, Routimo, “Reference-Feedforward
-Power-Synchronization Control,” IEEE Trans. Power Electron., Sep. 2020,
-<a class="reference external" href="https://doi.org/10.1109/TPEL.2020.2970991">https://doi.org/10.1109/TPEL.2020.2970991</a></p>
-</aside>
-</aside>
+<p>power synchronization control methods for grid converters.</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PSCtrlPars" title="gritulator.control.grid_forming._power_synchronization.PSCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSCtrlPars</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrlPars" title="gritulator.control.grid_forming._power_synchronization.PSCCtrlPars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSCCtrlPars</span></code></a></p></td>
 <td><p>Parameters for the control system.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PSCtrl" title="gritulator.control.grid_forming._power_synchronization.PSCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSCtrl</span></code></a></p></td>
-<td><p>PSC control for grid converters.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrl" title="gritulator.control.grid_forming._power_synchronization.PSCCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSCCtrl</span></code></a></p></td>
+<td><p>power synchronization control for grid converters.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PowerCalc" title="gritulator.control.grid_forming._power_synchronization.PowerCalc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PowerCalc</span></code></a></p></td>
 <td><p>Internal controller power calculator</p></td>
@@ -393,27 +374,42 @@ Power-Synchronization Control,” IEEE Trans. Power Electron., Sep. 2020,
 <tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl" title="gritulator.control.grid_forming._power_synchronization.CurrentCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CurrentCtrl</span></code></a></p></td>
 <td><p>PSC-based current controller.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl" title="gritulator.control.grid_forming._power_synchronization.DCVoltageControl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DCVoltageControl</span></code></a></p></td>
-<td><p>DC voltage controller</p></td>
-</tr>
 </tbody>
 </table>
 <dl class="py class">
-<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.PSCtrlPars">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control.grid_forming._power_synchronization.</span></span><span class="sig-name descname"><span class="pre">PSCtrlPars</span></span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PSCtrlPars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PSCtrlPars" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.PSCCtrlPars">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control.grid_forming._power_synchronization.</span></span><span class="sig-name descname"><span class="pre">PSCCtrlPars</span></span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PSCCtrlPars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrlPars" title="Permalink to this definition">#</a></dt>
 <dd><p>Parameters for the control system.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.PSCtrl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control.grid_forming._power_synchronization.</span></span><span class="sig-name descname"><span class="pre">PSCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PSCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PSCtrl" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.PSCCtrl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control.grid_forming._power_synchronization.</span></span><span class="sig-name descname"><span class="pre">PSCCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PSCCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrl" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../../_common/index.html#gritulator.control._common.Ctrl" title="gritulator.control._common.Ctrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gritulator.control._common.Ctrl</span></code></a></p>
-<p>PSC control for grid converters.</p>
+<p>power synchronization control for grid converters.</p>
+<p>This implements the power synchronization control (PSC) method described in
+<a class="footnote-reference brackets" href="#har2019" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The alternative reference-feedforward PSC (RFPSC) can also be
+used and is based on <a class="footnote-reference brackets" href="#har2020" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pars</strong> (<a class="reference internal" href="#gritulator.control.grid_forming._power_synchronization.PSCtrlPars" title="gritulator.control.grid_forming._power_synchronization.PSCtrlPars"><em>PSCtrlPars</em></a>) – Control parameters.</p>
+<dd class="field-odd"><p><strong>pars</strong> (<em>PSCtrlPars</em>) – Control parameters.</p>
 </dd>
 </dl>
+<p class="rubric">References</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="har2019" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Harnefors, Hinkkanen, Riaz, Rahman, Zhang, “Robust Analytic
+Design of Power-Synchronization Control,” IEEE Trans. Ind. Electron., Aug.
+2019, <a class="reference external" href="https://doi.org/10.1109/TIE.2018.2874584">https://doi.org/10.1109/TIE.2018.2874584</a></p>
+</aside>
+<aside class="footnote brackets" id="har2020" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Harnefors, Rahman, Hinkkanen, Routimo, “Reference-Feedforward
+Power-Synchronization Control,” IEEE Trans. Power Electron., Sep. 2020,
+<a class="reference external" href="https://doi.org/10.1109/TPEL.2020.2970991">https://doi.org/10.1109/TPEL.2020.2970991</a></p>
+</aside>
+</aside>
 </dd></dl>
 
 <dl class="py class">
@@ -536,52 +532,6 @@ encounter steady-state error when the current reference is saturated.</p>
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.DCVoltageControl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control.grid_forming._power_synchronization.</span></span><span class="sig-name descname"><span class="pre">DCVoltageControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#DCVoltageControl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl" title="Permalink to this definition">#</a></dt>
-<dd><p>DC voltage controller</p>
-<p>This class is used to generate the active power reference for the converter
-controller to ensure that the DC voltage is regulated.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.DCVoltageControl.output">
-<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u_dc_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#DCVoltageControl.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.output" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute the active power reference sent to the converter control system
-to regulate the DC-bus voltage.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>u_dc_ref</strong> (<em>float</em>) – DC-bus voltage reference</p></li>
-<li><p><strong>u_dc</strong> (<em>float</em>) – DC-bus voltage</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>err_dc</strong> (<em>float</em>) – DC capacitance energy error signal</p></li>
-<li><p><strong>p_dc_ref</strong> (<em>float</em>) – power reference based on DC voltage controller (W)</p></li>
-<li><p><strong>p_dc_ref_lim</strong> (<em>float</em>) – saturated power reference based on DC voltage controller (W)</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.DCVoltageControl.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err_dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_dc_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_dc_ref_lim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#DCVoltageControl.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.update" title="Permalink to this definition">#</a></dt>
-<dd><p>Update the state of the DC-voltage controller with anti-windup.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>err_dc</strong> (<em>float</em>) – DC capacitance energy error signal</p></li>
-<li><p><strong>p_dc_ref</strong> (<em>float</em>) – power reference based on DC voltage controller</p></li>
-<li><p><strong>p_dc_ref_lim</strong> (<em>float</em>) – saturated power reference based on DC voltage controller</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 </section>
 </section>
@@ -618,8 +568,8 @@ to regulate the DC-bus voltage.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCtrlPars"><code class="docutils literal notranslate"><span class="pre">PSCtrlPars</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCtrl"><code class="docutils literal notranslate"><span class="pre">PSCtrl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrlPars"><code class="docutils literal notranslate"><span class="pre">PSCCtrlPars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PSCCtrl"><code class="docutils literal notranslate"><span class="pre">PSCCtrl</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PowerCalc"><code class="docutils literal notranslate"><span class="pre">PowerCalc</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.PowerCalc.output"><code class="docutils literal notranslate"><span class="pre">PowerCalc.output()</span></code></a></li>
 </ul>
@@ -632,11 +582,6 @@ to regulate the DC-bus voltage.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl.output()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.update"><code class="docutils literal notranslate"><span class="pre">CurrentCtrl.update()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.output"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl.output()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control.grid_forming._power_synchronization.DCVoltageControl.update"><code class="docutils literal notranslate"><span class="pre">DCVoltageControl.update()</span></code></a></li>
 </ul>
 </li>
 </ul>

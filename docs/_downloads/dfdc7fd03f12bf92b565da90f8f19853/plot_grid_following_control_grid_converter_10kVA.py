@@ -20,6 +20,7 @@ from gritulator import BaseValuesElectrical, plot_grid
 import time
 start_time = time.time()
 
+
 # %%
 # Compute base values based on the nominal values (just for figures).
 
@@ -38,6 +39,7 @@ converter = model.Inverter(u_dc=650)
 mdl = model.ac_grid.StiffSourceAndLFilterModel(
     grid_filter, grid_model, converter)
 
+
 # %%
 # Configure the control system.
 
@@ -55,7 +57,7 @@ ctrl = control.grid_following.GridFollowingCtrl(pars)
 # %%
 # Set the time-dependent reference and disturbance signals.
 
-# Set the active and reactive power references.
+# Set the active and reactive power references
 ctrl.p_g_ref = lambda t: (t > .02)*(5e3)
 ctrl.q_g_ref = lambda t: (t > .04)*(4e3)
 
@@ -63,8 +65,9 @@ ctrl.q_g_ref = lambda t: (t > .04)*(4e3)
 e_g_abs_var =  lambda t: np.sqrt(2/3)*400
 mdl.grid_model.e_g_abs = e_g_abs_var # grid voltage magnitude
 
+
 # %%
-# Create the simulation object and simulate it
+# Create the simulation object and simulate it.
 
 sim = model.Simulation(mdl, ctrl, pwm=False)
 sim.simulate(t_stop = .1)
@@ -72,7 +75,8 @@ sim.simulate(t_stop = .1)
 # Print the execution time
 print('\nExecution time: {:.2f} s'.format((time.time() - start_time)))
 
+
 # %%
-# Plot results in SI or per unit values
+# Plot results in SI or per unit values.
 
 plot_grid(sim, base=base_values,plot_pcc_voltage=True)

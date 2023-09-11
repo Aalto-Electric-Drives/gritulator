@@ -30,7 +30,7 @@ current controller.
 
 Imports.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-23
+.. GENERATED FROM PYTHON SOURCE LINES 14-24
 
 .. code-block:: default
 
@@ -50,11 +50,12 @@ Imports.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-25
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Compute base values based on the nominal values (just for figures).
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-30
+.. GENERATED FROM PYTHON SOURCE LINES 26-31
 
 .. code-block:: default
 
@@ -70,11 +71,11 @@ Compute base values based on the nominal values (just for figures).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-32
+.. GENERATED FROM PYTHON SOURCE LINES 32-33
 
 Create the system model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-41
+.. GENERATED FROM PYTHON SOURCE LINES 33-43
 
 .. code-block:: default
 
@@ -94,11 +95,12 @@ Create the system model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+
+.. GENERATED FROM PYTHON SOURCE LINES 44-45
 
 Configure the control system.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-55
+.. GENERATED FROM PYTHON SOURCE LINES 45-57
 
 .. code-block:: default
 
@@ -121,16 +123,16 @@ Configure the control system.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-66
+.. GENERATED FROM PYTHON SOURCE LINES 59-69
 
 .. code-block:: default
 
 
-    # Set the active and reactive power references.
+    # Set the active and reactive power references
     ctrl.p_g_ref = lambda t: (t > .02)*(5e3)
     ctrl.q_g_ref = lambda t: (t > .04)*(4e3)
 
@@ -145,11 +147,12 @@ Set the time-dependent reference and disturbance signals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
 
-Create the simulation object and simulate it
+.. GENERATED FROM PYTHON SOURCE LINES 70-71
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-75
+Create the simulation object and simulate it.
+
+.. GENERATED FROM PYTHON SOURCE LINES 71-79
 
 .. code-block:: default
 
@@ -164,21 +167,22 @@ Create the simulation object and simulate it
 
 
 
+
 .. rst-class:: sphx-glr-script-out
 
  .. code-block:: none
 
 
-    Execution time: 0.58 s
+    Execution time: 1.03 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 80-81
 
-Plot results in SI or per unit values
+Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 81-83
 
 .. code-block:: default
 
@@ -211,7 +215,7 @@ Plot results in SI or per unit values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.572 seconds)
+   **Total running time of the script:** (0 minutes 2.238 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_grid_converter_10kVA.py:

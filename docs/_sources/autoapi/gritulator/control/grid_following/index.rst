@@ -47,8 +47,7 @@ Classes
    Bases: :py:obj:`gritulator.control._common.Ctrl`
 
    
-   Grid following control with the current controller and PLL to synchronize
-   with the AC grid.
+   Grid following control for power converters.
 
    :param pars: Control parameters.
    :type pars: GridFollowingCtrlPars

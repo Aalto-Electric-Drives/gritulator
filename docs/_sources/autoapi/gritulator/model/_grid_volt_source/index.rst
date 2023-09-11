@@ -15,7 +15,6 @@
    synchronous generator are considered. In this module, all space vectors are in
    stationary coordinates.
 
-
    ..
        !! processed by numpydoc !!
 

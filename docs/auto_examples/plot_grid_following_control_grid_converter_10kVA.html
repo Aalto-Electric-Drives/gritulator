@@ -51,8 +51,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/plot_grid_following_control_grid_converter_10kVA';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10-kVA grid following converter, dc-bus voltage control" href="plot_grid_following_control_vdc_mode_grid_converter_10kVA.html" />
-    <link rel="prev" title="Examples" href="index.html" />
+    <link rel="next" title="10-kVA grid following converter with LCL filter, power control" href="plot_grid_following_control_LCL_grid_converter_10kVA.html" />
+    <link rel="prev" title="6.9-kVA grid forming converter, power synchronization control (PSC)" href="plot_power_synchronization_control_grid_converter_6.9kVA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -150,7 +150,11 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10-kVA grid following converter, power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_LCL_grid_converter_10kVA.html">10-kVA grid following converter with LCL filter, power control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
@@ -366,7 +370,7 @@ current controller.</p>
 </pre></div>
 </div>
 <p>Set the time-dependent reference and disturbance signals.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the active and reactive power references.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the active and reactive power references</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">p_g_ref</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.02</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">5e3</span><span class="p">)</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">q_g_ref</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.04</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">4e3</span><span class="p">)</span>
 
@@ -375,7 +379,7 @@ current controller.</p>
 <span class="n">mdl</span><span class="o">.</span><span class="n">grid_model</span><span class="o">.</span><span class="n">e_g_abs</span> <span class="o">=</span> <span class="n">e_g_abs_var</span> <span class="c1"># grid voltage magnitude</span>
 </pre></div>
 </div>
-<p>Create the simulation object and simulate it</p>
+<p>Create the simulation object and simulate it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">pwm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_stop</span> <span class="o">=</span> <span class="mf">.1</span><span class="p">)</span>
 
@@ -383,10 +387,10 @@ current controller.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Execution time: </span><span class="si">{:.2f}</span><span class="s1"> s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 0.58 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 1.03 s
 </pre></div>
 </div>
-<p>Plot results in SI or per unit values</p>
+<p>Plot results in SI or per unit values.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_grid</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base_values</span><span class="p">,</span><span class="n">plot_pcc_voltage</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -394,7 +398,7 @@ current controller.</p>
 <li><img src="../_images/sphx_glr_plot_grid_following_control_grid_converter_10kVA_001.png" srcset="../_images/sphx_glr_plot_grid_following_control_grid_converter_10kVA_001.png" alt="plot grid following control grid converter 10kVA" class = "sphx-glr-multi-img"/></li>
 <li><img src="../_images/sphx_glr_plot_grid_following_control_grid_converter_10kVA_002.png" srcset="../_images/sphx_glr_plot_grid_following_control_grid_converter_10kVA_002.png" alt="plot grid following control grid converter 10kVA" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.572 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.238 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-grid-following-control-grid-converter-10kva-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/dfdc7fd03f12bf92b565da90f8f19853/plot_grid_following_control_grid_converter_10kVA.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_grid_following_control_grid_converter_10kVA.py</span></code></a></p>
@@ -419,20 +423,20 @@ current controller.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="plot_power_synchronization_control_grid_converter_6.9kVA.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Examples</p>
+        <p class="prev-next-title">6.9-kVA grid forming converter, power synchronization control (PSC)</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_grid_following_control_vdc_mode_grid_converter_10kVA.html"
+       href="plot_grid_following_control_LCL_grid_converter_10kVA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">10-kVA grid following converter, dc-bus voltage control</p>
+        <p class="prev-next-title">10-kVA grid following converter with LCL filter, power control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

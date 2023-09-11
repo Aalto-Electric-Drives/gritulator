@@ -7,21 +7,7 @@
 
 .. autoapi-nested-parse::
 
-   Grid forming power synchronization control (PSC) for grid converters.
-
-   This implements the power synchronization control (PSC) method described in
-   [#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be
-   used and is based on [#Har2020].
-
-   .. rubric:: References
-
-   .. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, "Robust Analytic
-       Design of Power-Synchronization Control," IEEE Trans. Ind. Electron., Aug.
-       2019, https://doi.org/10.1109/TIE.2018.2874584
-
-   .. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, "Reference-Feedforward
-       Power-Synchronization Control," IEEE Trans. Power Electron., Sep. 2020,
-       https://doi.org/10.1109/TPEL.2020.2970991
+   power synchronization control methods for grid converters.
 
    ..
        !! processed by numpydoc !!
@@ -35,17 +21,16 @@ Classes
 
 .. autoapisummary::
 
-   gritulator.control.grid_forming._power_synchronization.PSCtrlPars
-   gritulator.control.grid_forming._power_synchronization.PSCtrl
+   gritulator.control.grid_forming._power_synchronization.PSCCtrlPars
+   gritulator.control.grid_forming._power_synchronization.PSCCtrl
    gritulator.control.grid_forming._power_synchronization.PowerCalc
    gritulator.control.grid_forming._power_synchronization.PowerSynch
    gritulator.control.grid_forming._power_synchronization.CurrentCtrl
-   gritulator.control.grid_forming._power_synchronization.DCVoltageControl
 
 
 
 
-.. py:class:: PSCtrlPars
+.. py:class:: PSCCtrlPars
 
 
    
@@ -69,16 +54,30 @@ Classes
    ..
        !! processed by numpydoc !!
 
-.. py:class:: PSCtrl(pars)
+.. py:class:: PSCCtrl(pars)
 
 
    Bases: :py:obj:`gritulator.control._common.Ctrl`
 
    
-   PSC control for grid converters.
+   power synchronization control for grid converters.
+
+   This implements the power synchronization control (PSC) method described in
+   [#Har2019]_. The alternative reference-feedforward PSC (RFPSC) can also be
+   used and is based on [#Har2020]_.
 
    :param pars: Control parameters.
    :type pars: PSCtrlPars
+
+   .. rubric:: References
+
+   .. [#Har2019] Harnefors, Hinkkanen, Riaz, Rahman, Zhang, "Robust Analytic
+       Design of Power-Synchronization Control," IEEE Trans. Ind. Electron., Aug.
+       2019, https://doi.org/10.1109/TIE.2018.2874584
+
+   .. [#Har2020] Harnefors, Rahman, Hinkkanen, Routimo, "Reference-Feedforward
+       Power-Synchronization Control," IEEE Trans. Power Electron., Sep. 2020,
+       https://doi.org/10.1109/TPEL.2020.2970991
 
 
 
@@ -310,93 +309,6 @@ Classes
       :type i_c: complex
       :param i_c_filt: low-pass filtered converter current in dq frame (A).
       :type i_c_filt: complex
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
-
-
-.. py:class:: DCVoltageControl(pars)
-
-
-   
-   DC voltage controller
-
-   This class is used to generate the active power reference for the converter
-   controller to ensure that the DC voltage is regulated.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
-   .. py:method:: output(u_dc_ref, u_dc)
-
-      
-      Compute the active power reference sent to the converter control system
-      to regulate the DC-bus voltage.
-
-      :param u_dc_ref: DC-bus voltage reference
-      :type u_dc_ref: float
-      :param u_dc: DC-bus voltage
-      :type u_dc: float
-
-      :returns: * **err_dc** (*float*) -- DC capacitance energy error signal
-                * **p_dc_ref** (*float*) -- power reference based on DC voltage controller (W)
-                * **p_dc_ref_lim** (*float*) -- saturated power reference based on DC voltage controller (W)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
-
-   .. py:method:: update(err_dc, p_dc_ref, p_dc_ref_lim)
-
-      
-      Update the state of the DC-voltage controller with anti-windup.
-
-      :param err_dc: DC capacitance energy error signal
-      :type err_dc: float
-      :param p_dc_ref: power reference based on DC voltage controller
-      :type p_dc_ref: float
-      :param p_dc_ref_lim: saturated power reference based on DC voltage controller
-      :type p_dc_ref_lim: float
 
 
 

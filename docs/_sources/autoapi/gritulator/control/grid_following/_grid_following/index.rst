@@ -7,7 +7,7 @@
 
 .. autoapi-nested-parse::
 
-   This module contains grid-following control for grid-connected converters.
+   grid following control methods for grid onverters.
 
    ..
        !! processed by numpydoc !!
@@ -60,8 +60,7 @@ Classes
    Bases: :py:obj:`gritulator.control._common.Ctrl`
 
    
-   Grid following control with the current controller and PLL to synchronize
-   with the AC grid.
+   Grid following control for power converters.
 
    :param pars: Control parameters.
    :type pars: GridFollowingCtrlPars
@@ -236,7 +235,7 @@ Classes
    .. py:method:: output(p_g_ref, q_g_ref)
 
       
-      Power reference genetator.
+      Current reference genetator.
 
       :param p_g_ref: active power reference
       :type p_g_ref: float

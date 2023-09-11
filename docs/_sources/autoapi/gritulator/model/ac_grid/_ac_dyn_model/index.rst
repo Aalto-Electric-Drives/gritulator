@@ -9,10 +9,10 @@
 
    Electromechanical dynamic AC grid and converter model interconnectors.
 
-       This interconnects the subsystems of a converter with a grid and provides
-       an interface to the solver. More complicated systems could be modeled using
-       a similar template. Peak-valued complex space vectors are used. The space
-       vector models are implemented in stationary coordinates.
+   This interconnects the subsystems of a converter with a grid and provides
+   an interface to the solver. More complicated systems could be modeled using
+   a similar template. Peak-valued complex space vectors are used. The space
+   vector models are implemented in stationary coordinates.
 
    ..
        !! processed by numpydoc !!
@@ -32,7 +32,7 @@ Classes
 
 
 
-.. py:class:: ACFlexSourceAndLFilterModel(grid_filter=None, grid_model=None, conv=None)
+.. py:class:: ACFlexSourceAndLFilterModel(grid_filter=None, grid_model=None, converter=None)
 
 
    
@@ -42,8 +42,8 @@ Classes
    :type grid_filter: LFilter
    :param grid_model: Voltage source model with electromechanical modes of AC grid.
    :type grid_model: FlexSource
-   :param conv: Inverter model.
-   :type conv: Inverter | PWMInverter
+   :param converter: Inverter model.
+   :type converter: Inverter | PWMInverter
 
 
 
@@ -190,7 +190,7 @@ Classes
           !! processed by numpydoc !!
 
 
-.. py:class:: ACFlexSourceAndLCLFilterModel(grid_filter=None, grid_model=None, conv=None)
+.. py:class:: ACFlexSourceAndLCLFilterModel(grid_filter=None, grid_model=None, converter=None)
 
 
    
@@ -200,8 +200,8 @@ Classes
    :type grid_filter: LCLFilter
    :param grid_model: Voltage source model with electromechanical modes of AC grid.
    :type grid_model: FlexSource
-   :param conv: Inverter model.
-   :type conv: Inverter | PWMInverter
+   :param converter: Inverter model.
+   :type converter: Inverter | PWMInverter
 
 
 

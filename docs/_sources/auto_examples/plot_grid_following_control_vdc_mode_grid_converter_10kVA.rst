@@ -31,7 +31,7 @@ current controller.
 
 Imports.
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-24
+.. GENERATED FROM PYTHON SOURCE LINES 15-25
 
 .. code-block:: default
 
@@ -51,11 +51,12 @@ Imports.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-26
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-27
 
 Compute base values based on the nominal values (just for figures).
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-31
+.. GENERATED FROM PYTHON SOURCE LINES 27-32
 
 .. code-block:: default
 
@@ -71,11 +72,11 @@ Compute base values based on the nominal values (just for figures).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
 
 Create the system model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-55
+.. GENERATED FROM PYTHON SOURCE LINES 34-56
 
 .. code-block:: default
 
@@ -86,7 +87,7 @@ Create the system model.
     grid_model = model.StiffSource(w_N=2*np.pi*50)
     # DC-bus dynamic model
     dc_model = model.dc_bus.DCBus(C_dc = 1e-3, u_dc0=600, G_dc=0)
-    converter = model.Inverter(u_dc=650)
+    converter = model.Inverter(u_dc=600)
 
     # if you do not want to simulate any DC bus dynamics, you should define:
     # dc_model = None
@@ -108,11 +109,11 @@ Create the system model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 57-58
 
 Configure the control system.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-72
+.. GENERATED FROM PYTHON SOURCE LINES 58-73
 
 .. code-block:: default
 
@@ -138,11 +139,11 @@ Configure the control system.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 74-75
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-89
+.. GENERATED FROM PYTHON SOURCE LINES 75-91
 
 .. code-block:: default
 
@@ -168,11 +169,12 @@ Set the time-dependent reference and disturbance signals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-91
 
-Create the simulation object and simulate it
+.. GENERATED FROM PYTHON SOURCE LINES 92-93
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-98
+Create the simulation object and simulate it.
+
+.. GENERATED FROM PYTHON SOURCE LINES 93-101
 
 .. code-block:: default
 
@@ -187,21 +189,22 @@ Create the simulation object and simulate it
 
 
 
+
 .. rst-class:: sphx-glr-script-out
 
  .. code-block:: none
 
 
-    Execution time: 1.09 s
+    Execution time: 2.01 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-100
+.. GENERATED FROM PYTHON SOURCE LINES 102-103
 
-Plot results in SI or per unit values
+Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-102
+.. GENERATED FROM PYTHON SOURCE LINES 103-105
 
 .. code-block:: default
 
@@ -234,7 +237,7 @@ Plot results in SI or per unit values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.835 seconds)
+   **Total running time of the script:** (0 minutes 3.186 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py:

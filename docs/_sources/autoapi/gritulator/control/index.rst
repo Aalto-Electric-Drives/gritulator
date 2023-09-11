@@ -45,6 +45,7 @@ Classes
 
 .. autoapisummary::
 
+   gritulator.control.ComplexFFPICtrl
    gritulator.control.ComplexPICtrl
    gritulator.control.RateLimiter
    gritulator.control.DCBusCtrl
@@ -52,6 +53,141 @@ Classes
    gritulator.control.PWM
 
 
+
+
+.. py:class:: ComplexFFPICtrl(k_p, k_i, k_t=None, L_f=None)
+
+
+   
+   2DOF Synchronous-frame complex-vector PI controller with feedforward.
+
+   This implements a discrete-time 2DOF synchronous-frame complex-vector PI
+   controller similar to [#Bri2000]_, with an additional feedforward signal.
+   The gain selection corresponding to internal-model-control (IMC) is
+   equivalent to the continuous-time version given in [#Har2009]_::
+
+       u = k_p*(i_ref - i) + k_i/s*(i_ref - i) + 1j*w*L_f*i + u_g_ff
+
+   where `u` is the controller output, `i_ref` is the reference signal, `i` is
+   the feedback signal, u_g_ff is the (filtered) feedforward signal, `w` is
+   the angular speed of synchronous coordinates, '1j*w*L_f' is the decoupling
+   term estimate, and `1/s` refers to integration. This algorithm is
+   compatible with both real and complex signals. The integrator anti-windup
+   is implemented based on the realized controller output.
+
+   :param k_p: Proportional gain.
+   :type k_p: float
+   :param k_i: Integral gain.
+   :type k_i: float
+   :param k_t: Reference-feedforward gain. The default is `k_p`.
+   :type k_t: float, optional
+   :param L_f: Synchronous frame decoupling gain. The default is 0.
+   :type L_f: float, optional
+
+   .. attribute:: v
+
+      Input disturbance estimate.
+
+      :type: complex
+
+   .. attribute:: u_i
+
+      Integral state.
+
+      :type: complex
+
+   .. rubric:: Notes
+
+   This contoller can be used, e.g., as a current controller. In this case,
+   `i` corresponds to the converter current and `u` to the converter voltage.
+
+   .. rubric:: References
+
+   .. [#Bri2000] Briz, Degner, Lorenz, "Analysis and design of current
+      regulators using complex vectors," IEEE Trans. Ind. Appl., 2000,
+      https://doi.org/10.1109/28.845057
+
+   .. [#Har2009] Harnefors, Bongiorno, "Current controller design
+      for passivity of the input admittance," 2009 13th European Conference
+      on Power Electronics and Applications, Barcelona, Spain, 2009.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+   .. py:method:: output(i_ref, i, u_ff, w)
+
+      
+      Compute the controller output.
+
+      :param i_ref: Reference signal.
+      :type i_ref: complex
+      :param i: Feedback signal.
+      :type i: complex
+      :param u_ff: Feedforward signal.
+      :type u_ff: complex
+      :param w: Angular speed of the reference frame (rad/s).
+      :type w: float
+
+      :returns: **u** -- Controller output.
+      :rtype: complex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+   .. py:method:: update(T_s, u_lim)
+
+      
+      Update the integral state.
+
+      :param T_s: Sampling period (s).
+      :type T_s: float
+      :param u_lim: Realized (limited) controller output. If the actuator does not
+                    saturate, ``u_lim = u``.
+      :type u_lim: complex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
 
 .. py:class:: ComplexPICtrl(k_p, k_i, k_t=None)

@@ -14,6 +14,40 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="6.9-kVA grid forming converter, power synchronization control (PSC)">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_power_synchronization_control_grid_converter_6.9kVA_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_power_synchronization_control_grid_converter_6.9kVA.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">6.9-kVA grid forming converter, power synchronization control (PSC)</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="10-kVA grid following converter, power control">
 
 .. only:: html
@@ -26,6 +60,40 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">10-kVA grid following converter, power control</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="10-kVA grid following converter with LCL filter, power control">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_grid_following_control_LCL_grid_converter_10kVA_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">10-kVA grid following converter with LCL filter, power control</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</div>
     </div>
 
 
@@ -54,7 +122,11 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 .. toctree::
    :hidden:
 
+   /auto_examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA
+   /auto_examples/plot_power_synchronization_control_grid_converter_6.9kVA
    /auto_examples/plot_grid_following_control_grid_converter_10kVA
+   /auto_examples/plot_grid_following_control_LCL_grid_converter_10kVA
+   /auto_examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model
    /auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA
 
 
