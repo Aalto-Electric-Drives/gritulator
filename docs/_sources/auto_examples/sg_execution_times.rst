@@ -6,18 +6,18 @@
 
 Computation times
 =================
-**01:40.963** total execution time for **auto_examples** files:
+**01:04.678** total execution time for **auto_examples** files:
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py` (``plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py``)                                                               | 01:06.079 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py` (``plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py``)                                                               | 00:41.829 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py` (``plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py``) | 00:13.524 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py` (``plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py``) | 00:08.894 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_power_synchronization_control_grid_converter_6.9kVA.py` (``plot_power_synchronization_control_grid_converter_6.9kVA.py``)                                             | 00:13.135 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_power_synchronization_control_grid_converter_6.9kVA.py` (``plot_power_synchronization_control_grid_converter_6.9kVA.py``)                                             | 00:08.372 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py` (``plot_grid_following_control_vdc_mode_grid_converter_10kVA.py``)                                           | 00:03.186 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py` (``plot_grid_following_control_vdc_mode_grid_converter_10kVA.py``)                                           | 00:02.150 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py` (``plot_grid_following_control_LCL_grid_converter_10kVA.py``)                                                     | 00:02.801 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py` (``plot_grid_following_control_LCL_grid_converter_10kVA.py``)                                                     | 00:01.892 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_grid_following_control_grid_converter_10kVA.py` (``plot_grid_following_control_grid_converter_10kVA.py``)                                                             | 00:02.238 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_grid_following_control_grid_converter_10kVA.py` (``plot_grid_following_control_grid_converter_10kVA.py``)                                                             | 00:01.542 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
