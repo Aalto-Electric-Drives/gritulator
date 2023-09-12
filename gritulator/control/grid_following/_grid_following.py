@@ -204,7 +204,6 @@ class GridFollowingCtrl(Ctrl):
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_p, self.w_g)
-        u_c_ref_lim = self.pwm.realized_voltage
 
         # Data logging
         data = Bunch(
