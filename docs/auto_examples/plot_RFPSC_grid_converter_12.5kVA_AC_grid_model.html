@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>12.5-kVA grid forming converter(RFPSC), with electromechanical grid model. &#8212; gritulator 0.0.1 documentation</title>
+    <title>12.5-kVA grid forming converter (RFPSC), with electromechanical grid model. &#8212; gritulator 0.0.1 documentation</title>
   
   
   
@@ -154,7 +154,7 @@
 <li class="toctree-l2"><a class="reference internal" href="plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_grid_converter_10kVA.html">10-kVA grid following converter, power control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_LCL_grid_converter_10kVA.html">10-kVA grid following converter with LCL filter, power control</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
@@ -307,7 +307,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</h1>
+    <h1>12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -327,9 +327,10 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="kva-grid-forming-converter-rfpsc-with-electromechanical-grid-model">
-<span id="sphx-glr-auto-examples-plot-rfpsc-grid-converter-12-5kva-ac-grid-model-py"></span><h1>12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.<a class="headerlink" href="#kva-grid-forming-converter-rfpsc-with-electromechanical-grid-model" title="Permalink to this heading">#</a></h1>
-<p>This example simulates a grid forming controlled converter connected to a
-weak grid. The control system includes a power synchronization loop (PSL) to
+<span id="sphx-glr-auto-examples-plot-rfpsc-grid-converter-12-5kva-ac-grid-model-py"></span><h1>12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.<a class="headerlink" href="#kva-grid-forming-converter-rfpsc-with-electromechanical-grid-model" title="Permalink to this heading">#</a></h1>
+<p>This example simulates a grid forming controlled converter, which uses reference
+feedforward power synchronization control (RFPSC) method connected to a weak
+grid. The control system includes a power synchronization loop (PSL) to
 synchronize with the grid, an inner P_type current controller used to damp the
 current oscillations enhanced with a reference-feedforward term. The converter
 is connected to an AC grid with electromechanical dynamics through an LCL
@@ -350,11 +351,12 @@ filter and an inductive impedance.</p>
 </pre></div>
 </div>
 <p>Configure the system model (grid model).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid_filter</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">LCLFilter</span><span class="p">(</span><span class="n">L_fc</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span> <span class="n">C_f</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">,</span> <span class="n">L_fg</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span> <span class="n">L_g</span><span class="o">=</span><span class="mf">20e-3</span><span class="p">,</span> <span class="n">R_g</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid_filter</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">LCLFilter</span><span class="p">(</span><span class="n">L_fc</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span> <span class="n">C_f</span><span class="o">=</span><span class="mf">10e-6</span><span class="p">,</span> <span class="n">L_fg</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span> <span class="n">L_g</span><span class="o">=</span><span class="mf">20e-3</span><span class="p">)</span>
 <span class="n">grid_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">FlexSource</span><span class="p">(</span><span class="n">w_N</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="p">,</span> <span class="n">S_grid</span><span class="o">=</span><span class="mf">500e3</span><span class="p">,</span> <span class="n">H_g</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">r_d</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
 <span class="n">converter</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Inverter</span><span class="p">(</span><span class="n">u_dc</span><span class="o">=</span><span class="mi">650</span><span class="p">)</span>
 
-<span class="n">mdl</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ac_grid</span><span class="o">.</span><span class="n">ACFlexSourceAndLCLFilterModel</span><span class="p">(</span><span class="n">grid_filter</span><span class="p">,</span> <span class="n">grid_model</span><span class="p">,</span> <span class="n">converter</span><span class="p">)</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">ac_grid</span><span class="o">.</span><span class="n">ACFlexSourceAndLCLFilterModel</span><span class="p">(</span>
+    <span class="n">grid_filter</span><span class="p">,</span> <span class="n">grid_model</span><span class="p">,</span> <span class="n">converter</span><span class="p">)</span>
 
 <span class="n">pars</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">grid_forming</span><span class="o">.</span><span class="n">PSCCtrlPars</span><span class="p">(</span>
         <span class="n">L_f</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span>
@@ -389,7 +391,7 @@ filter and an inductive impedance.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Execution time: </span><span class="si">{:.2f}</span><span class="s1"> s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 40.50 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 41.03 s
 </pre></div>
 </div>
 <p>Plot results in SI or per unit values.</p>
@@ -400,7 +402,7 @@ filter and an inductive impedance.</p>
 <li><img src="../_images/sphx_glr_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model_001.png" srcset="../_images/sphx_glr_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model_001.png" alt="plot RFPSC grid converter 12.5kVA AC grid model" class = "sphx-glr-multi-img"/></li>
 <li><img src="../_images/sphx_glr_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model_002.png" srcset="../_images/sphx_glr_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model_002.png" alt="plot RFPSC grid converter 12.5kVA AC grid model" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 41.829 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 42.344 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-rfpsc-grid-converter-12-5kva-ac-grid-model-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/cef7256ab71e4e6feecb08405480817c/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py</span></code></a></p>

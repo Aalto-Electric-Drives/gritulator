@@ -23,7 +23,7 @@ Classes
 
    gritulator.control._common.PWM
    gritulator.control._common.PICtrl
-   gritulator.control._common.DCBusCtrl
+   gritulator.control._common.DCBusVoltCtrl
    gritulator.control._common.ComplexPICtrl
    gritulator.control._common.ComplexFFPICtrl
    gritulator.control._common.RateLimiter
@@ -270,7 +270,7 @@ Classes
           !! processed by numpydoc !!
 
 
-.. py:class:: DCBusCtrl(zeta, alpha_dc, p_max=np.inf)
+.. py:class:: DCBusVoltCtrl(zeta, alpha_dc, p_max=np.inf)
 
 
    Bases: :py:obj:`PICtrl`

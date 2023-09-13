@@ -152,7 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_grid_following_control_grid_converter_10kVA.html">10-kVA grid following converter, power control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_grid_following_control_LCL_grid_converter_10kVA.html">10-kVA grid following converter with LCL filter, power control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
@@ -332,7 +332,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.PICtrl.update"><code class="docutils literal notranslate"><span class="pre">PICtrl.update()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.DCBusCtrl"><code class="docutils literal notranslate"><span class="pre">DCBusCtrl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.DCBusVoltCtrl"><code class="docutils literal notranslate"><span class="pre">DCBusVoltCtrl</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl.v"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl.v</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl.u_i"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl.u_i</span></code></a></li>
@@ -387,7 +387,7 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="#gritulator.control._common.PICtrl" title="gritulator.control._common.PICtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PICtrl</span></code></a></p></td>
 <td><p>2DOF PI controller.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control._common.DCBusCtrl" title="gritulator.control._common.DCBusCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DCBusCtrl</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.control._common.DCBusVoltCtrl" title="gritulator.control._common.DCBusVoltCtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DCBusVoltCtrl</span></code></a></p></td>
 <td><p>PI DC-bus voltage controller.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#gritulator.control._common.ComplexPICtrl" title="gritulator.control._common.ComplexPICtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ComplexPICtrl</span></code></a></p></td>
@@ -584,8 +584,8 @@ saturate, <code class="docutils literal notranslate"><span class="pre">u_lim</sp
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="gritulator.control._common.DCBusCtrl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control._common.</span></span><span class="sig-name descname"><span class="pre">DCBusCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/control/_common.html#DCBusCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control._common.DCBusCtrl" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="gritulator.control._common.DCBusVoltCtrl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.control._common.</span></span><span class="sig-name descname"><span class="pre">DCBusVoltCtrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/control/_common.html#DCBusVoltCtrl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control._common.DCBusVoltCtrl" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#gritulator.control._common.PICtrl" title="gritulator.control._common.PICtrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PICtrl</span></code></a></p>
 <p>PI DC-bus voltage controller.</p>
 <p>This provides an interface for a DC-bus controller. The gains are
@@ -917,7 +917,7 @@ to simplify plotting and analysis of the stored data.</p>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.PICtrl.update"><code class="docutils literal notranslate"><span class="pre">PICtrl.update()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.DCBusCtrl"><code class="docutils literal notranslate"><span class="pre">DCBusCtrl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.DCBusVoltCtrl"><code class="docutils literal notranslate"><span class="pre">DCBusVoltCtrl</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl.v"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl.v</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.control._common.ComplexPICtrl.u_i"><code class="docutils literal notranslate"><span class="pre">ComplexPICtrl.u_i</span></code></a></li>

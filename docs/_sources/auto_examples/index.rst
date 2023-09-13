@@ -82,7 +82,7 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.">
+    <div class="sphx-glr-thumbcontainer" tooltip="12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.">
 
 .. only:: html
 
@@ -93,7 +93,7 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.</div>
+      <div class="sphx-glr-thumbnail-title">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.</div>
     </div>
 
 

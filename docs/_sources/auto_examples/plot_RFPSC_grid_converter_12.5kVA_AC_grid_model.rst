@@ -18,21 +18,22 @@
 .. _sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:
 
 
-12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.
+12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.
 ==============================================
     
-This example simulates a grid forming controlled converter connected to a
-weak grid. The control system includes a power synchronization loop (PSL) to
+This example simulates a grid forming controlled converter, which uses reference
+feedforward power synchronization control (RFPSC) method connected to a weak
+grid. The control system includes a power synchronization loop (PSL) to
 synchronize with the grid, an inner P_type current controller used to damp the
 current oscillations enhanced with a reference-feedforward term. The converter
 is connected to an AC grid with electromechanical dynamics through an LCL
 filter and an inductive impedance.
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-17
+.. GENERATED FROM PYTHON SOURCE LINES 17-18
 
 Imports.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-26
+.. GENERATED FROM PYTHON SOURCE LINES 18-27
 
 .. code-block:: default
 
@@ -52,11 +53,11 @@ Imports.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
 
 Compute base values based on the nominal values (just for figures).
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-32
+.. GENERATED FROM PYTHON SOURCE LINES 29-33
 
 .. code-block:: default
 
@@ -71,20 +72,21 @@ Compute base values based on the nominal values (just for figures).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-34
+.. GENERATED FROM PYTHON SOURCE LINES 34-35
 
 Configure the system model (grid model).
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-53
+.. GENERATED FROM PYTHON SOURCE LINES 35-55
 
 .. code-block:: default
 
 
-    grid_filter = model.LCLFilter(L_fc=3e-3, C_f=10e-6, L_fg=3e-3, L_g=20e-3, R_g=0)
+    grid_filter = model.LCLFilter(L_fc=3e-3, C_f=10e-6, L_fg=3e-3, L_g=20e-3)
     grid_model = model.FlexSource(w_N=2*np.pi*50, S_grid=500e3, H_g=2, r_d = 0.05)
     converter = model.Inverter(u_dc=650)
     
-    mdl = model.ac_grid.ACFlexSourceAndLCLFilterModel(grid_filter, grid_model, converter)
+    mdl = model.ac_grid.ACFlexSourceAndLCLFilterModel(
+        grid_filter, grid_model, converter)
 
     pars = control.grid_forming.PSCCtrlPars(
             L_f=3e-3,
@@ -105,11 +107,11 @@ Configure the system model (grid model).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-55
+.. GENERATED FROM PYTHON SOURCE LINES 56-57
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-74
+.. GENERATED FROM PYTHON SOURCE LINES 57-76
 
 .. code-block:: default
 
@@ -141,16 +143,16 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 40.50 s
+    Execution time: 41.03 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-76
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-78
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
 
 .. code-block:: default
 
@@ -183,7 +185,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 41.829 seconds)
+   **Total running time of the script:** (0 minutes 42.344 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:
