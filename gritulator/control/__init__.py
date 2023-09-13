@@ -4,7 +4,7 @@ from gritulator.control._common import (
     ComplexFFPICtrl,
     ComplexPICtrl,
     RateLimiter,
-    DCBusCtrl,
+    DCBusVoltCtrl,
     PICtrl,
     PWM
     )
@@ -16,7 +16,7 @@ __all__ = [
     "ComplexFFPICtrl",
     "ComplexPICtrl",
     "RateLimiter",
-    "DCBusCtrl",
+    "DCBusVoltCtrl",
     "PICtrl",
     "PWM",
     "grid_following",

@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
-from gritulator.control._common import Ctrl, PWM, Clock, DCBusCtrl
+from gritulator.control._common import Ctrl, PWM, Clock, DCBusVoltCtrl
 
 # %%
 @dataclass
@@ -95,7 +95,8 @@ class PSCCtrl(Ctrl):
         self.power_calc = PowerCalc(pars)
         self.current_ctrl = CurrentCtrl(pars)
         self.power_synch = PowerSynch(pars)
-        self.dc_bus_control = DCBusCtrl(pars.zeta_dc, pars.w_0_dc, pars.p_max)
+        self.dc_bus_volt_ctrl = DCBusVoltCtrl(
+            pars.zeta_dc, pars.w_0_dc, pars.p_max)
         # Parameters
         self.u_gN = pars.u_gN
         self.w_g = pars.w_g
@@ -153,7 +154,7 @@ class PSCCtrl(Ctrl):
         W_dc_ref = 0.5*self.C_dc*u_dc_ref**2
         W_dc = 0.5*self.C_dc*u_dc**2
         if self.on_v_dc:
-            p_g_ref = self.dc_bus_control.output(W_dc_ref, W_dc)
+            p_g_ref = self.dc_bus_volt_ctrl.output(W_dc_ref, W_dc)
             q_g_ref = self.q_g_ref(self.clock.t)
         else:
             p_g_ref = self.p_g_ref(self.clock.t)
@@ -199,7 +200,7 @@ class PSCCtrl(Ctrl):
         self.theta_psc = theta_c
         self.current_ctrl.update(i_c, i_c_filt)
         if self.on_v_dc:
-            self.dc_bus_control.update(self.T_s, p_g_ref)
+            self.dc_bus_volt_ctrl.update(self.T_s, p_g_ref)
         
         return self.T_s, d_abc_ref
     

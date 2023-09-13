@@ -8,7 +8,7 @@ import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
 from gritulator.control._common import (
-        Ctrl, PWM, Clock, ComplexFFPICtrl, DCBusCtrl)
+        Ctrl, PWM, Clock, ComplexFFPICtrl, DCBusVoltCtrl)
 
 
 # %%
@@ -93,7 +93,8 @@ class GridFollowingCtrl(Ctrl):
         self.pll = PLL(pars)
         self.current_ctrl = CurrentCtrl(pars, pars.alpha_c)
         self.current_ref_calc = CurrentRefCalc(pars)
-        self.dc_bus_control = DCBusCtrl(pars.zeta_dc, pars.w_0_dc, pars.p_max)
+        self.dc_bus_volt_ctrl = DCBusVoltCtrl(
+            pars.zeta_dc, pars.w_0_dc, pars.p_max)
         # Parameters
         self.u_gN = pars.u_gN
         self.w_g = pars.w_g
@@ -163,7 +164,7 @@ class GridFollowingCtrl(Ctrl):
         W_dc_ref = 0.5*self.C_dc*u_dc_ref**2
         W_dc = 0.5*self.C_dc*u_dc**2
         if self.on_v_dc:
-            p_g_ref = self.dc_bus_control.output(W_dc_ref, W_dc)
+            p_g_ref = self.dc_bus_volt_ctrl.output(W_dc_ref, W_dc)
             q_g_ref = self.q_g_ref(self.clock.t)
         else:
             p_g_ref = self.p_g_ref(self.clock.t)
@@ -222,7 +223,7 @@ class GridFollowingCtrl(Ctrl):
         self.clock.update(self.T_s)
         self.pll.update(u_g_q)
         if self.on_v_dc:
-            self.dc_bus_control.update(self.T_s, p_g_ref)
+            self.dc_bus_volt_ctrl.update(self.T_s, p_g_ref)
         # Update the low pass filer integrator for feedforward action
         self.u_g_filt = (1 - self.T_s*self.alpha_ff)*u_g_filt + (
             self.T_s*self.alpha_ff*u_g)
