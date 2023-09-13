@@ -1,9 +1,10 @@
 """
-12.5-kVA grid forming converter(RFPSC), with electromechanical grid model.
+12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.
 ==============================================
     
-This example simulates a grid forming controlled converter connected to a
-weak grid. The control system includes a power synchronization loop (PSL) to
+This example simulates a grid forming controlled converter, which uses reference
+feedforward power synchronization control (RFPSC) method connected to a weak
+grid. The control system includes a power synchronization loop (PSL) to
 synchronize with the grid, an inner P_type current controller used to damp the
 current oscillations enhanced with a reference-feedforward term. The converter
 is connected to an AC grid with electromechanical dynamics through an LCL
@@ -32,11 +33,12 @@ base_values = BaseValuesElectrical(
 # %%
 # Configure the system model (grid model).
 
-grid_filter = model.LCLFilter(L_fc=3e-3, C_f=10e-6, L_fg=3e-3, L_g=20e-3, R_g=0)
+grid_filter = model.LCLFilter(L_fc=3e-3, C_f=10e-6, L_fg=3e-3, L_g=20e-3)
 grid_model = model.FlexSource(w_N=2*np.pi*50, S_grid=500e3, H_g=2, r_d = 0.05)
 converter = model.Inverter(u_dc=650)
     
-mdl = model.ac_grid.ACFlexSourceAndLCLFilterModel(grid_filter, grid_model, converter)
+mdl = model.ac_grid.ACFlexSourceAndLCLFilterModel(
+    grid_filter, grid_model, converter)
 
 pars = control.grid_forming.PSCCtrlPars(
         L_f=3e-3,
