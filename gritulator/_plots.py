@@ -189,11 +189,11 @@ def plot_grid(
     ax2.set_xticklabels([])
 
     # Subplot 3: Converter voltage reference and grid voltage
-    ax3.plot(ctrl.t,np.real(ctrl.u_c_ref_lim/base.u), 
-            ctrl.t,np.imag(ctrl.u_c_ref_lim/base.u), linewidth=LW)
+    ax3.plot(ctrl.t,np.real(ctrl.u_c/base.u), 
+            ctrl.t,np.imag(ctrl.u_c/base.u), linewidth=LW)
     ax3.plot(mdl.t,np.real(abs_e_g/base.u),'k--', 
              linewidth=LW)
-    ax3.legend([r'$u_{c,ref}^d$', r'$u_{c,ref}^q$', r'$|e_{g}|$'], 
+    ax3.legend([r'$u_{c}^d$', r'$u_{c}^q$', r'$|e_{g}|$'], 
                 prop={'size': FS}, loc= 'upper right')
     ax3.set_xlim(t_range)
     

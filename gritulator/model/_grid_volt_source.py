@@ -7,8 +7,8 @@ frequency and a dynamic model with the electromechanical dynamics of a
 synchronous generator are considered. In this module, all space vectors are in
 stationary coordinates.
 
-
 """
+
 import numpy as np
 from gritulator._helpers import (
     complex2abc,

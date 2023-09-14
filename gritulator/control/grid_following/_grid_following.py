@@ -1,7 +1,5 @@
-'''
-This module contains grid-following control for grid-connected converters.
+"""grid following control methods for grid onverters."""
 
-'''
 # %%
 from __future__ import annotations
 from collections.abc import Callable
@@ -10,7 +8,7 @@ import numpy as np
 from gritulator._helpers import abc2complex
 from gritulator._utils import Bunch
 from gritulator.control._common import (
-        Ctrl, PWM, Clock, ComplexFFPICtrl, DCBusCtrl)
+        Ctrl, PWM, Clock, ComplexFFPICtrl, DCBusVoltCtrl)
 
 
 # %%
@@ -69,8 +67,7 @@ class GridFollowingCtrlPars:
 # %%
 class GridFollowingCtrl(Ctrl):
     """
-    Grid following control with the current controller and PLL to synchronize
-    with the AC grid.
+    Grid following control for power converters.
 
     Parameters
     ----------
@@ -96,7 +93,8 @@ class GridFollowingCtrl(Ctrl):
         self.pll = PLL(pars)
         self.current_ctrl = CurrentCtrl(pars, pars.alpha_c)
         self.current_ref_calc = CurrentRefCalc(pars)
-        self.dc_bus_control = DCBusCtrl(pars.zeta_dc, pars.w_0_dc, pars.p_max)
+        self.dc_bus_volt_ctrl = DCBusVoltCtrl(
+            pars.zeta_dc, pars.w_0_dc, pars.p_max)
         # Parameters
         self.u_gN = pars.u_gN
         self.w_g = pars.w_g
@@ -110,7 +108,7 @@ class GridFollowingCtrl(Ctrl):
         self.on_v_dc = pars.on_v_dc
         # DC voltage reference
         self.u_dc_ref = pars.u_dc_ref
-        #DC-bus capacitance
+        # DC-bus capacitance
         self.C_dc = pars.C_dc
         # Calculated current controller gains:
         self.k_p_i = pars.alpha_c*pars.L_f
@@ -128,7 +126,6 @@ class GridFollowingCtrl(Ctrl):
         # States
         self.u_c_i = 0j
         self.theta_p = 0
-        self.u_c_ref_lim = pars.u_gN + 1j*0
         self.u_g_filt = pars.u_gN + 1j*0
  
     def __call__(self, mdl):
@@ -158,6 +155,8 @@ class GridFollowingCtrl(Ctrl):
             u_g_abc = mdl.grid_filter.meas_cap_voltage()
         else:
             u_g_abc = mdl.grid_filter.meas_pcc_voltage()
+        # Obtain the converter voltage calculated with the PWM
+        u_c = self.pwm.realized_voltage
             
         # Define the active and reactive power references at the given time  
         u_dc_ref = self.u_dc_ref(self.clock.t)
@@ -165,7 +164,7 @@ class GridFollowingCtrl(Ctrl):
         W_dc_ref = 0.5*self.C_dc*u_dc_ref**2
         W_dc = 0.5*self.C_dc*u_dc**2
         if self.on_v_dc:
-            p_g_ref = self.dc_bus_control.output(W_dc_ref, W_dc)
+            p_g_ref = self.dc_bus_volt_ctrl.output(W_dc_ref, W_dc)
             q_g_ref = self.q_g_ref(self.clock.t)
         else:
             p_g_ref = self.p_g_ref(self.clock.t)
@@ -185,19 +184,17 @@ class GridFollowingCtrl(Ctrl):
         
         # Calculation of the modulus of current reference
         i_abs = np.abs(i_c_ref)
-        i_c_d_ref = np.real(i_c_ref)
-        i_c_q_ref = np.imag(i_c_ref)
-        
+        i_cd_ref = np.real(i_c_ref)
+        i_cq_ref = np.imag(i_c_ref)
+    
         # And current limitation algorithm
         if i_abs > 0:
             i_ratio = self.i_max/i_abs
-            i_c_d_ref = np.sign(i_c_d_ref)*np.min([
-                i_ratio*np.abs(i_c_d_ref),
-                np.abs(i_c_d_ref)])
-            i_c_q_ref = np.sign(i_c_q_ref)*np.min([
-                i_ratio*np.abs(i_c_q_ref),
-                np.abs(i_c_q_ref)])
-            i_c_ref = i_c_d_ref + 1j*i_c_q_ref
+            i_cd_ref = np.sign(i_cd_ref)*np.min(
+                [i_ratio*np.abs(i_cd_ref),np.abs(i_cd_ref)])
+            i_cq_ref = np.sign(i_cq_ref)*np.min(
+                [i_ratio*np.abs(i_cq_ref),np.abs(i_cq_ref)])
+            i_c_ref = i_cd_ref + 1j*i_cq_ref
         
         # Low pass filter for the feedforward PCC voltage:
         u_g_filt = self.u_g_filt
@@ -208,12 +205,11 @@ class GridFollowingCtrl(Ctrl):
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
                                            self.theta_p, self.w_g)
-        u_c_ref_lim = self.pwm.realized_voltage
 
         # Data logging
         data = Bunch(
             w_c = w_pll, theta_c = self.theta_p, u_c_ref = u_c_ref,
-            u_c_ref_lim = u_c_ref_lim, i_c = i_c, abs_u_g = abs_u_g,
+            u_c = u_c, i_c = i_c, abs_u_g = abs_u_g,
             d_abc_ref = d_abc_ref, i_c_ref = i_c_ref, u_dc = u_dc,
             t = self.clock.t, p_g_ref = p_g_ref, u_dc_ref = u_dc_ref,
             q_g_ref=q_g_ref, u_g = u_g,
@@ -223,13 +219,11 @@ class GridFollowingCtrl(Ctrl):
         # Update the states
         self.theta_p = theta_pll
         self.w_p = w_pll
-        self.u_c_ref_lim = u_c_ref_lim
-        self.current_ctrl.update(self.T_s, u_c_ref_lim)
+        self.current_ctrl.update(self.T_s, u_c)
         self.clock.update(self.T_s)
-        # self.pwm.update(u_c_ref_lim)
         self.pll.update(u_g_q)
         if self.on_v_dc:
-            self.dc_bus_control.update(self.T_s, p_g_ref)
+            self.dc_bus_volt_ctrl.update(self.T_s, p_g_ref)
         # Update the low pass filer integrator for feedforward action
         self.u_g_filt = (1 - self.T_s*self.alpha_ff)*u_g_filt + (
             self.T_s*self.alpha_ff*u_g)
@@ -395,7 +389,7 @@ class CurrentRefCalc:
     def output(self, p_g_ref, q_g_ref):
     
         """
-        Power reference genetator.
+        Current reference genetator.
     
         Parameters
         ----------

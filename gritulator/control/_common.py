@@ -276,7 +276,7 @@ class PICtrl:
         
 
 # %%
-class DCBusCtrl(PICtrl):
+class DCBusVoltCtrl(PICtrl):
     """
     PI DC-bus voltage controller.
 
