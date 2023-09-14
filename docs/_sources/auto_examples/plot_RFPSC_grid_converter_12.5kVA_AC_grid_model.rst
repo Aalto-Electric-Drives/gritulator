@@ -143,7 +143,7 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 41.60 s
+    Execution time: 35.21 s
 
 
 
@@ -185,7 +185,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 42.899 seconds)
+   **Total running time of the script:** (0 minutes 36.329 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:
