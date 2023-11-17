@@ -60,7 +60,6 @@ class GridFollowingCtrlPars:
     
     # Passive component parameter estimates
     L_f: float = 10e-3 # filter inductance, in H.
-    R_f: float = 0 # filter resistance, in Ohm.
     C_dc: float = 1e-3 # DC bus capacitance, in F.
 
 
@@ -100,7 +99,6 @@ class GridFollowingCtrl(Ctrl):
         self.w_g = pars.w_g
         self.f_sw = pars.f_sw
         self.L_f = pars.L_f
-        self.R_f = pars.R_f
         # Power references
         self.p_g_ref = pars.p_g_ref
         self.q_g_ref = pars.q_g_ref
