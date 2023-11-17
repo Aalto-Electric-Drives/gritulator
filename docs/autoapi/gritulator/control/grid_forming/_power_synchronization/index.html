@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
@@ -61,6 +62,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -117,6 +127,7 @@
   
 
 <a class="navbar-brand logo" href="../../../../../index.html">
+  
   
   
   
@@ -279,10 +290,10 @@
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -290,7 +301,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -450,14 +461,14 @@ used in the control.</p>
 power variations compared to the active power reference.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.PowerSynch.output">
-<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_g_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_c_ref</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PowerSynch.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PowerSynch.output" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_calc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_g_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_g</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#PowerSynch.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.PowerSynch.output" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the estimated frequency and phase angle using the PSC</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>p_calc</strong> (<em>float</em>) – calculated active power at the converter outputs (W).</p></li>
 <li><p><strong>pg_ref</strong> (<em>float</em>) – active power reference (W).</p></li>
-<li><p><strong>w_c_ref</strong> (<em>float</em>) – frequency reference (rad/s).</p></li>
+<li><p><strong>w_g</strong> (<em>float</em>) – frequency reference (rad/s).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -494,7 +505,7 @@ flowing through the converter to avoid physical damages of the device.</p>
 encounter steady-state error when the current reference is saturated.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output">
-<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_g_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_c_ref</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#CurrentCtrl.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_g_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_g</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/control/grid_forming/_power_synchronization.html#CurrentCtrl.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the converter voltage reference signal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -502,7 +513,7 @@ encounter steady-state error when the current reference is saturated.</p>
 <li><p><strong>i_c</strong> (<em>complex</em>) – converter current in dq frame (A).</p></li>
 <li><p><strong>p_g_ref</strong> (<em>float</em>) – active power reference (W).</p></li>
 <li><p><strong>v_ref</strong> (<em>float</em>) – converter voltage magnitude reference (V).</p></li>
-<li><p><strong>w_c_ref</strong> (<em>float</em>) – converter frequency reference (rad/s).</p></li>
+<li><p><strong>w_g</strong> (<em>float</em>) – converter frequency reference (rad/s).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -542,16 +553,12 @@ encounter steady-state error when the current reference is saturated.</p>
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -635,8 +642,8 @@ By Aalto Electric Drives
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

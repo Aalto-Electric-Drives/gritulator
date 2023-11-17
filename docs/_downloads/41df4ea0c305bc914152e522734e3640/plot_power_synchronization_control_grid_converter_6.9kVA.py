@@ -44,7 +44,6 @@ mdl = model.ac_grid.StiffSourceAndLFilterModel(grid_filter, grid_model, conv)
 # Control parameters
 pars = control.grid_forming.PSCCtrlPars(
         L_f=8e-3,
-        R_f=0,
         f_sw = 4e3,
         T_s = 1/(8e3),
         on_rf=False,

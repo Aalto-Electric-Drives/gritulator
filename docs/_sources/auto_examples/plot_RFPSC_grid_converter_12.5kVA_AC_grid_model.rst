@@ -76,7 +76,7 @@ Compute base values based on the nominal values (just for figures).
 
 Configure the system model (grid model).
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-55
+.. GENERATED FROM PYTHON SOURCE LINES 35-54
 
 .. code-block:: default
 
@@ -90,7 +90,6 @@ Configure the system model (grid model).
 
     pars = control.grid_forming.PSCCtrlPars(
             L_f=3e-3,
-            R_f=0,
             f_sw = 5e3,
             T_s = 1/(10e3),
             on_rf=True,
@@ -107,11 +106,11 @@ Configure the system model (grid model).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-76
+.. GENERATED FROM PYTHON SOURCE LINES 56-75
 
 .. code-block:: default
 
@@ -143,16 +142,16 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 35.21 s
+    Execution time: 29.21 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-78
+.. GENERATED FROM PYTHON SOURCE LINES 76-77
 
 Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-80
+.. GENERATED FROM PYTHON SOURCE LINES 77-79
 
 .. code-block:: default
 
@@ -185,7 +184,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 36.329 seconds)
+   **Total running time of the script:** (0 minutes 30.166 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:

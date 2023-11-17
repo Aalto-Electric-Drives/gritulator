@@ -98,7 +98,7 @@ Create the system model.
 
 Configure the control system.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-58
+.. GENERATED FROM PYTHON SOURCE LINES 43-57
 
 .. code-block:: default
 
@@ -106,7 +106,6 @@ Configure the control system.
     # Control parameters
     pars = control.grid_forming.PSCCtrlPars(
             L_f=8e-3,
-            R_f=0,
             f_sw = 4e3,
             T_s = 1/(8e3),
             on_rf=False,
@@ -124,11 +123,11 @@ Configure the control system.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-60
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-77
+.. GENERATED FROM PYTHON SOURCE LINES 59-76
 
 .. code-block:: default
 
@@ -158,16 +157,16 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 6.39 s
+    Execution time: 5.43 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-79
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-81
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
 
 .. code-block:: default
 
@@ -200,7 +199,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 7.327 seconds)
+   **Total running time of the script:** (0 minutes 6.292 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_power_synchronization_control_grid_converter_6.9kVA.py:

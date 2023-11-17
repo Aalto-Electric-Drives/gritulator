@@ -59,7 +59,6 @@ else:
 # Control parameters
 pars = control.grid_following.GridFollowingCtrlPars(
             L_f=10e-3,
-            R_f=0,
             C_dc = 1e-3,
             f_sw = 8e3,
             T_s = 1/(16e3),

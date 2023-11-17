@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/doctools.js"></script>
@@ -60,6 +61,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -116,6 +126,7 @@
   
 
 <a class="navbar-brand logo" href="../../../../index.html">
+  
   
   
   
@@ -230,10 +241,10 @@
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -241,7 +252,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -295,8 +306,6 @@ document.write(`
         <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">5e3</span><span class="p">))</span> <span class="c1"># active power reference</span>
     <span class="n">q_g_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
         <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># reactive power reference</span>
-    <span class="n">w_c_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
-        <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># frequency reference</span>
     <span class="n">v_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
         <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">400</span><span class="p">)</span> <span class="c1"># voltage magnitude ref</span>
     <span class="n">u_dc_ref</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
@@ -328,7 +337,6 @@ document.write(`
     
     <span class="c1"># Passive component parameter estimates</span>
     <span class="n">L_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10e-3</span> <span class="c1"># filter inductance, in H.</span>
-    <span class="n">R_f</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># filter resistance, in Ohm.</span>
     <span class="n">C_dc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># DC bus capacitance, in F.</span></div>
 
 
@@ -383,7 +391,6 @@ document.write(`
         <span class="c1"># References sent from the user</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">p_g_ref</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">q_g_ref</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">w_c_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">w_c_ref</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">v_ref</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">u_dc_ref</span>
         <span class="c1"># If the pcc voltage should be used as controlled voltage</span>
@@ -433,8 +440,7 @@ document.write(`
             <span class="n">p_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
             <span class="n">q_g_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_g_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
             
-        <span class="c1"># Define the user-defined voltage magnitude and frequency references</span>
-        <span class="n">w_c_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_c_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+        <span class="c1"># Define the user-defined voltage magnitude reference</span>
         <span class="n">v_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_ref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
         
         <span class="c1"># Transform the measured current in dq frame</span>
@@ -446,11 +452,11 @@ document.write(`
         <span class="c1"># make the assumption that the output filter is lossless.</span>
         
         <span class="c1"># Synchronization through active power variations</span>
-        <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_synch</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">)</span>
+        <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_synch</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="p">)</span>
 
         <span class="c1"># Voltage reference in synchronous coordinates</span>
         <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">i_c_ref</span><span class="p">,</span> <span class="n">i_c_filt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_ctrl</span><span class="o">.</span><span class="n">output</span><span class="p">(</span>
-                                        <span class="n">i_c</span><span class="p">,</span><span class="n">p_g_ref</span><span class="p">,</span><span class="n">v_ref</span><span class="p">,</span><span class="n">w_c_ref</span><span class="p">)</span>
+                                        <span class="n">i_c</span><span class="p">,</span><span class="n">p_g_ref</span><span class="p">,</span><span class="n">v_ref</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="p">)</span>
         
         <span class="c1"># Use the function from control commons:</span>
         <span class="n">d_abc_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="p">,</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">,</span>
@@ -459,7 +465,7 @@ document.write(`
         <span class="c1"># Data logging</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span>
             <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_c</span><span class="p">,</span> <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_psc</span><span class="p">,</span> <span class="n">v_ref</span> <span class="o">=</span> <span class="n">v_ref</span><span class="p">,</span>
-            <span class="n">w_c_ref</span> <span class="o">=</span> <span class="n">w_c_ref</span><span class="p">,</span> <span class="n">u_c_ref</span> <span class="o">=</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_c</span> <span class="o">=</span> <span class="n">u_c</span><span class="p">,</span>
+            <span class="n">w_c_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_g</span><span class="p">,</span> <span class="n">u_c_ref</span> <span class="o">=</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">u_c</span> <span class="o">=</span> <span class="n">u_c</span><span class="p">,</span>
             <span class="n">i_c</span> <span class="o">=</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">d_abc_ref</span> <span class="o">=</span> <span class="n">d_abc_ref</span><span class="p">,</span> <span class="n">i_c_ref</span> <span class="o">=</span> <span class="n">i_c_ref</span><span class="p">,</span>
             <span class="n">u_dc</span> <span class="o">=</span> <span class="n">u_dc</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">p_g_ref</span> <span class="o">=</span> <span class="n">p_g_ref</span><span class="p">,</span>
             <span class="n">u_dc_ref</span> <span class="o">=</span> <span class="n">u_dc_ref</span><span class="p">,</span> <span class="n">q_g_ref</span> <span class="o">=</span> <span class="n">q_g_ref</span><span class="p">,</span> <span class="n">u_g</span> <span class="o">=</span> <span class="n">u_g</span>
@@ -565,7 +571,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">=</span> <span class="mi">0</span>
     
             
-<div class="viewcode-block" id="PowerSynch.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerSynch.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">):</span>
+<div class="viewcode-block" id="PowerSynch.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.PowerSynch.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_calc</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">w_g</span><span class="p">):</span>
 <span class="w">        </span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the estimated frequency and phase angle using the PSC</span>
@@ -576,7 +582,7 @@ document.write(`
 <span class="sd">            calculated active power at the converter outputs (W).</span>
 <span class="sd">        pg_ref : float</span>
 <span class="sd">            active power reference (W).</span>
-<span class="sd">        w_c_ref : float</span>
+<span class="sd">        w_g : float</span>
 <span class="sd">            frequency reference (rad/s).</span>
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
@@ -590,7 +596,7 @@ document.write(`
         
         <span class="c1"># Calculation of power droop</span>
         <span class="n">dp</span> <span class="o">=</span> <span class="n">p_g_ref</span> <span class="o">-</span> <span class="n">p_calc</span>
-        <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_c_ref</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_psc</span><span class="p">)</span><span class="o">*</span><span class="n">dp</span>
+        <span class="n">w_c</span> <span class="o">=</span> <span class="n">w_g</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_p_psc</span><span class="p">)</span><span class="o">*</span><span class="n">dp</span>
                 
         <span class="c1"># Estimated phase angle</span>
         <span class="n">theta_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_p</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_s</span><span class="o">*</span><span class="n">w_c</span>
@@ -656,7 +662,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">i_c_filt</span> <span class="o">=</span><span class="mi">0</span><span class="n">j</span> 
     
             
-<div class="viewcode-block" id="CurrentCtrl.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">v_ref</span><span class="p">,</span> <span class="n">w_c_ref</span><span class="p">):</span>
+<div class="viewcode-block" id="CurrentCtrl.output"><a class="viewcode-back" href="../../../../autoapi/gritulator/control/grid_forming/_power_synchronization/index.html#gritulator.control.grid_forming._power_synchronization.CurrentCtrl.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_c</span><span class="p">,</span> <span class="n">p_g_ref</span><span class="p">,</span> <span class="n">v_ref</span><span class="p">,</span> <span class="n">w_g</span><span class="p">):</span>
 <span class="w">        </span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the converter voltage reference signal</span>
@@ -669,7 +675,7 @@ document.write(`
 <span class="sd">            active power reference (W).</span>
 <span class="sd">        v_ref : float</span>
 <span class="sd">            converter voltage magnitude reference (V).</span>
-<span class="sd">        w_c_ref : float</span>
+<span class="sd">        w_g : float</span>
 <span class="sd">            converter frequency reference (rad/s).</span>
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
@@ -712,7 +718,7 @@ document.write(`
                 
         <span class="c1"># Calculation of converter voltage output (reference sent to PWM)</span>
         <span class="n">u_c_ref</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_c_ref</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_a</span><span class="o">*</span><span class="p">(</span><span class="n">i_c_ref</span> <span class="o">-</span> <span class="n">i_c</span><span class="p">)</span> <span class="o">+</span>
-           <span class="bp">self</span><span class="o">.</span><span class="n">on_u_g</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">L_f</span><span class="o">*</span><span class="n">w_c_ref</span><span class="o">*</span><span class="n">i_c</span><span class="p">)</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">on_u_g</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">L_f</span><span class="o">*</span><span class="n">w_g</span><span class="o">*</span><span class="n">i_c</span><span class="p">)</span>
         
         
         <span class="k">return</span> <span class="n">u_c_ref</span><span class="p">,</span> <span class="n">i_c_ref</span><span class="p">,</span> <span class="n">i_c_filt</span></div>
@@ -741,16 +747,12 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -799,8 +801,8 @@ By Aalto Electric Drives
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

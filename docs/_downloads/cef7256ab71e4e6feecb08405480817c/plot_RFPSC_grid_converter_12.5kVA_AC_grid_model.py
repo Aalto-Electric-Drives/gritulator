@@ -42,7 +42,6 @@ mdl = model.ac_grid.ACFlexSourceAndLCLFilterModel(
 
 pars = control.grid_forming.PSCCtrlPars(
         L_f=3e-3,
-        R_f=0,
         f_sw = 5e3,
         T_s = 1/(10e3),
         on_rf=True,

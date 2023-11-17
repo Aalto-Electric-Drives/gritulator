@@ -113,7 +113,7 @@ Create the system model.
 
 Configure the control system.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-73
+.. GENERATED FROM PYTHON SOURCE LINES 58-72
 
 .. code-block:: default
 
@@ -121,7 +121,6 @@ Configure the control system.
     # Control parameters
     pars = control.grid_following.GridFollowingCtrlPars(
                 L_f=10e-3,
-                R_f=0,
                 C_dc = 1e-3,
                 f_sw = 8e3,
                 T_s = 1/(16e3),
@@ -139,11 +138,11 @@ Configure the control system.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-75
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 Set the time-dependent reference and disturbance signals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-91
+.. GENERATED FROM PYTHON SOURCE LINES 74-90
 
 .. code-block:: default
 
@@ -170,11 +169,11 @@ Set the time-dependent reference and disturbance signals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-93
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
 
 Create the simulation object and simulate it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-101
+.. GENERATED FROM PYTHON SOURCE LINES 92-100
 
 .. code-block:: default
 
@@ -195,16 +194,16 @@ Create the simulation object and simulate it.
  .. code-block:: none
 
 
-    Execution time: 1.14 s
+    Execution time: 0.95 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-103
+.. GENERATED FROM PYTHON SOURCE LINES 101-102
 
 Plot results in SI or per unit values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-105
+.. GENERATED FROM PYTHON SOURCE LINES 102-104
 
 .. code-block:: default
 
@@ -237,7 +236,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.889 seconds)
+   **Total running time of the script:** (0 minutes 1.566 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py:

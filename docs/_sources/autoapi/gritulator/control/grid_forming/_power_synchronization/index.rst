@@ -178,7 +178,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: output(p_calc, p_g_ref, w_c_ref)
+   .. py:method:: output(p_calc, p_g_ref, w_g)
 
       
       Compute the estimated frequency and phase angle using the PSC
@@ -187,8 +187,8 @@ Classes
       :type p_calc: float
       :param pg_ref: active power reference (W).
       :type pg_ref: float
-      :param w_c_ref: frequency reference (rad/s).
-      :type w_c_ref: float
+      :param w_g: frequency reference (rad/s).
+      :type w_g: float
 
       :returns: * **w_c** (*float*) -- estimated converter frequency (rad/s).
                 * **theta_c** (*float*) -- estimated converter phase angle (rad).
@@ -265,7 +265,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: output(i_c, p_g_ref, v_ref, w_c_ref)
+   .. py:method:: output(i_c, p_g_ref, v_ref, w_g)
 
       
       Compute the converter voltage reference signal
@@ -276,8 +276,8 @@ Classes
       :type p_g_ref: float
       :param v_ref: converter voltage magnitude reference (V).
       :type v_ref: float
-      :param w_c_ref: converter frequency reference (rad/s).
-      :type w_c_ref: float
+      :param w_g: converter frequency reference (rad/s).
+      :type w_g: float
 
       :returns: * **u_c_ref** (*complex*) -- converter voltage reference (V).
                 * **i_c_ref** (*complex*) -- converter current reference in dq frame (A).
