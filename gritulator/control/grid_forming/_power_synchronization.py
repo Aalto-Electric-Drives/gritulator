@@ -22,8 +22,6 @@ class PSCCtrlPars:
         repr=False, default=lambda t: (t > .2)*(5e3)) # active power reference
     q_g_ref: Callable[[float], float] = field(
         repr=False, default=lambda t: 0) # reactive power reference
-    w_c_ref: Callable[[float], float] = field(
-        repr=False, default=lambda t: 2*np.pi*50) # frequency reference
     v_ref: Callable[[float], float] = field(
         repr=False, default=lambda t: np.sqrt(2/3)*400) # voltage magnitude ref
     u_dc_ref: Callable[[float], float] = field(
@@ -55,7 +53,6 @@ class PSCCtrlPars:
     
     # Passive component parameter estimates
     L_f: float = 10e-3 # filter inductance, in H.
-    R_f: float = 0 # filter resistance, in Ohm.
     C_dc: float = 1e-3 # DC bus capacitance, in F.
 
 
@@ -110,7 +107,6 @@ class PSCCtrl(Ctrl):
         # References sent from the user
         self.p_g_ref = pars.p_g_ref
         self.q_g_ref = pars.q_g_ref
-        self.w_c_ref = pars.w_c_ref
         self.v_ref = pars.v_ref
         self.u_dc_ref = pars.u_dc_ref
         # If the pcc voltage should be used as controlled voltage
@@ -160,8 +156,7 @@ class PSCCtrl(Ctrl):
             p_g_ref = self.p_g_ref(self.clock.t)
             q_g_ref = self.q_g_ref(self.clock.t)
             
-        # Define the user-defined voltage magnitude and frequency references
-        w_c_ref = self.w_c_ref(self.clock.t)
+        # Define the user-defined voltage magnitude reference
         v_ref = self.v_ref(self.clock.t)
         
         # Transform the measured current in dq frame
@@ -173,11 +168,11 @@ class PSCCtrl(Ctrl):
         # make the assumption that the output filter is lossless.
         
         # Synchronization through active power variations
-        w_c, theta_c = self.power_synch.output(p_calc, p_g_ref, w_c_ref)
+        w_c, theta_c = self.power_synch.output(p_calc, p_g_ref, self.w_g)
 
         # Voltage reference in synchronous coordinates
         u_c_ref, i_c_ref, i_c_filt = self.current_ctrl.output(
-                                        i_c,p_g_ref,v_ref,w_c_ref)
+                                        i_c,p_g_ref,v_ref,self.w_g)
         
         # Use the function from control commons:
         d_abc_ref = self.pwm(self.T_s, u_c_ref, u_dc,
@@ -186,7 +181,7 @@ class PSCCtrl(Ctrl):
         # Data logging
         data = Bunch(
             w_c = w_c, theta_c = self.theta_psc, v_ref = v_ref,
-            w_c_ref = w_c_ref, u_c_ref = u_c_ref, u_c = u_c,
+            w_c_ref = self.w_g, u_c_ref = u_c_ref, u_c = u_c,
             i_c = i_c, d_abc_ref = d_abc_ref, i_c_ref = i_c_ref,
             u_dc = u_dc, t = self.clock.t, p_g_ref = p_g_ref,
             u_dc_ref = u_dc_ref, q_g_ref = q_g_ref, u_g = u_g
@@ -292,7 +287,7 @@ class PowerSynch:
         self.theta_p = 0
     
             
-    def output(self, p_calc, p_g_ref, w_c_ref):
+    def output(self, p_calc, p_g_ref, w_g):
         
         """
         Compute the estimated frequency and phase angle using the PSC
@@ -303,7 +298,7 @@ class PowerSynch:
             calculated active power at the converter outputs (W).
         pg_ref : float
             active power reference (W).
-        w_c_ref : float
+        w_g : float
             frequency reference (rad/s).
     
         Returns
@@ -317,7 +312,7 @@ class PowerSynch:
         
         # Calculation of power droop
         dp = p_g_ref - p_calc
-        w_c = w_c_ref + (self.k_p_psc)*dp
+        w_c = w_g + (self.k_p_psc)*dp
                 
         # Estimated phase angle
         theta_c = self.theta_p + self.T_s*w_c
@@ -383,7 +378,7 @@ class CurrentCtrl:
         self.i_c_filt =0j 
     
             
-    def output(self, i_c, p_g_ref, v_ref, w_c_ref):
+    def output(self, i_c, p_g_ref, v_ref, w_g):
         
         """
         Compute the converter voltage reference signal
@@ -396,7 +391,7 @@ class CurrentCtrl:
             active power reference (W).
         v_ref : float
             converter voltage magnitude reference (V).
-        w_c_ref : float
+        w_g : float
             converter frequency reference (rad/s).
     
         Returns
@@ -439,7 +434,7 @@ class CurrentCtrl:
                 
         # Calculation of converter voltage output (reference sent to PWM)
         u_c_ref = (v_c_ref + self.R_a*(i_c_ref - i_c) +
-           self.on_u_g*1j*self.L_f*w_c_ref*i_c)
+           self.on_u_g*1j*self.L_f*w_g*i_c)
         
         
         return u_c_ref, i_c_ref, i_c_filt
