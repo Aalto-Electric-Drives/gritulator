@@ -45,7 +45,6 @@ mdl = model.ac_grid.StiffSourceAndLCLFilterModel(
 # Control parameters
 pars = control.grid_following.GridFollowingCtrlPars(
             L_f=3.7e-3,
-            R_f=0,
             f_sw = 8e3,
             T_s = 1/(16e3),
             i_max = 1.5*base_values.i,
