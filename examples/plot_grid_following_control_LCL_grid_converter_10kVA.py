@@ -1,6 +1,6 @@
 """
 10-kVA grid following converter with LCL filter, power control
-==============================================
+==============================================================
     
 This example simulates a grid following controlled converter connected to a
 strong grid through an LCL filter. The control system includes a phase-locked
