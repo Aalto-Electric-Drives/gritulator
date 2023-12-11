@@ -282,7 +282,7 @@ Classes
    initialized based on the desired closed-loop bandwidth and the DC-bus
    capacitance estimate. The PI controller is designed to control the energy
    of the DC-bus capacitance and not the DC-bus voltage in order to have a
-   linear closed-loop system [#Hun2001]_.
+   linear closed-loop system [#Hur2001]_.
 
    :param zeta: Damping ratio of the closed-loop system.
    :type zeta: float
@@ -486,10 +486,6 @@ Classes
    `i` corresponds to the converter current and `u` to the converter voltage.
 
    .. rubric:: References
-
-   .. [#Bri2000] Briz, Degner, Lorenz, "Analysis and design of current
-      regulators using complex vectors," IEEE Trans. Ind. Appl., 2000,
-      https://doi.org/10.1109/28.845057
 
    .. [#Har2009] Harnefors, Bongiorno, "Current controller design
       for passivity of the input admittance," 2009 13th European Conference

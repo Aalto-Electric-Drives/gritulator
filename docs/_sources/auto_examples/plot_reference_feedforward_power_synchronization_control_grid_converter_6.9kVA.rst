@@ -19,7 +19,7 @@
 
 
 6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)
-==============================================
+=================================================================
     
 This example simulates a grid forming controlled converter connected to a
 weak grid. The control system includes a power synchronization loop (PSL) to
@@ -33,7 +33,7 @@ Imports.
 
 .. GENERATED FROM PYTHON SOURCE LINES 16-25
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -57,7 +57,7 @@ Compute base values based on the nominal values (just for figures).
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-31
 
-.. code-block:: default
+.. code-block:: Python
 
     base_values = BaseValuesElectrical(
         U_nom=400, I_nom=10, f_nom=50.0, P_nom=6.9e3)
@@ -76,7 +76,7 @@ Configure the system model (grid model)
 
 .. GENERATED FROM PYTHON SOURCE LINES 33-41
 
-.. code-block:: default
+.. code-block:: Python
 
 
     grid_filter = model.LFilter(L_f = 8e-3, L_g=65.8e-3, R_g=0)
@@ -99,7 +99,7 @@ Configure the control system.
 
 .. GENERATED FROM PYTHON SOURCE LINES 43-56
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Control parameters
@@ -127,7 +127,7 @@ Set the time-dependent reference and disturbance signals.
 
 .. GENERATED FROM PYTHON SOURCE LINES 58-74
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Set the active power reference
@@ -154,7 +154,7 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 5.52 s
+    Execution time: 5.56 s
 
 
 
@@ -165,7 +165,7 @@ Plot results in SI or per unit values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 76-78
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_grid(sim, base=base_values, plot_pcc_voltage=True)
@@ -196,7 +196,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.675 seconds)
+   **Total running time of the script:** (0 minutes 6.720 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py:
@@ -205,16 +205,13 @@ Plot results in SI or per unit values.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb <plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py <plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb <plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb>`
 
 
 .. only:: html

@@ -33,7 +33,7 @@ Imports.
 
 .. GENERATED FROM PYTHON SOURCE LINES 15-25
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -58,7 +58,7 @@ Compute base values based on the nominal values (just for figures).
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-32
 
-.. code-block:: default
+.. code-block:: Python
 
 
     base_values = BaseValuesElectrical(
@@ -78,7 +78,7 @@ Create the system model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 34-56
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # grid impedance and filter model
@@ -115,7 +115,7 @@ Configure the control system.
 
 .. GENERATED FROM PYTHON SOURCE LINES 58-72
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Control parameters
@@ -144,7 +144,7 @@ Set the time-dependent reference and disturbance signals.
 
 .. GENERATED FROM PYTHON SOURCE LINES 74-90
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Set the reactive power reference
@@ -175,7 +175,7 @@ Create the simulation object and simulate it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 92-100
 
-.. code-block:: default
+.. code-block:: Python
 
 
     sim = model.Simulation(mdl, ctrl, pwm=False)
@@ -205,7 +205,7 @@ Plot results in SI or per unit values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-104
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_grid(sim, base=None)
@@ -236,7 +236,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.594 seconds)
+   **Total running time of the script:** (0 minutes 1.588 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py:
@@ -245,16 +245,13 @@ Plot results in SI or per unit values.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_grid_following_control_vdc_mode_grid_converter_10kVA.ipynb <plot_grid_following_control_vdc_mode_grid_converter_10kVA.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_grid_following_control_vdc_mode_grid_converter_10kVA.py <plot_grid_following_control_vdc_mode_grid_converter_10kVA.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_grid_following_control_vdc_mode_grid_converter_10kVA.ipynb <plot_grid_following_control_vdc_mode_grid_converter_10kVA.ipynb>`
 
 
 .. only:: html

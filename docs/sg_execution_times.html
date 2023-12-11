@@ -7,7 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Search - gritulator 0.0.1 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Computation times &#8212; gritulator 0.0.1 documentation</title>
   
   
   
@@ -47,12 +49,9 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'search';</script>
-  <script src="_static/searchtools.js"></script>
-  <script src="_static/language_data.js"></script>
-  <script src="searchindex.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sg_execution_times';</script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -89,7 +88,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="#"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -233,6 +232,54 @@
 
 
 
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sg_execution_times.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
@@ -275,42 +322,77 @@ document.write(`
 </div>
               
               
-  <div class="bd-search-container">
-    <h1>Search</h1>
-    <noscript>
-      <div class="admonition error">
-        <p class="admonition-title">Error</p>
-        <p>Please activate JavaScript to enable the search functionality.</p>
-      </div>
-    </noscript>
-    
-<form class="bd-search d-flex align-items-center"
-      action="#"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search..."
-         aria-label="Search..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    <div id="search-results"></div>
-  </div>
-  <script>
-    // Activate the search field on page load
-    let searchInput = document.querySelector("form.bd-search input");
-    if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-        console.log("[PST]: Set focus on search field.");
-    }
-  </script>
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computation times</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="computation-times">
+<span id="sphx-glr-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">#</a></h1>
+<p><strong>00:47.678</strong> total execution time for 6 files <strong>from all galleries</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html#sphx-glr-auto-examples-plot-rfpsc-grid-converter-12-5kva-ac-grid-model-py"><span class="std std-ref">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py</span></code>)</p></td>
+<td><p>00:30.551</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.html#sphx-glr-auto-examples-plot-reference-feedforward-power-synchronization-control-grid-converter-6-9kva-py"><span class="std std-ref">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py</span></code>)</p></td>
+<td><p>00:06.720</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/plot_power_synchronization_control_grid_converter_6.9kVA.html#sphx-glr-auto-examples-plot-power-synchronization-control-grid-converter-6-9kva-py"><span class="std std-ref">6.9-kVA grid forming converter, power synchronization control (PSC)</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_power_synchronization_control_grid_converter_6.9kVA.py</span></code>)</p></td>
+<td><p>00:06.306</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html#sphx-glr-auto-examples-plot-grid-following-control-vdc-mode-grid-converter-10kva-py"><span class="std std-ref">10-kVA grid following converter, dc-bus voltage control</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.py</span></code>)</p></td>
+<td><p>00:01.588</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/plot_grid_following_control_LCL_grid_converter_10kVA.html#sphx-glr-auto-examples-plot-grid-following-control-lcl-grid-converter-10kva-py"><span class="std std-ref">10-kVA grid following converter with LCL filter, power control</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_grid_following_control_LCL_grid_converter_10kVA.py</span></code>)</p></td>
+<td><p>00:01.371</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/plot_grid_following_control_grid_converter_10kVA.html#sphx-glr-auto-examples-plot-grid-following-control-grid-converter-10kva-py"><span class="std std-ref">10-kVA grid following converter, power control</span></a> (<code class="docutils literal notranslate"><span class="pre">../../examples/plot_grid_following_control_grid_converter_10kVA.py</span></code>)</p></td>
+<td><p>00:01.142</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+                </article>
+              
 
               
               

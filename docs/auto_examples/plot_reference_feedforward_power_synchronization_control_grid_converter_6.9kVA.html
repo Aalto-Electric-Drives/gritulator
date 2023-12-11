@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -126,6 +126,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -144,28 +145,33 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../autoapi/gritulator/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/gritulator/control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/gritulator/control/grid_following/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_following</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/gritulator/control/grid_forming/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/gritulator/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/gritulator/model/ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/gritulator/model/dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../model/system.html">Drive System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/machines.html">Electric Machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/mechanics.html">Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/system.html">Grid-converter System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/converters.html">Converters</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/design_notes.html">Design Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/speed_ctrl.html">Speed Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/current_ctrl.html">Current Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/observers.html">Observers</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_grid_converter_10kVA.html">10-kVA grid following converter, power control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_LCL_grid_converter_10kVA.html">10-kVA grid following converter with LCL filter, power control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.html">12.5-kVA grid forming converter (RFPSC), with electromechanical grid model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
@@ -290,6 +296,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -299,6 +306,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -345,7 +353,7 @@ synchronize with the grid, an inner P_type current controller used to damp the
 current oscillations enhanced with a reference-feedforward term and an optional
 DC-bus voltage controller.</p>
 <p>Imports.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">gritulator</span> <span class="kn">import</span> <span class="n">model</span><span class="p">,</span> <span class="n">control</span>
 <span class="kn">from</span> <span class="nn">gritulator</span> <span class="kn">import</span> <span class="n">BaseValuesElectrical</span><span class="p">,</span> <span class="n">plot_grid</span>
 
@@ -355,12 +363,12 @@ DC-bus voltage controller.</p>
 </pre></div>
 </div>
 <p>Compute base values based on the nominal values (just for figures).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_values</span> <span class="o">=</span> <span class="n">BaseValuesElectrical</span><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">base_values</span> <span class="o">=</span> <span class="n">BaseValuesElectrical</span><span class="p">(</span>
     <span class="n">U_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">I_nom</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">f_nom</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">P_nom</span><span class="o">=</span><span class="mf">6.9e3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Configure the system model (grid model)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid_filter</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">LFilter</span><span class="p">(</span><span class="n">L_f</span> <span class="o">=</span> <span class="mf">8e-3</span><span class="p">,</span> <span class="n">L_g</span><span class="o">=</span><span class="mf">65.8e-3</span><span class="p">,</span> <span class="n">R_g</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">grid_filter</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">LFilter</span><span class="p">(</span><span class="n">L_f</span> <span class="o">=</span> <span class="mf">8e-3</span><span class="p">,</span> <span class="n">L_g</span><span class="o">=</span><span class="mf">65.8e-3</span><span class="p">,</span> <span class="n">R_g</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">grid_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">StiffSource</span><span class="p">(</span><span class="n">w_N</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">conv</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Inverter</span><span class="p">(</span><span class="n">u_dc</span><span class="o">=</span><span class="mi">650</span><span class="p">)</span>
 
@@ -368,7 +376,7 @@ DC-bus voltage controller.</p>
 </pre></div>
 </div>
 <p>Configure the control system.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Control parameters</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Control parameters</span>
 <span class="n">pars</span> <span class="o">=</span> <span class="n">control</span><span class="o">.</span><span class="n">grid_forming</span><span class="o">.</span><span class="n">PSCCtrlPars</span><span class="p">(</span>
         <span class="n">L_f</span><span class="o">=</span><span class="mf">8e-3</span><span class="p">,</span>
         <span class="n">f_sw</span> <span class="o">=</span> <span class="mf">4e3</span><span class="p">,</span>
@@ -382,7 +390,7 @@ DC-bus voltage controller.</p>
 </pre></div>
 </div>
 <p>Set the time-dependent reference and disturbance signals.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the active power reference</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the active power reference</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">p_g_ref</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">((</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">2.3e3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">2.3e3</span><span class="p">)</span> <span class="o">+</span>
     <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">.8</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">2.3e3</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mf">1.2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">6.9e3</span><span class="p">))</span>
 
@@ -398,24 +406,24 @@ DC-bus voltage controller.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Execution time: </span><span class="si">{:.2f}</span><span class="s1"> s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 5.52 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time: 5.56 s
 </pre></div>
 </div>
 <p>Plot results in SI or per unit values.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_grid</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base_values</span><span class="p">,</span> <span class="n">plot_pcc_voltage</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_grid</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base_values</span><span class="p">,</span> <span class="n">plot_pcc_voltage</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
 <li><img src="../_images/sphx_glr_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA_001.png" srcset="../_images/sphx_glr_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA_001.png" alt="plot reference feedforward power synchronization control grid converter 6.9kVA" class = "sphx-glr-multi-img"/></li>
 <li><img src="../_images/sphx_glr_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA_002.png" srcset="../_images/sphx_glr_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA_002.png" alt="plot reference feedforward power synchronization control grid converter 6.9kVA" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.675 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.720 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-reference-feedforward-power-synchronization-control-grid-converter-6-9kva-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/1980a5bffd8e50c31076f730231bc9f1/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/cce14bf37d8c1c0d58103fcae760ac37/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/1980a5bffd8e50c31076f730231bc9f1/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -430,7 +438,7 @@ DC-bus voltage controller.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -473,6 +481,7 @@ By Aalto Electric Drives
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, Aalto Electric Drives.
@@ -499,8 +508,8 @@ By Aalto Electric Drives
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

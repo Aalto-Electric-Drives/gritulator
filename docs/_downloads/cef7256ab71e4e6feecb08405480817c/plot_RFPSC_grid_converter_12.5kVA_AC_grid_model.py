@@ -1,6 +1,6 @@
 """
-12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.
-==============================================
+12.5-kVA grid forming converter (RFPSC), with electromechanical grid model
+==========================================================================
     
 This example simulates a grid forming controlled converter, which uses reference
 feedforward power synchronization control (RFPSC) method connected to a weak

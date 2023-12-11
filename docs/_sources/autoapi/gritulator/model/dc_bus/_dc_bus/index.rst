@@ -38,15 +38,13 @@ Classes
    This model is used to compute the DC bus dynamics, represented by a first-
    order system with the DC-bus capacitance dynamics.
 
-   :Parameters:
+   :param C_dc: DC bus capacitance (in Farad)
+   :type C_dc: float
+   :param G_dc: DC bus conductance (in Siemens)
+   :type G_dc: float
+   :param i_ext: External dc current, seen as disturbance, `i_ext(t)`.
+   :type i_ext: function
 
-       **C_dc** : float
-               DC bus capacitance (in Farad)
-           G_dc : float
-               DC bus conductance (in Siemens)
-
-       **i_ext** : function
-           External dc current, seen as disturbance, `i_ext(t)`.
 
 
 
@@ -67,24 +65,20 @@ Classes
       :staticmethod:
 
       
-       Compute the converter DC current, used to model the DC-bus voltage
-       dynamics.
+      Compute the converter DC current, used to model the DC-bus voltage
+      dynamics.
+
+      :param i_c_abc: Phase currents.
+      :type i_c_abc: ndarray, shape (3,)
+      :param q: Switching state vectors corresponding to the switching instants.
+                For example, the switching state q[1] is applied at the interval
+                t_n_sw[1].
+      :type q: complex ndarray, shape (3,)
+
+      :returns: **i_dc** -- dc current (A)
+      :rtype: float
 
 
-      :Parameters:
-
-          **i_c_abc** : ndarray, shape (3,)
-              Phase currents.
-
-          **q** : complex ndarray, shape (3,)
-              Switching state vectors corresponding to the switching instants.
-              For example, the switching state q[1] is applied at the interval
-              t_n_sw[1].
-
-      :Returns:
-
-          i_dc: float
-              dc current (A)
 
 
 
@@ -104,27 +98,22 @@ Classes
    .. py:method:: f(t, u_dc, i_c_abc, q)
 
       
-       Compute the state derivatives.
+      Compute the state derivatives.
 
+      :param t: Time.
+      :type t: float
+      :param u_dc: DC bus voltage (V)
+      :type u_dc: float
+      :param i_c_abc: Phase currents.
+      :type i_c_abc: ndarray, shape (3,)
+      :param q: Switching state vectors corresponding to the switching instants.
+                For example, the switching state q[1] is applied at the interval
+                t_n_sw[1].
+      :type q: complex ndarray, shape (3,)
 
-      :Parameters:
+      :returns: Time derivative of the complex state vector, [du_dc]
+      :rtype: double list, length 1
 
-          **t** : float
-                  Time.
-              u_dc: float
-                  DC bus voltage (V)
-
-          **i_c_abc** : ndarray, shape (3,)
-              Phase currents.
-
-          **q** : complex ndarray, shape (3,)
-                 Switching state vectors corresponding to the switching instants.
-                 For example, the switching state q[1] is applied at the interval
-                 t_n_sw[1].
-              Returns
-              -------
-              double list, length 1
-                      Time derivative of the complex state vector, [du_dc]
 
 
 

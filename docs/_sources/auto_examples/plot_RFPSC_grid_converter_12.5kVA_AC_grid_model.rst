@@ -18,8 +18,8 @@
 .. _sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:
 
 
-12.5-kVA grid forming converter (RFPSC), with electromechanical grid model.
-==============================================
+12.5-kVA grid forming converter (RFPSC), with electromechanical grid model
+==========================================================================
     
 This example simulates a grid forming controlled converter, which uses reference
 feedforward power synchronization control (RFPSC) method connected to a weak
@@ -35,7 +35,7 @@ Imports.
 
 .. GENERATED FROM PYTHON SOURCE LINES 18-27
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -59,7 +59,7 @@ Compute base values based on the nominal values (just for figures).
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-33
 
-.. code-block:: default
+.. code-block:: Python
 
     base_values = BaseValuesElectrical(
         U_nom=400, I_nom=18, f_nom=50.0, P_nom=12.5e3)
@@ -78,7 +78,7 @@ Configure the system model (grid model).
 
 .. GENERATED FROM PYTHON SOURCE LINES 35-54
 
-.. code-block:: default
+.. code-block:: Python
 
 
     grid_filter = model.LCLFilter(L_fc=3e-3, C_f=10e-6, L_fg=3e-3, L_g=20e-3)
@@ -112,7 +112,7 @@ Set the time-dependent reference and disturbance signals.
 
 .. GENERATED FROM PYTHON SOURCE LINES 56-75
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Set the active power reference
@@ -142,7 +142,7 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 29.38 s
+    Execution time: 29.67 s
 
 
 
@@ -153,7 +153,7 @@ Plot results in SI or per unit values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 77-79
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_grid(sim, base=base_values, plot_pcc_voltage=True, plot_w=True)
@@ -184,7 +184,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 30.266 seconds)
+   **Total running time of the script:** (0 minutes 30.551 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py:
@@ -193,16 +193,13 @@ Plot results in SI or per unit values.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.ipynb <plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py <plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.ipynb <plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.ipynb>`
 
 
 .. only:: html

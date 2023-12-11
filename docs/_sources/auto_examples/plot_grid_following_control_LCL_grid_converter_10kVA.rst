@@ -19,7 +19,7 @@
 
 
 10-kVA grid following converter with LCL filter, power control
-==============================================
+==============================================================
     
 This example simulates a grid following controlled converter connected to a
 strong grid through an LCL filter. The control system includes a phase-locked
@@ -32,7 +32,7 @@ Imports.
 
 .. GENERATED FROM PYTHON SOURCE LINES 14-23
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -56,7 +56,7 @@ Compute base values based on the nominal values (just for figures).
 
 .. GENERATED FROM PYTHON SOURCE LINES 25-30
 
-.. code-block:: default
+.. code-block:: Python
 
 
     base_values = BaseValuesElectrical(
@@ -76,7 +76,7 @@ Create the system model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 32-42
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # grid impedance and filter model
@@ -101,7 +101,7 @@ Configure the control system.
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-56
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Control parameters
@@ -128,7 +128,7 @@ Set the time-dependent reference and disturbance signals.
 
 .. GENERATED FROM PYTHON SOURCE LINES 58-67
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Set the active and reactive power references
@@ -152,7 +152,7 @@ Create the simulation object and simulate it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 69-77
 
-.. code-block:: default
+.. code-block:: Python
 
 
     sim = model.Simulation(mdl, ctrl, pwm=False)
@@ -171,7 +171,7 @@ Create the simulation object and simulate it.
  .. code-block:: none
 
 
-    Execution time: 0.75 s
+    Execution time: 0.73 s
 
 
 
@@ -182,7 +182,7 @@ Plot results in SI or per unit values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 79-81
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_grid(sim, base=base_values,plot_pcc_voltage=True)
@@ -213,7 +213,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.389 seconds)
+   **Total running time of the script:** (0 minutes 1.371 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py:
@@ -222,16 +222,13 @@ Plot results in SI or per unit values.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_grid_following_control_LCL_grid_converter_10kVA.ipynb <plot_grid_following_control_LCL_grid_converter_10kVA.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_grid_following_control_LCL_grid_converter_10kVA.py <plot_grid_following_control_LCL_grid_converter_10kVA.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_grid_following_control_LCL_grid_converter_10kVA.ipynb <plot_grid_following_control_LCL_grid_converter_10kVA.ipynb>`
 
 
 .. only:: html

@@ -65,12 +65,6 @@ Classes
    :param pars: Control parameters.
    :type pars: GridFollowingCtrlPars
 
-   .. rubric:: References
-
-   .. [#Har2009] Harnefors, Bongiorno, "Current controller design
-      for passivity of the input admittance," 2009 13th European Conference
-      on Power Electronics and Applications, Barcelona, Spain, 2009.
-
 
 
 
