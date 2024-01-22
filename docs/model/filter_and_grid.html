@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Design Notes &#8212; gritulator 0.0.1 documentation</title>
+    <title>AC Filter and Grid Impedance &#8212; gritulator 0.0.1 documentation</title>
   
   
   
@@ -49,9 +49,12 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'control/design_notes';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'model/filter_and_grid';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../auto_examples/index.html" />
+    <link rel="prev" title="Converters" href="converters.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,10 +161,10 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../model/system.html">Grid-converter System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/filter_and_grid.html">AC Filter and Grid Impedance</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="system.html">Grid-converter System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converters.html">Converters</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">AC Filter and Grid Impedance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
 <ul class="nav bd-sidenav">
@@ -243,7 +246,7 @@
       
       
       
-      <li><a href="../_sources/control/design_notes.rst" target="_blank"
+      <li><a href="../_sources/model/filter_and_grid.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +317,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -325,11 +330,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Design Notes</h1>
+    <h1>AC Filter and Grid Impedance</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-vectors">Space Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-filter">L Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcl-filter">LCL Filter</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -339,17 +354,35 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="design-notes">
-<h1>Design Notes<a class="headerlink" href="#design-notes" title="Permalink to this heading">#</a></h1>
-<p>Design notes for selected control methods are provided in this section. The aim of these notes is to link the implemented methods to the theory and to provide a reference for the implementation. Further details are available in the references provided.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="speed_ctrl.html">Speed Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="current_ctrl.html">Current Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observers.html">Observers</a></li>
-</ul>
-</div>
-<p>This section will be extended in the future.</p>
+  <section id="ac-filter-and-grid-impedance">
+<h1>AC Filter and Grid Impedance<a class="headerlink" href="#ac-filter-and-grid-impedance" title="Permalink to this heading">#</a></h1>
+<p>This document describes continuous-time alternating current (AC) filter and
+grid-impedance models.</p>
+<section id="space-vectors">
+<h2>Space Vectors<a class="headerlink" href="#space-vectors" title="Permalink to this heading">#</a></h2>
+<p>The models apply peak-valued complex space vectors, marked with boldface in the
+following equations. As an example, the space vector of the converter current is</p>
+<div class="math notranslate nohighlight" id="equation-space-vector">
+<span class="eqno">(1)<a class="headerlink" href="#equation-space-vector" title="Permalink to this equation">#</a></span>\[\boldsymbol{i}^\mathrm{s}_\mathrm{c}
+= \frac{2}{3}\left(i_\mathrm{a} + i_\mathrm{b}\mathrm{e}^{\mathrm{j}2\pi/3}
++ i_\mathrm{c}\mathrm{e}^{\mathrm{j} 4\pi/3}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(i_\mathrm{a}\)</span>, <span class="math notranslate nohighlight">\(i_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(i_\mathrm{c}\)</span>
+are the phase currents, which may vary freely in time. In our notation, the
+subscript c refers to the converter-side AC quantities and the superscript s
+refers to the stationary coordinates. The space vector does not include the
+zero-sequence component, which is defined as</p>
+<div class="math notranslate nohighlight" id="equation-zero-sequence">
+<span class="eqno">(2)<a class="headerlink" href="#equation-zero-sequence" title="Permalink to this equation">#</a></span>\[i_\mathrm{c0} = \frac{1}{3}\left(i_\mathrm{a} + i_\mathrm{b} + i_\mathrm{c}\right)\]</div>
+<p>The space vector transformation in <a class="reference internal" href="machines.html#equation-space-vector">(1)</a> is implemented in the
+function <a class="reference internal" href="../autoapi/gritulator/index.html#gritulator.abc2complex" title="gritulator.abc2complex"><code class="xref py py-func docutils literal notranslate"><span class="pre">gritulator.abc2complex()</span></code></a> and its inverse transformation in the
+function <a class="reference internal" href="../autoapi/gritulator/index.html#gritulator.complex2abc" title="gritulator.complex2abc"><code class="xref py py-func docutils literal notranslate"><span class="pre">gritulator.complex2abc()</span></code></a>.</p>
+</section>
+<section id="l-filter">
+<h2>L Filter<a class="headerlink" href="#l-filter" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="lcl-filter">
+<h2>LCL Filter<a class="headerlink" href="#lcl-filter" title="Permalink to this heading">#</a></h2>
+</section>
 </section>
 
 
@@ -363,12 +396,46 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="converters.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Converters</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../auto_examples/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-vectors">Space Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-filter">L Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcl-filter">LCL Filter</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
