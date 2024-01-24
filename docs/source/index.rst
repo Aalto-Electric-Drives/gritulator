@@ -36,4 +36,4 @@ as examples. The example methods aim to be simple yet feasible.
    :maxdepth: 1
 
    auto_examples/index
-..   control/design_notes
+   control/design_notes
