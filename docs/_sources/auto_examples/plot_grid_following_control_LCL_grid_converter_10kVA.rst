@@ -171,7 +171,7 @@ Create the simulation object and simulate it.
  .. code-block:: none
 
 
-    Execution time: 0.72 s
+    Execution time: 0.73 s
 
 
 
@@ -213,7 +213,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.450 seconds)
+   **Total running time of the script:** (0 minutes 1.464 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py:

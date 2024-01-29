@@ -345,7 +345,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverter">Inverter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#six-pulse-diode-bridge">Six-Pulse Diode Bridge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carrier-comparison">Carrier Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-cycle-averaging">Switching-Cycle Averaging</a></li>
 </ul>
@@ -363,60 +362,90 @@ document.write(`
 <h1>Converters<a class="headerlink" href="#converters" title="Permalink to this heading">#</a></h1>
 <section id="inverter">
 <h2>Inverter<a class="headerlink" href="#inverter" title="Permalink to this heading">#</a></h2>
-<p>The figure below shows a three-phase two-level inverter and its equivalent model, where ideal switches  are assumed. In the equivalent model, each changeover switch is connected to either negative or positive potential of the DC bus. The switchings are assumed to be infinitely fast. The inverter model is provided in the class <code class="xref py py-class docutils literal notranslate"><span class="pre">motulator.model.Inverter</span></code>.</p>
+<p>The figure below shows a three-phase two-level inverter and its equivalent model,
+where ideal switches  are assumed. In the equivalent model, each changeover
+switch is connected to either negative or positive potential of the DC bus.
+The switchings are assumed to be infinitely fast. The inverter model is provided
+in the class <a class="reference internal" href="../autoapi/gritulator/model/index.html#gritulator.model.Inverter" title="gritulator.model.Inverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">gritulator.model.Inverter</span></code></a>.</p>
 <figure class="align-center" id="id3">
 <a class="reference external image-reference" href="."><img alt="Three-phase two-level inverter" src="../_images/inverter.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-text">Three-phase two-level inverter: (left) main circuit; (right) equivalent model. The DC-bus voltage and currents are <span class="math notranslate nohighlight">\(u_\mathrm{dc}\)</span> and <span class="math notranslate nohighlight">\(i_\mathrm{dc}\)</span>, respectively.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="six-pulse-diode-bridge">
-<h2>Six-Pulse Diode Bridge<a class="headerlink" href="#six-pulse-diode-bridge" title="Permalink to this heading">#</a></h2>
-<p>The figure below shows a six-pulse diode bridge rectifier, where the inductor <span class="math notranslate nohighlight">\(L\)</span> and the capacitor <span class="math notranslate nohighlight">\(C\)</span> are placed in the DC link. For simplicity, a three-phase supply voltage is assumed to be stiff. The class <code class="xref py py-class docutils literal notranslate"><span class="pre">motulator.model.FrequencyConverter</span></code> applies this model as a part of a frequency converter model.</p>
-<figure class="align-center" id="id4">
-<a class="reference external image-reference" href="."><img alt="Diode bridge" src="../_images/diode_bridge.svg" width="100%" /></a>
-<figcaption>
-<p><span class="caption-text">Six-pulse diode bridge rectifier.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">Three-phase two-level inverter: (left) main circuit; (right) equivalent model.
+The DC-bus voltage and currents are <span class="math notranslate nohighlight">\(u_\mathrm{dc}\)</span> and
+<span class="math notranslate nohighlight">\(i_\mathrm{dc}\)</span>, respectively.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="carrier-comparison">
 <h2>Carrier Comparison<a class="headerlink" href="#carrier-comparison" title="Permalink to this heading">#</a></h2>
-<p>The figure below shows an inverter equipped with a generic three-phase load. In pulse-width modulation (PWM), carrier comparison is commonly used to generate instantaneous switching state signals <span class="math notranslate nohighlight">\(q_\mathrm{a}\)</span>, <span class="math notranslate nohighlight">\(q_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(q_\mathrm{c}\)</span> from duty ratios <span class="math notranslate nohighlight">\(d_\mathrm{a}\)</span>, <span class="math notranslate nohighlight">\(d_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(d_\mathrm{c}\)</span>. The duty ratios are continuous signals in the range [0, 1} while the switching states are either 0 or 1.</p>
-<figure class="align-center" id="id5">
+<p>The figure below shows an inverter equipped with a generic three-phase load.
+In pulse-width modulation (PWM), carrier comparison is commonly used to generate
+instantaneous switching state signals <span class="math notranslate nohighlight">\(q_\mathrm{a}\)</span>, <span class="math notranslate nohighlight">\(q_\mathrm{b}\)</span>,
+and <span class="math notranslate nohighlight">\(q_\mathrm{c}\)</span> from duty ratios <span class="math notranslate nohighlight">\(d_\mathrm{a}\)</span>,
+<span class="math notranslate nohighlight">\(d_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(d_\mathrm{c}\)</span>. The duty ratios are continuous
+signals in the range [0, 1} while the switching states are either 0 or 1.</p>
+<figure class="align-center" id="id4">
 <a class="reference external image-reference" href="."><img alt="Inverter and carrier comparison" src="../_images/pwm_inverter.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-text">Instantaneous switching states are defined by the carrier comparison. In this example, the switching states are <span class="math notranslate nohighlight">\(q_\mathrm{a}=1\)</span>, <span class="math notranslate nohighlight">\(q_\mathrm{b}=0\)</span>, and <span class="math notranslate nohighlight">\(q_\mathrm{c}=0\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">Instantaneous switching states are defined by the carrier comparison.
+In this example, the switching states are <span class="math notranslate nohighlight">\(q_\mathrm{a}=1\)</span>,
+<span class="math notranslate nohighlight">\(q_\mathrm{b}=0\)</span>, and <span class="math notranslate nohighlight">\(q_\mathrm{c}=0\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The figure below shows the principle of carrier comparison. The logic shown in the figure is implemented in the class <code class="xref py py-class docutils literal notranslate"><span class="pre">motulator.model.CarrierComparison</span></code>, where the switching instants are explicitly computed in the begininning of each sampling period (instead of searching for zero crossings), allowing faster simulations.</p>
-<figure class="align-center" id="id6">
+<p>The figure below shows the principle of carrier comparison. The logic shown in
+the figure is implemented in the class <a class="reference internal" href="../autoapi/gritulator/model/index.html#gritulator.model.CarrierComparison" title="gritulator.model.CarrierComparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">gritulator.model.CarrierComparison</span></code></a>,
+where the switching instants are explicitly computed in the begininning of each
+sampling period (instead of searching for zero crossings), allowing faster
+simulations.</p>
+<figure class="align-center" id="id5">
 <a class="reference external image-reference" href="."><img alt="Carrier comparison" src="../_images/carrier_comparison.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-text">Carrier comparison. The duty ratios are <span class="math notranslate nohighlight">\(d_\mathrm{a}\)</span>, <span class="math notranslate nohighlight">\(d_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(d_\mathrm{c}\)</span> are constant over the sampling period <span class="math notranslate nohighlight">\(T_\mathrm{s}\)</span> (or, optionally, over the the switching period <span class="math notranslate nohighlight">\(T_\mathrm{sw}=2T_\mathrm{s}\)</span>). The carrier signal is the same for all three phases and varies between 0 and 1.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">Carrier comparison. The duty ratios are <span class="math notranslate nohighlight">\(d_\mathrm{a}\)</span>,
+<span class="math notranslate nohighlight">\(d_\mathrm{b}\)</span>, and <span class="math notranslate nohighlight">\(d_\mathrm{c}\)</span> are constant over the sampling
+period <span class="math notranslate nohighlight">\(T_\mathrm{s}\)</span> (or, optionally, over the the switching period
+<span class="math notranslate nohighlight">\(T_\mathrm{sw}=2T_\mathrm{s}\)</span>). The carrier signal is the same for all
+three phases and varies between 0 and 1.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The zero-sequence voltage does not affect the phase currents if the neutral of the load is not connected. Therefore, the reference potential of the phase voltages can be freely chosen when computing the space vector of the converter output voltage. The converter voltage vector in stationary coordinates is</p>
+<p>The zero-sequence voltage does not affect the phase currents if the neutral wire
+is not connected. Therefore, the reference potential of the phase voltages can
+be freely chosen when computing the space vector of the converter output voltage.
+The converter voltage vector in stationary coordinates is</p>
 <div class="math notranslate nohighlight" id="equation-carrier-comparison">
-<span class="eqno">(1)<a class="headerlink" href="#equation-carrier-comparison" title="Permalink to this equation">#</a></span>\[\begin{split}\boldsymbol{u} &amp;= \frac{2}{3}\left(u_\mathrm{an} + u_\mathrm{bn}\mathrm{e}^{\mathrm{j}2\pi/3} + u_\mathrm{cn}\mathrm{e}^{\mathrm{j} 4\pi/3}\right) \\
-     &amp;= \frac{2}{3}\left(u_\mathrm{aN} + u_\mathrm{bN}\mathrm{e}^{\mathrm{j} 2\pi/3} + u_\mathrm{cN}\mathrm{e}^{\mathrm{j} 4\pi/3}\right) \\
-&amp;= \underbrace{\frac{2}{3}\left(q_\mathrm{a} + q_\mathrm{b}\mathrm{e}^{\mathrm{j} 2\pi/3} + q_\mathrm{c}\mathrm{e}^{\mathrm{j} 4\pi/3}\right)}_{\boldsymbol{q}}u_\mathrm{dc}\end{split}\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-carrier-comparison" title="Permalink to this equation">#</a></span>\[\begin{split}\boldsymbol{u} &amp;= \frac{2}{3}\left(u_\mathrm{an}
++ u_\mathrm{bn}\mathrm{e}^{\mathrm{j}2\pi/3}
++ u_\mathrm{cn}\mathrm{e}^{\mathrm{j} 4\pi/3}\right) \\
+     &amp;= \frac{2}{3}\left(u_\mathrm{aN} + u_\mathrm{bN}\mathrm{e}^{\mathrm{j} 2\pi/3}
++ u_\mathrm{cN}\mathrm{e}^{\mathrm{j} 4\pi/3}\right) \\
+&amp;= \underbrace{\frac{2}{3}\left(q_\mathrm{a}
++ q_\mathrm{b}\mathrm{e}^{\mathrm{j} 2\pi/3}
++ q_\mathrm{c}\mathrm{e}^{\mathrm{j} 4\pi/3}\right)}_{\boldsymbol{q}}u_\mathrm{dc}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{q}\)</span> is the switching state space vector.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The carrier comparison is compatible with all standard pulse-width modulation (PWM) methods, such as space-vector PWM (see <code class="xref py py-class docutils literal notranslate"><span class="pre">motulator.control.PWM</span></code>) and discontinuous PWM methods <a class="footnote-reference brackets" href="#hol1994" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#hav1999" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p>The sampling period <span class="math notranslate nohighlight">\(T_\mathrm{s}\)</span> is returned by the control method, and it does not need to be constant.</p>
-<p>If the zero sequence is of interest, it could be easily added to the inverter model.</p>
-<p>Since the converter models are invariably in stationary coordinates, the space vectors are not marked with the superscript s here to simplify the notation.</p>
+<p>The carrier comparison is compatible with all standard pulse-width modulation
+(PWM) methods, such as space-vector PWM (see <a class="reference internal" href="../autoapi/gritulator/control/index.html#gritulator.control.PWM" title="gritulator.control.PWM"><code class="xref py py-class docutils literal notranslate"><span class="pre">gritulator.control.PWM</span></code></a>)
+and discontinuous PWM methods <a class="footnote-reference brackets" href="#hol1994" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#hav1999" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>The sampling period <span class="math notranslate nohighlight">\(T_\mathrm{s}\)</span> is returned by the control method,
+and it does not need to be constant.</p>
+<p>If the zero sequence is of interest, it could be easily added to the inverter
+model.</p>
+<p>Since the converter models are invariably in stationary coordinates, the
+space vectors are not marked with the superscript s here to simplify the
+notation.</p>
 </div>
 </section>
 <section id="switching-cycle-averaging">
 <h2>Switching-Cycle Averaging<a class="headerlink" href="#switching-cycle-averaging" title="Permalink to this heading">#</a></h2>
-<p>If the switching ripple is not of interest in simulations, the carrier comparison can be replaced with zero-order hold (ZOH) of the duty ratios. In this case, the output voltage vector is</p>
+<p>If the switching ripple is not of interest in simulations, the carrier
+comparison can be replaced with zero-order hold (ZOH) of the duty ratios. In
+this case, the output voltage vector is</p>
 <div class="math notranslate nohighlight" id="equation-switching-cycle-averaging">
-<span class="eqno">(2)<a class="headerlink" href="#equation-switching-cycle-averaging" title="Permalink to this equation">#</a></span>\[\boldsymbol{u} = \underbrace{\frac{2}{3}\left(d_\mathrm{a} + d_\mathrm{b}\mathrm{e}^{\mathrm{j} 2\pi/3} + d_\mathrm{c}\mathrm{e}^{\mathrm{j} 4\pi/3}\right)}_{\boldsymbol{d}}u_\mathrm{dc}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\boldsymbol{d}\)</span> is the duty ratio space vector. This ZOH is the default option in most of <a class="reference internal" href="../auto_examples/index.html"><span class="doc">Examples</span></a>.</p>
+<span class="eqno">(2)<a class="headerlink" href="#equation-switching-cycle-averaging" title="Permalink to this equation">#</a></span>\[\boldsymbol{u} = \underbrace{\frac{2}{3}\left(d_\mathrm{a}
++ d_\mathrm{b}\mathrm{e}^{\mathrm{j} 2\pi/3}
++ d_\mathrm{c}\mathrm{e}^{\mathrm{j} 4\pi/3}\right)}_{\boldsymbol{d}}u_\mathrm{dc}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{d}\)</span> is the duty ratio space vector. This ZOH is the
+default option in most of <a class="reference internal" href="../auto_examples/index.html"><span class="doc">Examples</span></a>.</p>
 <p class="rubric">References</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="hol1994" role="note">
@@ -476,7 +505,6 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverter">Inverter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#six-pulse-diode-bridge">Six-Pulse Diode Bridge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carrier-comparison">Carrier Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-cycle-averaging">Switching-Cycle Averaging</a></li>
 </ul>

@@ -30,7 +30,7 @@ converter currents.
 Digital control systems typically have a computational delay of one sampling 
 period, :math:`N=1`. The PWM block shown in the figure models the carrier 
 comparison, see more details in :doc:`converters`. The carrier comparison is 
-implemented in the class :class:`motulator.model.CarrierComparison`. If the 
+implemented in the class :class:`gritulator.model.CarrierComparison`. If the 
 switching ripple is not of interest in simulations, the carrier comparison can 
 be replaced with zero-order hold (ZOH).
 
