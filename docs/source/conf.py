@@ -57,7 +57,7 @@ autoapi_python_class_content = "class"  # "both"
 autoapi_keep_files = True
 autoapi_add_toctree_entry = False
 
-from sphinx_gallery.sorting import ExplicitOrder
+#from sphinx_gallery.sorting import ExplicitOrder
 
 sphinx_gallery_conf = {
     "examples_dirs":

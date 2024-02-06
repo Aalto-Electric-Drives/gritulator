@@ -73,12 +73,6 @@ class GridFollowingCtrl(Ctrl):
     pars : GridFollowingCtrlPars
         Control parameters.
 
-    References
-    ----------
-    .. [#Har2009] Harnefors, Bongiorno, "Current controller design
-       for passivity of the input admittance," 2009 13th European Conference
-       on Power Electronics and Applications, Barcelona, Spain, 2009.
-
     """   
 
     # pylint: disable=too-many-instance-attributes

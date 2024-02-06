@@ -1,10 +1,11 @@
 """
 DC-bus dynamic model.
 
-The dc bus is defined as a current source with a DC capacitance model, which
+The dc bus is defined as a current source with a DC capacitance model, which 
 despicted the DC-bus voltage dynamics.
 
 """
+
 from gritulator._helpers import complex2abc
 
 # %%
@@ -15,16 +16,16 @@ class DCBus:
     This model is used to compute the DC bus dynamics, represented by a first-
     order system with the DC-bus capacitance dynamics.
 
-     Parameters
-     ----------
-     C_dc : float
-         DC bus capacitance (in Farad)
-     G_dc : float
-         DC bus conductance (in Siemens)
+    Parameters
+    ----------
+    C_dc : float
+        DC bus capacitance (in Farad)
+    G_dc : float
+        DC bus conductance (in Siemens)
     i_ext : function
         External dc current, seen as disturbance, `i_ext(t)`.
 
-     """
+    """
     def __init__(self, C_dc=1e-3, G_dc=0, i_ext=lambda t: 0, u_dc0 = 650):
         self.C_dc = C_dc
         self.G_dc = G_dc
@@ -40,12 +41,12 @@ class DCBus:
     
         Parameters
         ----------
-       i_c_abc : ndarray, shape (3,)
-           Phase currents.
-       q : complex ndarray, shape (3,)
-           Switching state vectors corresponding to the switching instants.
-           For example, the switching state q[1] is applied at the interval
-           t_n_sw[1].
+        i_c_abc : ndarray, shape (3,)
+            Phase currents.
+        q : complex ndarray, shape (3,)
+            Switching state vectors corresponding to the switching instants.
+            For example, the switching state q[1] is applied at the interval
+            t_n_sw[1].
     
         Returns
         -------
@@ -69,12 +70,12 @@ class DCBus:
             Time.
         u_dc: float
             DC bus voltage (V)
-       i_c_abc : ndarray, shape (3,)
-           Phase currents.
-       q : complex ndarray, shape (3,)
-           Switching state vectors corresponding to the switching instants.
-           For example, the switching state q[1] is applied at the interval
-           t_n_sw[1].
+        i_c_abc : ndarray, shape (3,)
+            Phase currents.
+        q : complex ndarray, shape (3,)
+            Switching state vectors corresponding to the switching instants.
+            For example, the switching state q[1] is applied at the interval
+            t_n_sw[1].
         Returns
         -------
         double list, length 1

@@ -1,6 +1,6 @@
 """
 6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)
-==============================================
+=================================================================
     
 This example simulates a grid forming controlled converter connected to a
 weak grid. The control system includes a power synchronization loop (PSL) to
