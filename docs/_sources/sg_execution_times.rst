@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:48.191** total execution time for 6 files **from all galleries**:
+**00:49.796** total execution time for 6 files **from all galleries**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py` (``../../examples/plot_RFPSC_grid_converter_12.5kVA_AC_grid_model.py``)
-     - 00:30.653
+     - 00:31.668
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py` (``../../examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py``)
-     - 00:06.749
+     - 00:06.994
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_power_synchronization_control_grid_converter_6.9kVA.py` (``../../examples/plot_power_synchronization_control_grid_converter_6.9kVA.py``)
-     - 00:06.383
+     - 00:06.609
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py` (``../../examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.py``)
-     - 00:01.681
+     - 00:01.760
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_grid_following_control_LCL_grid_converter_10kVA.py` (``../../examples/plot_grid_following_control_LCL_grid_converter_10kVA.py``)
-     - 00:01.479
+     - 00:01.478
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_grid_following_control_grid_converter_10kVA.py` (``../../examples/plot_grid_following_control_grid_converter_10kVA.py``)
-     - 00:01.245
+     - 00:01.286
      - 0.0

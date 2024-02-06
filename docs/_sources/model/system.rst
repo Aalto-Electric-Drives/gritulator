@@ -17,12 +17,12 @@ The same architecture is used in *gritulator*.
 
 The continuous-time system (named `mdl` in :doc:`/auto_examples/index`) is the 
 model of a physical grid-converter system, typically consisting of a power 
-converter, grid, and a filter, such as an LCL filter, between the converter and 
-grid. The continuous-time system may have external inputs, such as a power fed 
-to DC-bus of the converter.
+converter, grid, and filter, such as an LCL filter, between the converter and 
+the grid. The continuous-time system may have external inputs, such as a power 
+fed to a DC-bus of the converter.
 
 The discrete-time controller (named `ctrl`) contains control algorithms, such as 
-the current control and DC-bus voltage control. The reference signals could be, 
+current control and DC-bus voltage control. The reference signals could be, 
 e.g., the voltage and power references. The feedback signal 
 :math:`\boldsymbol{y}(k)` typically contains the measured DC-bus voltage and 
 converter currents. 
