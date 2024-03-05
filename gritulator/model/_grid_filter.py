@@ -1,9 +1,9 @@
 """
-Grid and converter filter impedance models.
+Grid and AC filter impedance models.
 
-This module contains continuous-time models for the AC impedance between the 
-converter output and the AC grid. In this module, all space vectors are in
-stationary coordinates.
+This module contains continuous-time models for subsystems comprising an AC 
+filter and a grid impedance between the converter and grid voltage sources. The 
+models are implemented with space vectors in stationary coordinates.
 
 """
 import numpy as np
@@ -13,19 +13,20 @@ from gritulator._helpers import complex2abc
 # %%
 class LFilter:
     """
-    Inductive-resistive filter dynamic model. 
+    Dynamic model for an inductive L filter and an inductive-resistive grid.
 
-    An inductive filter model is built using a simple inductance model where
-    the two output voltages are imposed and the current can be calculated using
-    dynamic equations. This model includes a model for an inductive-resistive
-    impedance of the grid combined with the L-filter model. 
+    An L filter and inductive-resistive grid impedance, between the converter and
+    grid voltage sources, is modeled combining their inductances and series
+    resistances in a state equation. The grid current is used as a state 
+    variable. The point-of-common-coupling (PCC) voltage between the L filter 
+    and the grid impedance is separately calculated.
 
     Parameters
     ----------
     L_f : float
         Filter inductance (H)
     R_f : float
-        Filter resistance (Ω)
+        Filter series resistance (Ω)
     L_g : float
         Grid inductance (H)
     R_g : float
@@ -45,15 +46,15 @@ class LFilter:
 
     def pcc_voltages(self, i_gs, u_cs, e_gs):
         """
-        Compute the point of common coupling voltage.
+        Compute the point-of-common-coupling voltage.
         
-        point of common coupling (PCC) is located at grid-side end of the
-        converter output filter.
+        This computes the point-of-common-coupling (PCC) voltage between the 
+        L filter and grid impedance.
         
         Parameters
         ----------
         i_gs : complex
-            Line current (A).
+            Grid current (A).
         u_cs : complex
             Converter voltage (V).
         e_gs : complex

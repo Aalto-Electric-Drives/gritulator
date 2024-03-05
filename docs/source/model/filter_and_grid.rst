@@ -39,7 +39,35 @@ function :func:`gritulator.complex2abc`.
 L Filter 
 --------
 
-This section will be extended in the future.
+A dynamic model for an inductive L filter and inductive-resistive grid impedance 
+is provided in the package :mod:`gritulator.model._grid_filter`. The model is 
+implemented in stationary coordinates as
+
+.. math::
+   \frac{\mathrm{d}\boldsymbol{i}_\mathrm{g}^\mathrm{s}}{\mathrm{d} t} 
+   = \frac{1}{L_\mathrm{t}}(\boldsymbol{u}_\mathrm{c}^\mathrm{s} 
+   - \boldsymbol{e}_\mathrm{g}^\mathrm{s} 
+   - R_\mathrm{t}\boldsymbol{i}_\mathrm{g}^\mathrm{s})
+   :label: L_filt_model
+
+where :math:`\boldsymbol{i}_\mathrm{g}^\mathrm{s}` is the grid current, 
+:math:`\boldsymbol{u}_\mathrm{c}^\mathrm{s}` is the converter voltage, 
+:math:`\boldsymbol{e}_\mathrm{g}^\mathrm{s}` is the grid voltage, 
+:math:`R_\mathrm{t} = R_\mathrm{f} + R_\mathrm{g}` is the total resistance 
+comprising the filter series resistance :math:`R_\mathrm{f}` and the grid 
+resistance :math:`R_\mathrm{g}`, and :math:`L_\mathrm{t} = L_\mathrm{f} + L_\mathrm{g}` 
+is the total inductance comprising the filter inductance 
+:math:`L_\mathrm{f}` and the grid inductance :math:`L_\mathrm{g}`. The point of 
+common coupling (PCC) is modeled to be between the L filter and grid impedance. 
+The voltage at the PCC is obtained as
+
+.. math::
+   \boldsymbol{u}_\mathrm{g}^\mathrm{s} 
+   = \frac{L_\mathrm{g}(\boldsymbol{u}_\mathrm{c}^\mathrm{s} 
+   - R_\mathrm{f}\boldsymbol{i}_\mathrm{g}^\mathrm{s})
+   + L_\mathrm{f}(\boldsymbol{e}_\mathrm{g}^\mathrm{s} 
+   + R_\mathrm{g}\boldsymbol{i}_\mathrm{g}^\mathrm{s})}{L_\mathrm{t}}
+   :label: L_filt_PCC_voltage
 
 
 LCL Filter
