@@ -345,16 +345,17 @@ Classes
 
 
    
-   Inductive-resistive filter dynamic model.
+   Dynamic model for an inductive L filter and an inductive-resistive grid.
 
-   An inductive filter model is built using a simple inductance model where
-   the two output voltages are imposed and the current can be calculated using
-   dynamic equations. This model includes a model for an inductive-resistive
-   impedance of the grid combined with the L-filter model.
+   An L filter and inductive-resistive grid impedance, between the converter and
+   grid voltage sources, are modeled combining their inductances and series
+   resistances in a state equation. The grid current is used as a state
+   variable. The point-of-common-coupling (PCC) voltage between the L filter
+   and the grid impedance is separately calculated.
 
    :param L_f: Filter inductance (H)
    :type L_f: float
-   :param R_f: Filter resistance (Ω)
+   :param R_f: Filter series resistance (Ω)
    :type R_f: float
    :param L_g: Grid inductance (H)
    :type L_g: float
@@ -380,12 +381,12 @@ Classes
    .. py:method:: pcc_voltages(i_gs, u_cs, e_gs)
 
       
-      Compute the point of common coupling voltage.
+      Compute the point-of-common-coupling voltage.
 
-      point of common coupling (PCC) is located at grid-side end of the
-      converter output filter.
+      This computes the point-of-common-coupling (PCC) voltage between the
+      L filter and grid impedance.
 
-      :param i_gs: Line current (A).
+      :param i_gs: Grid current (A).
       :type i_gs: complex
       :param u_cs: Converter voltage (V).
       :type u_cs: complex
@@ -499,25 +500,26 @@ Classes
 
 
    
-   Inductive-capacitive-inductive (LCL) filter dynamic model.
+   Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.
 
-   An LCL-type grid model is built using inductive and capacitive dynamic
-   models. The two output voltages are imposed and the grid-side current, the
-   converter-side current and the capacitance voltage can be calculated using
-   dynamic equations. This model includes a model for an inductive-resistive
-   impedance of the grid combined with the LCL-filter model.
+   An LCL filter and inductive-resistive grid impedance, between the converter
+   and grid voltage sources, are modeled using converter-side current, capacitor
+   voltage and grid-side current of the LCL filter as state variables. Grid
+   inductance and resistance are included in the state equation of grid-side
+   current. The point-of-common-coupling (PCC) voltage between the LCL filter
+   and the grid impedance is separately calculated.
 
-   :param L_fc: Converter-side filter inductance (H)
+   :param L_fc: Converter-side LCL filter inductance (H)
    :type L_fc: float
-   :param R_fc: Converter-side filter resistance (Ω)
+   :param R_fc: Converter-side series resistance (Ω)
    :type R_fc: float
-   :param L_fg: Grid-side filter inductance (H)
+   :param L_fg: Grid-side LCL filter inductance (H)
    :type L_fg: float
-   :param R_fg: Grid-side filter resistance (Ω)
+   :param R_fg: Grid-side series resistance (Ω)
    :type R_fg: float
-   :param C_f: Filter capacitance (F)
+   :param C_f: LCL Filter capacitance (F)
    :type C_f: float
-   :param G_f: LCL filter conductance (S)
+   :param G_f: Conductance of a resistance in parallel with the LCL filter capacitor (S)
    :type G_f: float
    :param L_g: Grid inductance (H)
    :type L_g: float
@@ -543,16 +545,16 @@ Classes
    .. py:method:: pcc_voltages(i_gs, u_fs, e_gs)
 
       
-      Compute the point of common coupling voltage.
+      Compute the point-of-common-coupling voltage.
 
-      point of common coupling (PCC) is located at the grid-side end of the
-      converter output filter.
+      This calculates point-of-common-coupling (PCC) voltage that is located
+      between the LCL filter and grid impedance.
 
-      :param i_gs: Grid-side line current (A).
+      :param i_gs: Grid current (A).
       :type i_gs: complex
-      :param u_fs: Capacitance voltage (V).
+      :param u_fs: Capacitor voltage (V).
       :type u_fs: complex
-      :param e_gs: Grid-side voltage (V).
+      :param e_gs: Grid voltage (V).
       :type e_gs: complex
 
       :returns: **u_gs** -- Voltage at the point of common coupling (V).

@@ -296,11 +296,11 @@ document.write(`
                   
   <h1>Source code for gritulator.model._grid_filter</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Grid and converter filter impedance models.</span>
+<span class="sd">Grid and AC filter impedance models.</span>
 
-<span class="sd">This module contains continuous-time models for the AC impedance between the </span>
-<span class="sd">converter output and the AC grid. In this module, all space vectors are in</span>
-<span class="sd">stationary coordinates.</span>
+<span class="sd">This module contains continuous-time models for subsystems comprising an AC </span>
+<span class="sd">filter and a grid impedance between the converter and grid voltage sources. The </span>
+<span class="sd">models are implemented with space vectors in stationary coordinates.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -310,19 +310,20 @@ document.write(`
 <span class="c1"># %%</span>
 <div class="viewcode-block" id="LFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter">[docs]</a><span class="k">class</span> <span class="nc">LFilter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inductive-resistive filter dynamic model. </span>
+<span class="sd">    Dynamic model for an inductive L filter and an inductive-resistive grid.</span>
 
-<span class="sd">    An inductive filter model is built using a simple inductance model where</span>
-<span class="sd">    the two output voltages are imposed and the current can be calculated using</span>
-<span class="sd">    dynamic equations. This model includes a model for an inductive-resistive</span>
-<span class="sd">    impedance of the grid combined with the L-filter model. </span>
+<span class="sd">    An L filter and inductive-resistive grid impedance, between the converter and</span>
+<span class="sd">    grid voltage sources, are modeled combining their inductances and series</span>
+<span class="sd">    resistances in a state equation. The grid current is used as a state </span>
+<span class="sd">    variable. The point-of-common-coupling (PCC) voltage between the L filter </span>
+<span class="sd">    and the grid impedance is separately calculated.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    L_f : float</span>
 <span class="sd">        Filter inductance (H)</span>
 <span class="sd">    R_f : float</span>
-<span class="sd">        Filter resistance (Ω)</span>
+<span class="sd">        Filter series resistance (Ω)</span>
 <span class="sd">    L_g : float</span>
 <span class="sd">        Grid inductance (H)</span>
 <span class="sd">    R_g : float</span>
@@ -342,15 +343,15 @@ document.write(`
 
 <div class="viewcode-block" id="LFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute the point of common coupling voltage.</span>
+<span class="sd">        Compute the point-of-common-coupling voltage.</span>
 <span class="sd">        </span>
-<span class="sd">        point of common coupling (PCC) is located at grid-side end of the</span>
-<span class="sd">        converter output filter.</span>
+<span class="sd">        This computes the point-of-common-coupling (PCC) voltage between the </span>
+<span class="sd">        L filter and grid impedance.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        i_gs : complex</span>
-<span class="sd">            Line current (A).</span>
+<span class="sd">            Grid current (A).</span>
 <span class="sd">        u_cs : complex</span>
 <span class="sd">            Converter voltage (V).</span>
 <span class="sd">        e_gs : complex</span>
@@ -429,28 +430,29 @@ document.write(`
     <span class="c1"># %%</span>
 <div class="viewcode-block" id="LCLFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter">[docs]</a><span class="k">class</span> <span class="nc">LCLFilter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inductive-capacitive-inductive (LCL) filter dynamic model. </span>
+<span class="sd">    Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.</span>
 
-<span class="sd">    An LCL-type grid model is built using inductive and capacitive dynamic</span>
-<span class="sd">    models. The two output voltages are imposed and the grid-side current, the</span>
-<span class="sd">    converter-side current and the capacitance voltage can be calculated using</span>
-<span class="sd">    dynamic equations. This model includes a model for an inductive-resistive</span>
-<span class="sd">    impedance of the grid combined with the LCL-filter model.</span>
+<span class="sd">    An LCL filter and inductive-resistive grid impedance, between the converter </span>
+<span class="sd">    and grid voltage sources, are modeled using converter-side current, capacitor </span>
+<span class="sd">    voltage and grid-side current of the LCL filter as state variables. Grid </span>
+<span class="sd">    inductance and resistance are included in the state equation of grid-side </span>
+<span class="sd">    current. The point-of-common-coupling (PCC) voltage between the LCL filter </span>
+<span class="sd">    and the grid impedance is separately calculated.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    L_fc : float</span>
-<span class="sd">        Converter-side filter inductance (H)</span>
+<span class="sd">        Converter-side LCL filter inductance (H)</span>
 <span class="sd">    R_fc : float</span>
-<span class="sd">        Converter-side filter resistance (Ω)</span>
+<span class="sd">        Converter-side series resistance (Ω)</span>
 <span class="sd">    L_fg : float</span>
-<span class="sd">        Grid-side filter inductance (H)</span>
+<span class="sd">        Grid-side LCL filter inductance (H)</span>
 <span class="sd">    R_fg : float</span>
-<span class="sd">        Grid-side filter resistance (Ω)</span>
+<span class="sd">        Grid-side series resistance (Ω)</span>
 <span class="sd">    C_f : float</span>
-<span class="sd">        Filter capacitance (F)</span>
+<span class="sd">        LCL Filter capacitance (F)</span>
 <span class="sd">    G_f : float</span>
-<span class="sd">        LCL filter conductance (S)</span>
+<span class="sd">        Conductance of a resistance in parallel with the LCL filter capacitor (S)</span>
 <span class="sd">    L_g : float</span>
 <span class="sd">        Grid inductance (H)</span>
 <span class="sd">    R_g : float</span>
@@ -479,19 +481,19 @@ document.write(`
 
 <div class="viewcode-block" id="LCLFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_fs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute the point of common coupling voltage.</span>
+<span class="sd">        Compute the point-of-common-coupling voltage.</span>
 <span class="sd">        </span>
-<span class="sd">        point of common coupling (PCC) is located at the grid-side end of the</span>
-<span class="sd">        converter output filter.</span>
+<span class="sd">        This calculates point-of-common-coupling (PCC) voltage that is located </span>
+<span class="sd">        between the LCL filter and grid impedance.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        i_gs : complex</span>
-<span class="sd">            Grid-side line current (A).</span>
+<span class="sd">            Grid current (A).</span>
 <span class="sd">        u_fs : complex</span>
-<span class="sd">            Capacitance voltage (V).</span>
+<span class="sd">            Capacitor voltage (V).</span>
 <span class="sd">        e_gs : complex</span>
-<span class="sd">            Grid-side voltage (V).</span>
+<span class="sd">            Grid voltage (V).</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
