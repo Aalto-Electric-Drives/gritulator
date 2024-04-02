@@ -16,7 +16,7 @@ class LFilter:
     Dynamic model for an inductive L filter and an inductive-resistive grid.
 
     An L filter and inductive-resistive grid impedance, between the converter and
-    grid voltage sources, is modeled combining their inductances and series
+    grid voltage sources, are modeled combining their inductances and series
     resistances in a state equation. The grid current is used as a state 
     variable. The point-of-common-coupling (PCC) voltage between the L filter 
     and the grid impedance is separately calculated.
@@ -133,28 +133,29 @@ class LFilter:
     # %%
 class LCLFilter:
     """
-    Inductive-capacitive-inductive (LCL) filter dynamic model. 
+    Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.
 
-    An LCL-type grid model is built using inductive and capacitive dynamic
-    models. The two output voltages are imposed and the grid-side current, the
-    converter-side current and the capacitance voltage can be calculated using
-    dynamic equations. This model includes a model for an inductive-resistive
-    impedance of the grid combined with the LCL-filter model.
+    An LCL filter and inductive-resistive grid impedance, between the converter 
+    and grid voltage sources, are modeled using converter-side current, capacitor 
+    voltage and grid-side current of the LCL filter as state variables. Grid 
+    inductance and resistance are included in the state equation of grid-side 
+    current. The point-of-common-coupling (PCC) voltage between the LCL filter 
+    and the grid impedance is separately calculated.
 
     Parameters
     ----------
     L_fc : float
-        Converter-side filter inductance (H)
+        Converter-side LCL filter inductance (H)
     R_fc : float
-        Converter-side filter resistance (Ω)
+        Converter-side series resistance (Ω)
     L_fg : float
-        Grid-side filter inductance (H)
+        Grid-side LCL filter inductance (H)
     R_fg : float
-        Grid-side filter resistance (Ω)
+        Grid-side series resistance (Ω)
     C_f : float
-        Filter capacitance (F)
+        LCL Filter capacitance (F)
     G_f : float
-        LCL filter conductance (S)
+        Conductance of a resistance in parallel with the LCL filter capacitor (S)
     L_g : float
         Grid inductance (H)
     R_g : float
@@ -183,19 +184,19 @@ class LCLFilter:
 
     def pcc_voltages(self, i_gs, u_fs, e_gs):
         """
-        Compute the point of common coupling voltage.
+        Compute the point-of-common-coupling voltage.
         
-        point of common coupling (PCC) is located at the grid-side end of the
-        converter output filter.
+        This calculates point-of-common-coupling (PCC) voltage that is located 
+        between the LCL filter and grid impedance.
 
         Parameters
         ----------
         i_gs : complex
-            Grid-side line current (A).
+            Grid current (A).
         u_fs : complex
-            Capacitance voltage (V).
+            Capacitor voltage (V).
         e_gs : complex
-            Grid-side voltage (V).
+            Grid voltage (V).
 
         Returns
         -------

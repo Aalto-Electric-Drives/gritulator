@@ -73,4 +73,45 @@ The voltage at the PCC is obtained as
 LCL Filter
 ----------
 
-This section will be extended in the future.
+A dynamic model for an inductive-capacitive-inductive (LCL) filter and 
+inductive-resistive grid impedance is also provided in the package 
+:mod:`gritulator.model._grid_filter`. The model is implemented in stationary 
+coordinates as
+
+.. math::
+   \frac{\mathrm{d}\boldsymbol{i}_\mathrm{c}^\mathrm{s}}{\mathrm{d} t} 
+   = \frac{1}{L_\mathrm{fc}}(\boldsymbol{u}_\mathrm{c}^\mathrm{s} 
+   - \boldsymbol{u}_\mathrm{f}^\mathrm{s} 
+   - R_\mathrm{fc}\boldsymbol{i}_\mathrm{c}^\mathrm{s})\\
+   \frac{\mathrm{d}\boldsymbol{u}_\mathrm{f}^\mathrm{s}}{\mathrm{d} t} 
+   = \frac{1}{C_\mathrm{f}}(\boldsymbol{i}_\mathrm{c}^\mathrm{s} 
+   - \boldsymbol{i}_\mathrm{g}^\mathrm{s} 
+   - G_\mathrm{f}\boldsymbol{u}_\mathrm{f}^\mathrm{s})\\
+   \frac{\mathrm{d}\boldsymbol{i}_\mathrm{g}^\mathrm{s}}{\mathrm{d} t} 
+   = \frac{1}{L_\mathrm{t}}(\boldsymbol{u}_\mathrm{f}^\mathrm{s} 
+   - \boldsymbol{e}_\mathrm{g}^\mathrm{s} 
+   - R_\mathrm{t}\boldsymbol{i}_\mathrm{g}^\mathrm{s})
+   :label: LCL_filt_model
+
+where :math:`\boldsymbol{i}_\mathrm{c}^\mathrm{s}` is the converter-side and 
+:math:`\boldsymbol{i}_\mathrm{g}^\mathrm{s}` is the grid-side current 
+of the LCL filter, and :math:`\boldsymbol{u}_\mathrm{f}^\mathrm{s}` is the filter 
+capacitor voltage. The converter-side and grid-side inductances of the LCL filter are 
+:math:`L_\mathrm{fc}` and :math:`L_\mathrm{fg}`, respectively, and their series 
+resistances are :math:`R_\mathrm{fc}` and :math:`R_\mathrm{fg}`, respectively. 
+The filter capactance is :math:`C_\mathrm{f}` and in parallel with it there is a 
+conductance :math:`G_\mathrm{f}`. In the LCL filter model, the total grid-side 
+indutance and resistance are :math:`L_\mathrm{t} = L_\mathrm{fg} + L_\mathrm{g}` 
+and :math:`R_\mathrm{t} = R_\mathrm{fg} + R_\mathrm{g}`, respectively.
+
+The PCC is modeled to be between the LCL filter and the inductive-resistive grid 
+impedance (:math:`L_\mathrm{g}`, :math:`R_\mathrm{g}`). The voltage at the PCC 
+is obtained as
+
+.. math::
+   \boldsymbol{u}_\mathrm{g}^\mathrm{s} 
+   = \frac{L_\mathrm{g}(\boldsymbol{u}_\mathrm{f}^\mathrm{s} 
+   - R_\mathrm{fg}\boldsymbol{i}_\mathrm{g}^\mathrm{s})
+   + L_\mathrm{fg}(\boldsymbol{e}_\mathrm{g}^\mathrm{s} 
+   + R_\mathrm{g}\boldsymbol{i}_\mathrm{g}^\mathrm{s})}{L_\mathrm{t}}
+   :label: LCL_filt_PCC_voltage
