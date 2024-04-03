@@ -15,8 +15,8 @@ class LFilter:
     """
     Dynamic model for an inductive L filter and an inductive-resistive grid.
 
-    An L filter and inductive-resistive grid impedance, between the converter and
-    grid voltage sources, are modeled combining their inductances and series
+    An L filter and an inductive-resistive grid impedance, between the converter 
+    and grid voltage sources, are modeled combining their inductances and series
     resistances in a state equation. The grid current is used as a state 
     variable. The point-of-common-coupling (PCC) voltage between the L filter 
     and the grid impedance is separately calculated.
@@ -46,10 +46,7 @@ class LFilter:
 
     def pcc_voltages(self, i_gs, u_cs, e_gs):
         """
-        Compute the point-of-common-coupling voltage.
-        
-        This computes the point-of-common-coupling (PCC) voltage between the 
-        L filter and grid impedance.
+        Compute the PCC voltage between the L filter and grid impedance.
         
         Parameters
         ----------
@@ -82,11 +79,11 @@ class LFilter:
         Parameters
         ----------
         i_gs : complex
-            Line current (A).
+            Grid current (A).
         u_cs : complex
-            Converter-side voltage (V).
+            Converter voltage (V).
         e_gs : complex
-            Grid-side voltage (V).
+            Grid voltage (V).
 
         Returns
         -------
@@ -107,17 +104,17 @@ class LFilter:
         Returns
         -------
         i_g_abc : 3-tuple of floats
-            Phase currents (A).
+            Grid phase currents (A).
 
         """
-        # Line current space vector in stationary coordinates
+        # Grid phase currents from the corresponding space vector
         i_g_abc = complex2abc(self.i_gs0)
         return i_g_abc
     
     
     def meas_pcc_voltage(self):
         """
-        Measure the PCC voltages at the end of the sampling period.
+        Measure the phase voltages at PCC at the end of the sampling period.
 
         Returns
         -------
@@ -125,7 +122,7 @@ class LFilter:
             Phase voltage at the point of common coupling (V).
 
         """  
-        # PCC voltage space vector in stationary coordinates
+        # PCC phase voltages from the corresponding space vector
         u_g_abc = complex2abc(self.u_gs0)
         return u_g_abc
     
@@ -135,27 +132,27 @@ class LCLFilter:
     """
     Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.
 
-    An LCL filter and inductive-resistive grid impedance, between the converter 
-    and grid voltage sources, are modeled using converter-side current, capacitor 
-    voltage and grid-side current of the LCL filter as state variables. Grid 
-    inductance and resistance are included in the state equation of grid-side 
+    An LCL filter and an inductive-resistive grid impedance, between the 
+    converter and grid voltage sources, are modeled using converter current, 
+    LCL-filter capacitor voltage and grid current as state variables. The grid 
+    inductance and resistance are included in the state equation of the grid 
     current. The point-of-common-coupling (PCC) voltage between the LCL filter 
     and the grid impedance is separately calculated.
 
     Parameters
     ----------
     L_fc : float
-        Converter-side LCL filter inductance (H)
+        Converter-side inductance of the LCL filter (H)
     R_fc : float
         Converter-side series resistance (Ω)
     L_fg : float
-        Grid-side LCL filter inductance (H)
+        Grid-side inductance of the LCL filter (H)
     R_fg : float
         Grid-side series resistance (Ω)
     C_f : float
-        LCL Filter capacitance (F)
+        Capacitance of the LCL Filter (F)
     G_f : float
-        Conductance of a resistance in parallel with the LCL filter capacitor (S)
+        Conductance of a resistor in parallel with the LCL-filter capacitor (S)
     L_g : float
         Grid inductance (H)
     R_g : float
@@ -184,17 +181,14 @@ class LCLFilter:
 
     def pcc_voltages(self, i_gs, u_fs, e_gs):
         """
-        Compute the point-of-common-coupling voltage.
-        
-        This calculates point-of-common-coupling (PCC) voltage that is located 
-        between the LCL filter and grid impedance.
+        Compute the PCC voltage between the LCL filter and the grid impedance.
 
         Parameters
         ----------
         i_gs : complex
             Grid current (A).
         u_fs : complex
-            Capacitor voltage (V).
+            LCL-filter capacitor voltage (V).
         e_gs : complex
             Grid voltage (V).
 
@@ -218,11 +212,11 @@ class LCLFilter:
         Parameters
         ----------
         i_cs : complex
-            Converter line current (A).
+            Converter current (A).
         u_fs : complex
-            Capacitance voltage (V).
+            LCL-filter capacitor voltage (V).
         i_gs : complex
-            Grid line current (A).
+            Grid current (A).
         u_cs : complex
             Converter voltage (V).
         e_gs : complex
@@ -234,56 +228,59 @@ class LCLFilter:
             Time derivative of the complex state vector, [di_cs, du_fs, di_gs]
 
         """
-        # Converter-side dynamics
+        # Converter current dynamics
         di_cs = (u_cs - u_fs - self.R_fc*i_cs)/self.L_fc
-        # Capacitance dynamics
+        # Capacitor voltage dynamics
         du_fs = (i_cs - i_gs - self.G_f*u_fs)/self.C_f
         # Calculation of the total grid-side impedance
         L_t = self.L_fg + self.L_g
         R_t = self.R_fg + self.R_g
+        # Grid current dynamics
         di_gs = (u_fs - e_gs - R_t*i_gs)/L_t
+
         return [di_cs, du_fs, di_gs]
 
     def meas_currents(self):
         """
-        Measure the converter currents at the end of the sampling period.
+        Measure the converter phase currents at the end of the sampling period.
 
         Returns
         -------
         i_c_abc : 3-tuple of floats
-            Phase currents.
+            Converter phase currents (A).
 
         """
-        # Line current space vector in stationary coordinates
+        # Converter phase currents from the corresponding space vector
         i_c_abc = complex2abc(self.i_cs0)
+
         return i_c_abc
     
     def meas_grid_currents(self):
         """
-        Measure the grid currents at the end of the sampling period.
+        Measure the grid phase currents at the end of the sampling period.
 
         Returns
         -------
         i_g_abc : 3-tuple of floats
-            Phase currents (A).
+            Grid phase currents (A).
 
         """
-        # Line current space vector in stationary coordinates
+        # Grid phase currents from the corresponding space vector
         i_g_abc = complex2abc(self.i_gs0)
         return i_g_abc
 
     def meas_cap_voltage(self):
         """
-        Measure the capacitor voltages at the end of the sampling period.
+        Measure the capacitor phase voltages at the end of the sampling period.
 
         Returns
         -------
         u_f_abc : 3-tuple of floats
-            Phase voltage through the capacitance of the LCL filter (V).
+            Phase voltages of the LCL filter capacitor (V).
 
         """  
-        # Capacitor voltage space vector in stationary coordinates
-        u_f_abc = complex2abc(self.u_fs0)  # + noise + offset ...
+        # Capacitor phase voltages from the corresponding space vector
+        u_f_abc = complex2abc(self.u_fs0)
         return u_f_abc
     
     def meas_pcc_voltage(self):
@@ -293,9 +290,9 @@ class LCLFilter:
         Returns
         -------
         u_g_abc : 3-tuple of floats
-            Phase voltage at the point of common coupling (V).
+            Phase voltages at the point of common coupling (V).
 
         """  
-        # PCC voltage space vector in stationary coordinates
+        # PCC phase voltages from the corresponding space vector
         u_g_abc = complex2abc(self.u_gs0)
         return u_g_abc
