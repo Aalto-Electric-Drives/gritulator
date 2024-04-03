@@ -37,8 +37,8 @@ Classes
    
    Dynamic model for an inductive L filter and an inductive-resistive grid.
 
-   An L filter and inductive-resistive grid impedance, between the converter and
-   grid voltage sources, are modeled combining their inductances and series
+   An L filter and an inductive-resistive grid impedance, between the converter
+   and grid voltage sources, are modeled combining their inductances and series
    resistances in a state equation. The grid current is used as a state
    variable. The point-of-common-coupling (PCC) voltage between the L filter
    and the grid impedance is separately calculated.
@@ -71,10 +71,7 @@ Classes
    .. py:method:: pcc_voltages(i_gs, u_cs, e_gs)
 
       
-      Compute the point-of-common-coupling voltage.
-
-      This computes the point-of-common-coupling (PCC) voltage between the
-      L filter and grid impedance.
+      Compute the PCC voltage between the L filter and grid impedance.
 
       :param i_gs: Grid current (A).
       :type i_gs: complex
@@ -108,11 +105,11 @@ Classes
       
       Compute the state derivatives.
 
-      :param i_gs: Line current (A).
+      :param i_gs: Grid current (A).
       :type i_gs: complex
-      :param u_cs: Converter-side voltage (V).
+      :param u_cs: Converter voltage (V).
       :type u_cs: complex
-      :param e_gs: Grid-side voltage (V).
+      :param e_gs: Grid voltage (V).
       :type e_gs: complex
 
       :returns: Time derivative of the complex state vector, [di_gs]
@@ -140,7 +137,7 @@ Classes
       
       Measure the phase currents at the end of the sampling period.
 
-      :returns: **i_g_abc** -- Phase currents (A).
+      :returns: **i_g_abc** -- Grid phase currents (A).
       :rtype: 3-tuple of floats
 
 
@@ -163,7 +160,7 @@ Classes
    .. py:method:: meas_pcc_voltage()
 
       
-      Measure the PCC voltages at the end of the sampling period.
+      Measure the phase voltages at PCC at the end of the sampling period.
 
       :returns: **u_g_abc** -- Phase voltage at the point of common coupling (V).
       :rtype: 3-tuple of floats
@@ -192,24 +189,24 @@ Classes
    
    Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.
 
-   An LCL filter and inductive-resistive grid impedance, between the converter
-   and grid voltage sources, are modeled using converter-side current, capacitor
-   voltage and grid-side current of the LCL filter as state variables. Grid
-   inductance and resistance are included in the state equation of grid-side
+   An LCL filter and an inductive-resistive grid impedance, between the
+   converter and grid voltage sources, are modeled using converter current,
+   LCL-filter capacitor voltage and grid current as state variables. The grid
+   inductance and resistance are included in the state equation of the grid
    current. The point-of-common-coupling (PCC) voltage between the LCL filter
    and the grid impedance is separately calculated.
 
-   :param L_fc: Converter-side LCL filter inductance (H)
+   :param L_fc: Converter-side inductance of the LCL filter (H)
    :type L_fc: float
    :param R_fc: Converter-side series resistance (Ω)
    :type R_fc: float
-   :param L_fg: Grid-side LCL filter inductance (H)
+   :param L_fg: Grid-side inductance of the LCL filter (H)
    :type L_fg: float
    :param R_fg: Grid-side series resistance (Ω)
    :type R_fg: float
-   :param C_f: LCL Filter capacitance (F)
+   :param C_f: Capacitance of the LCL Filter (F)
    :type C_f: float
-   :param G_f: Conductance of a resistance in parallel with the LCL filter capacitor (S)
+   :param G_f: Conductance of a resistor in parallel with the LCL-filter capacitor (S)
    :type G_f: float
    :param L_g: Grid inductance (H)
    :type L_g: float
@@ -235,14 +232,11 @@ Classes
    .. py:method:: pcc_voltages(i_gs, u_fs, e_gs)
 
       
-      Compute the point-of-common-coupling voltage.
-
-      This calculates point-of-common-coupling (PCC) voltage that is located
-      between the LCL filter and grid impedance.
+      Compute the PCC voltage between the LCL filter and the grid impedance.
 
       :param i_gs: Grid current (A).
       :type i_gs: complex
-      :param u_fs: Capacitor voltage (V).
+      :param u_fs: LCL-filter capacitor voltage (V).
       :type u_fs: complex
       :param e_gs: Grid voltage (V).
       :type e_gs: complex
@@ -272,11 +266,11 @@ Classes
       
       Compute the state derivatives.
 
-      :param i_cs: Converter line current (A).
+      :param i_cs: Converter current (A).
       :type i_cs: complex
-      :param u_fs: Capacitance voltage (V).
+      :param u_fs: LCL-filter capacitor voltage (V).
       :type u_fs: complex
-      :param i_gs: Grid line current (A).
+      :param i_gs: Grid current (A).
       :type i_gs: complex
       :param u_cs: Converter voltage (V).
       :type u_cs: complex
@@ -306,9 +300,9 @@ Classes
    .. py:method:: meas_currents()
 
       
-      Measure the converter currents at the end of the sampling period.
+      Measure the converter phase currents at the end of the sampling period.
 
-      :returns: **i_c_abc** -- Phase currents.
+      :returns: **i_c_abc** -- Converter phase currents (A).
       :rtype: 3-tuple of floats
 
 
@@ -331,9 +325,9 @@ Classes
    .. py:method:: meas_grid_currents()
 
       
-      Measure the grid currents at the end of the sampling period.
+      Measure the grid phase currents at the end of the sampling period.
 
-      :returns: **i_g_abc** -- Phase currents (A).
+      :returns: **i_g_abc** -- Grid phase currents (A).
       :rtype: 3-tuple of floats
 
 
@@ -356,9 +350,9 @@ Classes
    .. py:method:: meas_cap_voltage()
 
       
-      Measure the capacitor voltages at the end of the sampling period.
+      Measure the capacitor phase voltages at the end of the sampling period.
 
-      :returns: **u_f_abc** -- Phase voltage through the capacitance of the LCL filter (V).
+      :returns: **u_f_abc** -- Phase voltages of the LCL filter capacitor (V).
       :rtype: 3-tuple of floats
 
 
@@ -383,7 +377,7 @@ Classes
       
       Measure the PCC voltages at the end of the sampling period.
 
-      :returns: **u_g_abc** -- Phase voltage at the point of common coupling (V).
+      :returns: **u_g_abc** -- Phase voltages at the point of common coupling (V).
       :rtype: 3-tuple of floats
 
 

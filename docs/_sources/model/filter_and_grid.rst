@@ -95,11 +95,12 @@ coordinates as
 
 where :math:`\boldsymbol{i}_\mathrm{c}^\mathrm{s}` is the converter-side and 
 :math:`\boldsymbol{i}_\mathrm{g}^\mathrm{s}` is the grid-side current 
-of the LCL filter, and :math:`\boldsymbol{u}_\mathrm{f}^\mathrm{s}` is the filter 
-capacitor voltage. The converter-side and grid-side inductances of the LCL filter are 
-:math:`L_\mathrm{fc}` and :math:`L_\mathrm{fg}`, respectively, and their series 
-resistances are :math:`R_\mathrm{fc}` and :math:`R_\mathrm{fg}`, respectively. 
-The filter capactance is :math:`C_\mathrm{f}` and in parallel with it there is a 
+of the LCL filter (i.e., converter and grid current, respectively), and 
+:math:`\boldsymbol{u}_\mathrm{f}^\mathrm{s}` is the filter capacitor voltage. 
+The converter-side and grid-side inductances of the LCL filter are 
+:math:`L_\mathrm{fc}` and :math:`L_\mathrm{fg}`, and their series resistances 
+are :math:`R_\mathrm{fc}` and :math:`R_\mathrm{fg}`, respectively. The filter 
+capactance is :math:`C_\mathrm{f}` and in parallel with it there is a 
 conductance :math:`G_\mathrm{f}`. In the LCL filter model, the total grid-side 
 indutance and resistance are :math:`L_\mathrm{t} = L_\mathrm{fg} + L_\mathrm{g}` 
 and :math:`R_\mathrm{t} = R_\mathrm{fg} + R_\mathrm{g}`, respectively.

@@ -398,8 +398,8 @@ models are implemented with space vectors in stationary coordinates.</p>
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LFilter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.model._grid_filter.</span></span><span class="sig-name descname"><span class="pre">LFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U_gN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span> <span class="pre">*</span> <span class="pre">np.sqrt(2</span> <span class="pre">/</span> <span class="pre">3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LFilter" title="Permalink to this definition">#</a></dt>
 <dd><p>Dynamic model for an inductive L filter and an inductive-resistive grid.</p>
-<p>An L filter and inductive-resistive grid impedance, between the converter and
-grid voltage sources, are modeled combining their inductances and series
+<p>An L filter and an inductive-resistive grid impedance, between the converter
+and grid voltage sources, are modeled combining their inductances and series
 resistances in a state equation. The grid current is used as a state
 variable. The point-of-common-coupling (PCC) voltage between the L filter
 and the grid impedance is separately calculated.</p>
@@ -416,9 +416,7 @@ and the grid impedance is separately calculated.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LFilter.pcc_voltages">
 <span class="sig-name descname"><span class="pre">pcc_voltages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_gs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_cs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_gs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LFilter.pcc_voltages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LFilter.pcc_voltages" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute the point-of-common-coupling voltage.</p>
-<p>This computes the point-of-common-coupling (PCC) voltage between the
-L filter and grid impedance.</p>
+<dd><p>Compute the PCC voltage between the L filter and grid impedance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -443,9 +441,9 @@ L filter and grid impedance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>i_gs</strong> (<em>complex</em>) – Line current (A).</p></li>
-<li><p><strong>u_cs</strong> (<em>complex</em>) – Converter-side voltage (V).</p></li>
-<li><p><strong>e_gs</strong> (<em>complex</em>) – Grid-side voltage (V).</p></li>
+<li><p><strong>i_gs</strong> (<em>complex</em>) – Grid current (A).</p></li>
+<li><p><strong>u_cs</strong> (<em>complex</em>) – Converter voltage (V).</p></li>
+<li><p><strong>e_gs</strong> (<em>complex</em>) – Grid voltage (V).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -463,7 +461,7 @@ L filter and grid impedance.</p>
 <dd><p>Measure the phase currents at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>i_g_abc</strong> – Phase currents (A).</p>
+<dd class="field-odd"><p><strong>i_g_abc</strong> – Grid phase currents (A).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>3-tuple of floats</p>
@@ -474,7 +472,7 @@ L filter and grid impedance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LFilter.meas_pcc_voltage">
 <span class="sig-name descname"><span class="pre">meas_pcc_voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LFilter.meas_pcc_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LFilter.meas_pcc_voltage" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure the PCC voltages at the end of the sampling period.</p>
+<dd><p>Measure the phase voltages at PCC at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>u_g_abc</strong> – Phase voltage at the point of common coupling (V).</p>
@@ -491,21 +489,21 @@ L filter and grid impedance.</p>
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LCLFilter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.model._grid_filter.</span></span><span class="sig-name descname"><span class="pre">LCLFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U_gN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span> <span class="pre">*</span> <span class="pre">np.sqrt(2</span> <span class="pre">/</span> <span class="pre">3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_fc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_fc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_fg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_fg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C_f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G_f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LCLFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LCLFilter" title="Permalink to this definition">#</a></dt>
 <dd><p>Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.</p>
-<p>An LCL filter and inductive-resistive grid impedance, between the converter
-and grid voltage sources, are modeled using converter-side current, capacitor
-voltage and grid-side current of the LCL filter as state variables. Grid
-inductance and resistance are included in the state equation of grid-side
+<p>An LCL filter and an inductive-resistive grid impedance, between the
+converter and grid voltage sources, are modeled using converter current,
+LCL-filter capacitor voltage and grid current as state variables. The grid
+inductance and resistance are included in the state equation of the grid
 current. The point-of-common-coupling (PCC) voltage between the LCL filter
 and the grid impedance is separately calculated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>L_fc</strong> (<em>float</em>) – Converter-side LCL filter inductance (H)</p></li>
+<li><p><strong>L_fc</strong> (<em>float</em>) – Converter-side inductance of the LCL filter (H)</p></li>
 <li><p><strong>R_fc</strong> (<em>float</em>) – Converter-side series resistance (Ω)</p></li>
-<li><p><strong>L_fg</strong> (<em>float</em>) – Grid-side LCL filter inductance (H)</p></li>
+<li><p><strong>L_fg</strong> (<em>float</em>) – Grid-side inductance of the LCL filter (H)</p></li>
 <li><p><strong>R_fg</strong> (<em>float</em>) – Grid-side series resistance (Ω)</p></li>
-<li><p><strong>C_f</strong> (<em>float</em>) – LCL Filter capacitance (F)</p></li>
-<li><p><strong>G_f</strong> (<em>float</em>) – Conductance of a resistance in parallel with the LCL filter capacitor (S)</p></li>
+<li><p><strong>C_f</strong> (<em>float</em>) – Capacitance of the LCL Filter (F)</p></li>
+<li><p><strong>G_f</strong> (<em>float</em>) – Conductance of a resistor in parallel with the LCL-filter capacitor (S)</p></li>
 <li><p><strong>L_g</strong> (<em>float</em>) – Grid inductance (H)</p></li>
 <li><p><strong>R_g</strong> (<em>float</em>) – Grid resistance (Ω)</p></li>
 </ul>
@@ -514,14 +512,12 @@ and the grid impedance is separately calculated.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LCLFilter.pcc_voltages">
 <span class="sig-name descname"><span class="pre">pcc_voltages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_gs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_gs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LCLFilter.pcc_voltages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LCLFilter.pcc_voltages" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute the point-of-common-coupling voltage.</p>
-<p>This calculates point-of-common-coupling (PCC) voltage that is located
-between the LCL filter and grid impedance.</p>
+<dd><p>Compute the PCC voltage between the LCL filter and the grid impedance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>i_gs</strong> (<em>complex</em>) – Grid current (A).</p></li>
-<li><p><strong>u_fs</strong> (<em>complex</em>) – Capacitor voltage (V).</p></li>
+<li><p><strong>u_fs</strong> (<em>complex</em>) – LCL-filter capacitor voltage (V).</p></li>
 <li><p><strong>e_gs</strong> (<em>complex</em>) – Grid voltage (V).</p></li>
 </ul>
 </dd>
@@ -541,9 +537,9 @@ between the LCL filter and grid impedance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>i_cs</strong> (<em>complex</em>) – Converter line current (A).</p></li>
-<li><p><strong>u_fs</strong> (<em>complex</em>) – Capacitance voltage (V).</p></li>
-<li><p><strong>i_gs</strong> (<em>complex</em>) – Grid line current (A).</p></li>
+<li><p><strong>i_cs</strong> (<em>complex</em>) – Converter current (A).</p></li>
+<li><p><strong>u_fs</strong> (<em>complex</em>) – LCL-filter capacitor voltage (V).</p></li>
+<li><p><strong>i_gs</strong> (<em>complex</em>) – Grid current (A).</p></li>
 <li><p><strong>u_cs</strong> (<em>complex</em>) – Converter voltage (V).</p></li>
 <li><p><strong>e_gs</strong> (<em>complex</em>) – Grid voltage (V).</p></li>
 </ul>
@@ -560,10 +556,10 @@ between the LCL filter and grid impedance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LCLFilter.meas_currents">
 <span class="sig-name descname"><span class="pre">meas_currents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LCLFilter.meas_currents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LCLFilter.meas_currents" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure the converter currents at the end of the sampling period.</p>
+<dd><p>Measure the converter phase currents at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>i_c_abc</strong> – Phase currents.</p>
+<dd class="field-odd"><p><strong>i_c_abc</strong> – Converter phase currents (A).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>3-tuple of floats</p>
@@ -574,10 +570,10 @@ between the LCL filter and grid impedance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LCLFilter.meas_grid_currents">
 <span class="sig-name descname"><span class="pre">meas_grid_currents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LCLFilter.meas_grid_currents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LCLFilter.meas_grid_currents" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure the grid currents at the end of the sampling period.</p>
+<dd><p>Measure the grid phase currents at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>i_g_abc</strong> – Phase currents (A).</p>
+<dd class="field-odd"><p><strong>i_g_abc</strong> – Grid phase currents (A).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>3-tuple of floats</p>
@@ -588,10 +584,10 @@ between the LCL filter and grid impedance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model._grid_filter.LCLFilter.meas_cap_voltage">
 <span class="sig-name descname"><span class="pre">meas_cap_voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gritulator/model/_grid_filter.html#LCLFilter.meas_cap_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model._grid_filter.LCLFilter.meas_cap_voltage" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure the capacitor voltages at the end of the sampling period.</p>
+<dd><p>Measure the capacitor phase voltages at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>u_f_abc</strong> – Phase voltage through the capacitance of the LCL filter (V).</p>
+<dd class="field-odd"><p><strong>u_f_abc</strong> – Phase voltages of the LCL filter capacitor (V).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>3-tuple of floats</p>
@@ -605,7 +601,7 @@ between the LCL filter and grid impedance.</p>
 <dd><p>Measure the PCC voltages at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>u_g_abc</strong> – Phase voltage at the point of common coupling (V).</p>
+<dd class="field-odd"><p><strong>u_g_abc</strong> – Phase voltages at the point of common coupling (V).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>3-tuple of floats</p>
