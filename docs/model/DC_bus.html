@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Design Notes &#8212; gritulator 0.0.1 documentation</title>
+    <title>DC Bus &#8212; gritulator 0.0.1 documentation</title>
   
   
   
@@ -49,11 +49,12 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'control/design_notes';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'model/DC_bus';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Current Control" href="current_ctrl.html" />
-    <link rel="prev" title="10-kVA grid following converter, dc-bus voltage control" href="../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html" />
+    <link rel="next" title="Examples" href="../auto_examples/index.html" />
+    <link rel="prev" title="AC Filter and Grid Impedance" href="filter_and_grid.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,14 +161,14 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../model/system.html">Grid-converter System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/filter_and_grid.html">AC Filter and Grid Impedance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model/DC_bus.html">DC Bus</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="system.html">Grid-converter System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filter_and_grid.html">AC Filter and Grid Impedance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DC Bus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, reference-feedforward PSC (RFPSC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_power_synchronization_control_grid_converter_6.9kVA.html">6.9-kVA grid forming converter, power synchronization control (PSC)</a></li>
@@ -177,8 +178,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html">10-kVA grid following converter, dc-bus voltage control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Design Notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="current_ctrl.html">Current Control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/design_notes.html">Design Notes</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/current_ctrl.html">Current Control</a></li>
 </ul>
 </li>
 </ul>
@@ -250,7 +251,7 @@
       
       
       
-      <li><a href="../_sources/control/design_notes.rst" target="_blank"
+      <li><a href="../_sources/model/DC_bus.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +333,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Design Notes</h1>
+    <h1>DC Bus</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -346,18 +347,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="design-notes">
-<h1>Design Notes<a class="headerlink" href="#design-notes" title="Permalink to this heading">#</a></h1>
-<p>Design notes for selected control methods are provided in this section. The aim
-of these notes is to link the implemented methods to the theory and to provide
-a reference for the implementation. Further details are available in the
-references provided.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="current_ctrl.html">Current Control</a></li>
-</ul>
-</div>
-<p>This section will be extended in the future.</p>
+  <section id="dc-bus">
+<h1>DC Bus<a class="headerlink" href="#dc-bus" title="Permalink to this heading">#</a></h1>
+<p>A dynamic model for a capacitive direct current (DC) bus of the converter is
+provided in <a class="reference internal" href="../autoapi/gritulator/model/dc_bus/_dc_bus/index.html#module-gritulator.model.dc_bus._dc_bus" title="gritulator.model.dc_bus._dc_bus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus._dc_bus</span></code></a>. An external current source
+is feeding the DC bus that is modeled considering an equivalent circuit
+comprising a parallel connected DC bus capacitor and resitor. The model is
+implemented as</p>
+<div class="math notranslate nohighlight" id="equation-dc-bus-model">
+<span class="eqno">(1)<a class="headerlink" href="#equation-dc-bus-model" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d}\boldsymbol{u}_\mathrm{dc}}{\mathrm{d} t}
+= \frac{1}{C_\mathrm{dc}}(i_\mathrm{ext}
+- i_\mathrm{dc} - G_\mathrm{dc}u_\mathrm{dc})\]</div>
+<p>where <span class="math notranslate nohighlight">\(u_\mathrm{dc}\)</span> is the DC bus voltage, <span class="math notranslate nohighlight">\(i_\mathrm{ext}\)</span> is the
+external DC current, <span class="math notranslate nohighlight">\(i_\mathrm{dc}\)</span> is the converter DC current,
+<span class="math notranslate nohighlight">\(C_\mathrm{dc}\)</span> is the DC bus capacitance, and <span class="math notranslate nohighlight">\(G_\mathrm{dc}\)</span> is
+the conductance of the parallel resistor.</p>
 </section>
 
 
@@ -372,20 +376,20 @@ references provided.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../auto_examples/plot_grid_following_control_vdc_mode_grid_converter_10kVA.html"
+       href="filter_and_grid.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">10-kVA grid following converter, dc-bus voltage control</p>
+        <p class="prev-next-title">AC Filter and Grid Impedance</p>
       </div>
     </a>
     <a class="right-next"
-       href="current_ctrl.html"
+       href="../auto_examples/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Current Control</p>
+        <p class="prev-next-title">Examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

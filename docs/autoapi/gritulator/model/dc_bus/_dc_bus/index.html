@@ -162,6 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../model/system.html">Grid-converter System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../model/converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../model/filter_and_grid.html">AC Filter and Grid Impedance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../model/DC_bus.html">DC Bus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
 <ul class="nav bd-sidenav">
@@ -366,9 +367,9 @@ document.write(`
                   
   <section id="module-gritulator.model.dc_bus._dc_bus">
 <span id="gritulator-model-dc-bus-dc-bus"></span><h1><a class="reference internal" href="#module-gritulator.model.dc_bus._dc_bus" title="gritulator.model.dc_bus._dc_bus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus._dc_bus</span></code></a><a class="headerlink" href="#module-gritulator.model.dc_bus._dc_bus" title="Permalink to this heading">#</a></h1>
-<p>DC-bus dynamic model.</p>
-<p>The dc bus is defined as a current source with a DC capacitance model, which
-despicted the DC-bus voltage dynamics.</p>
+<p>Dynamic model of a DC bus.</p>
+<p>A DC bus between an external current source or sink and a converter is modeled
+considering an equivalent circuit comprising a capacitor and parallel resitor.</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
@@ -384,33 +385,35 @@ despicted the DC-bus voltage dynamics.</p>
 <dt class="sig sig-object py" id="gritulator.model.dc_bus._dc_bus.DCBus">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.model.dc_bus._dc_bus.</span></span><span class="sig-name descname"><span class="pre">DCBus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C_dc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G_dc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">lambda</span> <span class="pre">t:</span> <span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">650</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/model/dc_bus/_dc_bus.html#DCBus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.dc_bus._dc_bus.DCBus" title="Permalink to this definition">#</a></dt>
 <dd><p>DC bus model</p>
-<p>This model is used to compute the DC bus dynamics, represented by a first-
-order system with the DC-bus capacitance dynamics.</p>
+<p>This model is used to compute the capacitive DC bus dynamics. Dynamics are
+modeled with an equivalent circuit comprising a capacitor and its parallel
+resistor that is parametrized using a conductance. The capacitor voltage is
+used as a state variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>C_dc</strong> (<em>float</em>) – DC bus capacitance (in Farad)</p></li>
-<li><p><strong>G_dc</strong> (<em>float</em>) – DC bus conductance (in Siemens)</p></li>
-<li><p><strong>i_ext</strong> (<em>function</em>) – External dc current, seen as disturbance, <cite>i_ext(t)</cite>.</p></li>
+<li><p><strong>C_dc</strong> (<em>float</em>) – DC-bus capacitance (F)</p></li>
+<li><p><strong>G_dc</strong> (<em>float</em>) – Parallel conductance of the capacitor (S)</p></li>
+<li><p><strong>i_ext</strong> (<em>function</em>) – External DC current, seen as disturbance, <cite>i_ext(t)</cite>.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model.dc_bus._dc_bus.DCBus.dc_current">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dc_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_c_abc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/model/dc_bus/_dc_bus.html#DCBus.dc_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.dc_bus._dc_bus.DCBus.dc_current" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute the converter DC current, used to model the DC-bus voltage
-dynamics.</p>
+<dd><p>Compute the converter DC current from the switching states and phase
+currents.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>i_c_abc</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Phase currents.</p></li>
+<li><p><strong>i_c_abc</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Phase currents (A).</p></li>
 <li><p><strong>q</strong> (<em>complex ndarray</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Switching state vectors corresponding to the switching instants.
 For example, the switching state q[1] is applied at the interval
 t_n_sw[1].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>i_dc</strong> – dc current (A)</p>
+<dd class="field-even"><p><strong>i_dc</strong> – Converter DC current (A)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -420,17 +423,14 @@ t_n_sw[1].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model.dc_bus._dc_bus.DCBus.f">
-<span class="sig-name descname"><span class="pre">f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_c_abc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/model/dc_bus/_dc_bus.html#DCBus.f"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.dc_bus._dc_bus.DCBus.f" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_dc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/model/dc_bus/_dc_bus.html#DCBus.f"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.dc_bus._dc_bus.DCBus.f" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the state derivatives.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>float</em>) – Time.</p></li>
+<li><p><strong>t</strong> (<em>float</em>) – Time (s)</p></li>
 <li><p><strong>u_dc</strong> (<em>float</em>) – DC bus voltage (V)</p></li>
-<li><p><strong>i_c_abc</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Phase currents.</p></li>
-<li><p><strong>q</strong> (<em>complex ndarray</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) – Switching state vectors corresponding to the switching instants.
-For example, the switching state q[1] is applied at the interval
-t_n_sw[1].</p></li>
+<li><p><strong>i_dc</strong> (<em>float</em>) – Converter DC current (A)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -445,7 +445,7 @@ t_n_sw[1].</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="gritulator.model.dc_bus._dc_bus.DCBus.meas_dc_voltage">
 <span class="sig-name descname"><span class="pre">meas_dc_voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gritulator/model/dc_bus/_dc_bus.html#DCBus.meas_dc_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.dc_bus._dc_bus.DCBus.meas_dc_voltage" title="Permalink to this definition">#</a></dt>
-<dd><p>Measure the DC voltage at the end of the sampling period.</p>
+<dd><p>Measure the DC bus voltage at the end of the sampling period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>u_dc</strong> – DC bus voltage (V)</p>

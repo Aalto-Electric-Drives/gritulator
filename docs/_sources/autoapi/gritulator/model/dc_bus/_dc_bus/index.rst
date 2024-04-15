@@ -7,10 +7,10 @@
 
 .. autoapi-nested-parse::
 
-   DC-bus dynamic model.
+   Dynamic model of a DC bus.
 
-   The dc bus is defined as a current source with a DC capacitance model, which
-   despicted the DC-bus voltage dynamics.
+   A DC bus between an external current source or sink and a converter is modeled
+   considering an equivalent circuit comprising a capacitor and parallel resitor.
 
    ..
        !! processed by numpydoc !!
@@ -35,14 +35,16 @@ Classes
    
    DC bus model
 
-   This model is used to compute the DC bus dynamics, represented by a first-
-   order system with the DC-bus capacitance dynamics.
+   This model is used to compute the capacitive DC bus dynamics. Dynamics are
+   modeled with an equivalent circuit comprising a capacitor and its parallel
+   resistor that is parametrized using a conductance. The capacitor voltage is
+   used as a state variable.
 
-   :param C_dc: DC bus capacitance (in Farad)
+   :param C_dc: DC-bus capacitance (F)
    :type C_dc: float
-   :param G_dc: DC bus conductance (in Siemens)
+   :param G_dc: Parallel conductance of the capacitor (S)
    :type G_dc: float
-   :param i_ext: External dc current, seen as disturbance, `i_ext(t)`.
+   :param i_ext: External DC current, seen as disturbance, `i_ext(t)`.
    :type i_ext: function
 
 
@@ -65,17 +67,17 @@ Classes
       :staticmethod:
 
       
-      Compute the converter DC current, used to model the DC-bus voltage
-      dynamics.
+      Compute the converter DC current from the switching states and phase
+      currents.
 
-      :param i_c_abc: Phase currents.
+      :param i_c_abc: Phase currents (A).
       :type i_c_abc: ndarray, shape (3,)
       :param q: Switching state vectors corresponding to the switching instants.
                 For example, the switching state q[1] is applied at the interval
                 t_n_sw[1].
       :type q: complex ndarray, shape (3,)
 
-      :returns: **i_dc** -- dc current (A)
+      :returns: **i_dc** -- Converter DC current (A)
       :rtype: float
 
 
@@ -95,21 +97,17 @@ Classes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: f(t, u_dc, i_c_abc, q)
+   .. py:method:: f(t, u_dc, i_dc)
 
       
       Compute the state derivatives.
 
-      :param t: Time.
+      :param t: Time (s)
       :type t: float
       :param u_dc: DC bus voltage (V)
       :type u_dc: float
-      :param i_c_abc: Phase currents.
-      :type i_c_abc: ndarray, shape (3,)
-      :param q: Switching state vectors corresponding to the switching instants.
-                For example, the switching state q[1] is applied at the interval
-                t_n_sw[1].
-      :type q: complex ndarray, shape (3,)
+      :param i_dc: Converter DC current (A)
+      :type i_dc: float
 
       :returns: Time derivative of the complex state vector, [du_dc]
       :rtype: double list, length 1
@@ -134,7 +132,7 @@ Classes
    .. py:method:: meas_dc_voltage()
 
       
-      Measure the DC voltage at the end of the sampling period.
+      Measure the DC bus voltage at the end of the sampling period.
 
       :returns: **u_dc** -- DC bus voltage (V)
       :rtype: float

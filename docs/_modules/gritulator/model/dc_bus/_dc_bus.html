@@ -161,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../model/system.html">Grid-converter System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../model/converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../model/filter_and_grid.html">AC Filter and Grid Impedance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/DC_bus.html">DC Bus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
 <ul class="nav bd-sidenav">
@@ -296,11 +297,10 @@ document.write(`
                   
   <h1>Source code for gritulator.model.dc_bus._dc_bus</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DC-bus dynamic model.</span>
+<span class="sd">Dynamic model of a DC bus.</span>
 
-<span class="sd">The dc bus is defined as a current source with a DC capacitance model, which </span>
-<span class="sd">despicted the DC-bus voltage dynamics.</span>
-
+<span class="sd">A DC bus between an external current source or sink and a converter is modeled </span>
+<span class="sd">considering an equivalent circuit comprising a capacitor and parallel resitor.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">gritulator._helpers</span> <span class="kn">import</span> <span class="n">complex2abc</span>
@@ -310,17 +310,19 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    DC bus model</span>
 
-<span class="sd">    This model is used to compute the DC bus dynamics, represented by a first-</span>
-<span class="sd">    order system with the DC-bus capacitance dynamics.</span>
+<span class="sd">    This model is used to compute the capacitive DC bus dynamics. Dynamics are </span>
+<span class="sd">    modeled with an equivalent circuit comprising a capacitor and its parallel </span>
+<span class="sd">    resistor that is parametrized using a conductance. The capacitor voltage is </span>
+<span class="sd">    used as a state variable.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    C_dc : float</span>
-<span class="sd">        DC bus capacitance (in Farad)</span>
+<span class="sd">        DC-bus capacitance (F)</span>
 <span class="sd">    G_dc : float</span>
-<span class="sd">        DC bus conductance (in Siemens)</span>
+<span class="sd">        Parallel conductance of the capacitor (S)</span>
 <span class="sd">    i_ext : function</span>
-<span class="sd">        External dc current, seen as disturbance, `i_ext(t)`.</span>
+<span class="sd">        External DC current, seen as disturbance, `i_ext(t)`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C_dc</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">G_dc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">i_ext</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">u_dc0</span> <span class="o">=</span> <span class="mi">650</span><span class="p">):</span>
@@ -333,13 +335,13 @@ document.write(`
     <span class="nd">@staticmethod</span>
 <div class="viewcode-block" id="DCBus.dc_current"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_bus.DCBus.dc_current">[docs]</a>    <span class="k">def</span> <span class="nf">dc_current</span><span class="p">(</span><span class="n">i_c_abc</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute the converter DC current, used to model the DC-bus voltage</span>
-<span class="sd">        dynamics.</span>
+<span class="sd">        Compute the converter DC current from the switching states and phase </span>
+<span class="sd">        currents.</span>
 <span class="sd">    </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        i_c_abc : ndarray, shape (3,)</span>
-<span class="sd">            Phase currents.</span>
+<span class="sd">            Phase currents (A).</span>
 <span class="sd">        q : complex ndarray, shape (3,)</span>
 <span class="sd">            Switching state vectors corresponding to the switching instants.</span>
 <span class="sd">            For example, the switching state q[1] is applied at the interval</span>
@@ -348,7 +350,7 @@ document.write(`
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        i_dc: float</span>
-<span class="sd">            dc current (A)</span>
+<span class="sd">            Converter DC current (A)</span>
 <span class="sd">    </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Duty ratio back into three-phase ratios</span>
@@ -357,37 +359,31 @@ document.write(`
         <span class="n">i_dc</span> <span class="o">=</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">i_dc</span></div>
     
-<div class="viewcode-block" id="DCBus.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_bus.DCBus.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">,</span> <span class="n">i_c_abc</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBus.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_bus.DCBus.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u_dc</span><span class="p">,</span> <span class="n">i_dc</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the state derivatives.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        t : float</span>
-<span class="sd">            Time.</span>
+<span class="sd">            Time (s)</span>
 <span class="sd">        u_dc: float</span>
 <span class="sd">            DC bus voltage (V)</span>
-<span class="sd">        i_c_abc : ndarray, shape (3,)</span>
-<span class="sd">            Phase currents.</span>
-<span class="sd">        q : complex ndarray, shape (3,)</span>
-<span class="sd">            Switching state vectors corresponding to the switching instants.</span>
-<span class="sd">            For example, the switching state q[1] is applied at the interval</span>
-<span class="sd">            t_n_sw[1].</span>
+<span class="sd">        i_dc : float</span>
+<span class="sd">            Converter DC current (A)</span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        double list, length 1</span>
 <span class="sd">                Time derivative of the complex state vector, [du_dc]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Calculation of the dc-current</span>
-        <span class="n">i_dc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dc_current</span><span class="p">(</span><span class="n">i_c_abc</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
         <span class="c1"># State derivative</span>
         <span class="n">du_dc</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i_ext</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">i_dc</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">G_dc</span><span class="o">*</span><span class="n">u_dc</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">C_dc</span>
         <span class="k">return</span> <span class="n">du_dc</span></div>
 
 <div class="viewcode-block" id="DCBus.meas_dc_voltage"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_bus.DCBus.meas_dc_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_dc_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Measure the DC voltage at the end of the sampling period.</span>
+<span class="sd">        Measure the DC bus voltage at the end of the sampling period.</span>
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
