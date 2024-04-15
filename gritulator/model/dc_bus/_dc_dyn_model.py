@@ -108,9 +108,10 @@ class DCBusAndLFilterModel:
         e_gs = self.grid_model.voltages(t)
         q = self.converter.q
         i_g_abc = complex2abc(i_gs)
+        i_dc = self.dc_model.dc_current(i_g_abc, q) # DC-current
         # State derivatives
         rl_f = self.grid_filter.f(i_gs, u_cs, e_gs)
-        dc_f = self.dc_model.f(t, u_dc, i_g_abc, q)
+        dc_f = self.dc_model.f(t, u_dc, i_dc)
         # List of state derivatives
         return [rl_f, dc_f]
 
@@ -258,9 +259,10 @@ class DCBusAndLCLFilterModel:
         e_gs = self.grid_model.voltages(t)
         q = self.converter.q
         i_c_abc = complex2abc(i_cs)
+        i_dc = self.dc_model.dc_current(i_c_abc, q) # DC-current
         # State derivatives
         lcl_f = self.grid_filter.f(i_cs, u_fs, i_gs, u_cs, e_gs)
-        dc_f = self.dc_model.f(t, u_dc, i_c_abc, q)
+        dc_f = self.dc_model.f(t, u_dc, i_dc)
         # List of state derivatives
         all_f = [lcl_f[0], lcl_f[1], lcl_f[2], dc_f]
         return all_f
