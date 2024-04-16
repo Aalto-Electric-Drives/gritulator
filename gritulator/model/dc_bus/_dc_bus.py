@@ -2,7 +2,7 @@
 Dynamic model of a DC bus.
 
 A DC bus between an external current source or sink and a converter is modeled 
-considering an equivalent circuit comprising a capacitor and parallel resitor.
+considering an equivalent circuit comprising a capacitor and parallel resistor.
 """
 
 from gritulator._helpers import complex2abc

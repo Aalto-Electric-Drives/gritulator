@@ -1,4 +1,4 @@
-Grid-converter System
+Grid-Converter System
 =====================
 
 Grid-converter systems are sampled-data systems, consisting of continuous-time 

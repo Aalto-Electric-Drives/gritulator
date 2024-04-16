@@ -16,6 +16,11 @@ implemented as
 where :math:`u_\mathrm{dc}` is the DC bus voltage, :math:`i_\mathrm{ext}` is the 
 external DC current, :math:`i_\mathrm{dc}` is the converter DC current, 
 :math:`C_\mathrm{dc}` is the DC bus capacitance, and :math:`G_\mathrm{dc}` is 
-the conductance of the parallel resistor.
+the conductance of the parallel resistor. The converter DC current is calculated 
+from the converter phase currents and switching states as 
 
-..   TODO add computation of DC current from phase currents
+.. math::
+   i_\mathrm{dc} = q_\mathrm{a} i_\mathrm{a} + q_\mathrm{b} i_\mathrm{b}
+   + q_\mathrm{c} i_\mathrm{c}
+   :label: DC_current
+
