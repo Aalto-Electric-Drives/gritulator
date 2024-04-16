@@ -53,8 +53,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'model/DC_bus';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Examples" href="../auto_examples/index.html" />
-    <link rel="prev" title="AC Filter and Grid Impedance" href="filter_and_grid.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,11 +159,10 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Models</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="system.html">Grid-converter System</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="system.html">Grid-Converter System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="converters.html">Converters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="filter_and_grid.html">AC Filter and Grid Impedance</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">DC Bus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Methods</span></p>
 <ul class="nav bd-sidenav">
@@ -361,7 +358,11 @@ implemented as</p>
 <p>where <span class="math notranslate nohighlight">\(u_\mathrm{dc}\)</span> is the DC bus voltage, <span class="math notranslate nohighlight">\(i_\mathrm{ext}\)</span> is the
 external DC current, <span class="math notranslate nohighlight">\(i_\mathrm{dc}\)</span> is the converter DC current,
 <span class="math notranslate nohighlight">\(C_\mathrm{dc}\)</span> is the DC bus capacitance, and <span class="math notranslate nohighlight">\(G_\mathrm{dc}\)</span> is
-the conductance of the parallel resistor.</p>
+the conductance of the parallel resistor. The converter DC current is calculated
+from the converter phase currents and switching states as</p>
+<div class="math notranslate nohighlight" id="equation-dc-current">
+<span class="eqno">(2)<a class="headerlink" href="#equation-dc-current" title="Permalink to this equation">#</a></span>\[i_\mathrm{dc} = q_\mathrm{a} i_\mathrm{a} + q_\mathrm{b} i_\mathrm{b}
++ q_\mathrm{c} i_\mathrm{c}\]</div>
 </section>
 
 
@@ -375,24 +376,6 @@ the conductance of the parallel resistor.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="filter_and_grid.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AC Filter and Grid Impedance</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../auto_examples/index.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Examples</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

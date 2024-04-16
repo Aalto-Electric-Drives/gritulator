@@ -4,6 +4,6 @@
    system
    converters
    filter_and_grid
-   DC_bus
+   dc_bus
 ..   TODO add more models
    
