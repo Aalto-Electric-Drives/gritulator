@@ -352,8 +352,7 @@ document.write(`
 <p>A dynamic model for a capacitive direct current (DC) bus of the converter is
 provided in <a class="reference internal" href="../autoapi/gritulator/model/dc_bus/_dc_bus/index.html#module-gritulator.model.dc_bus._dc_bus" title="gritulator.model.dc_bus._dc_bus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus._dc_bus</span></code></a>. An external current source
 is feeding the DC bus that is modeled considering an equivalent circuit
-comprising a parallel connected DC bus capacitor and resitor. The model is
-implemented as</p>
+comprising a parallel connected DC bus capacitor and resitor. The model is implemented as</p>
 <div class="math notranslate nohighlight" id="equation-dc-bus-model">
 <span class="eqno">(1)<a class="headerlink" href="#equation-dc-bus-model" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d}\boldsymbol{u}_\mathrm{dc}}{\mathrm{d} t}
 = \frac{1}{C_\mathrm{dc}}(i_\mathrm{ext}
@@ -361,11 +360,16 @@ implemented as</p>
 <p>where <span class="math notranslate nohighlight">\(u_\mathrm{dc}\)</span> is the DC bus voltage, <span class="math notranslate nohighlight">\(i_\mathrm{ext}\)</span> is the
 external DC current, <span class="math notranslate nohighlight">\(i_\mathrm{dc}\)</span> is the converter DC current,
 <span class="math notranslate nohighlight">\(C_\mathrm{dc}\)</span> is the DC bus capacitance, and <span class="math notranslate nohighlight">\(G_\mathrm{dc}\)</span> is
-the conductance of the parallel resistor. The converter DC current is calculated
-from the converter phase currents and switching states as</p>
+the conductance of the parallel resistor. The converter DC current is calculated from the converter phase currents and switching states as</p>
 <div class="math notranslate nohighlight" id="equation-dc-current">
 <span class="eqno">(2)<a class="headerlink" href="#equation-dc-current" title="Permalink to this equation">#</a></span>\[i_\mathrm{dc} = q_\mathrm{a} i_\mathrm{a} + q_\mathrm{b} i_\mathrm{b}
 + q_\mathrm{c} i_\mathrm{c}\]</div>
+<figure class="align-center" id="id1">
+<a class="reference external image-reference" href="."><img alt="Diagram of DC bus model" src="../_images/dc_bus.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-text">DC-bus dynamic model.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 
 
