@@ -28,4 +28,4 @@ the conductance of the parallel resistor. The converter DC current is calculated
    :alt: Diagram of DC bus model
    :target: .
    
-   DC-bus dynamic model.
+   DC-bus model.

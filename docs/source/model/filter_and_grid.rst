@@ -75,7 +75,7 @@ The voltage at the PCC is obtained as
    :alt: Diagram of L filter and grid impedance
    :target: .
    
-   L filter and inductive-resistive grid impedance system.
+   L filter and inductive-resistive grid impedance.
 
 LCL Filter
 ----------
@@ -130,4 +130,4 @@ is obtained as
    :alt: Diagram of LCL filter and grid impedance
    :target: .
    
-   LCL filter and inductive-resistive grid impedance system.
+   LCL filter and inductive-resistive grid impedance.
