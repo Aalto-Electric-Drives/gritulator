@@ -1,7 +1,7 @@
-Grid-converter System
+Grid-Converter System
 =====================
 
-Grid-converter systems are sampled-data systems, consisting of continuous-time 
+Grid converters are sampled-data systems, consisting of continuous-time 
 systems and discrete-time systems as well as the interfaces between them 
 [#Fra1997]_, [#Bus2015]_. The figure below shows a generic example system. 
 The same architecture is used in *gritulator*.
