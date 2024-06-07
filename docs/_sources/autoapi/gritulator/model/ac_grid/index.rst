@@ -1,5 +1,5 @@
-:py:mod:`gritulator.model.ac_grid`
-==================================
+gritulator.model.ac_grid
+========================
 
 .. py:module:: gritulator.model.ac_grid
 
@@ -27,11 +27,8 @@
        !! processed by numpydoc !!
 
 
-Package Contents
-----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -41,10 +38,10 @@ Classes
    gritulator.model.ac_grid.ACFlexSourceAndLCLFilterModel
 
 
-
+Package Contents
+----------------
 
 .. py:class:: StiffSourceAndLFilterModel(grid_filter=None, grid_model=None, converter=None)
-
 
    
    Continuous-time model for a stiff grid model with an RL impedance model.
@@ -72,6 +69,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -97,6 +95,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -121,6 +120,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -152,6 +152,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -176,6 +177,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 
@@ -203,7 +205,6 @@ Classes
 
 .. py:class:: StiffSourceAndLCLFilterModel(grid_filter=None, grid_model=None, converter=None)
 
-
    
    Continuous-time model for a stiff grid model with an LCL impedance model.
 
@@ -230,6 +231,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -255,6 +257,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -279,6 +282,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -310,6 +314,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -334,6 +339,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 
@@ -361,7 +367,6 @@ Classes
 
 .. py:class:: ACFlexSourceAndLFilterModel(grid_filter=None, grid_model=None, converter=None)
 
-
    
    Continuous-time model for a dynamic grid model with an RL impedance model.
 
@@ -388,6 +393,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -413,6 +419,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -437,6 +444,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -468,6 +476,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -492,6 +501,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 
@@ -519,7 +529,6 @@ Classes
 
 .. py:class:: ACFlexSourceAndLCLFilterModel(grid_filter=None, grid_model=None, converter=None)
 
-
    
    Continuous-time model for a dynamic grid model with an LCL impedance model.
 
@@ -546,6 +555,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -571,6 +581,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -595,6 +606,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -626,6 +638,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -650,6 +663,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 

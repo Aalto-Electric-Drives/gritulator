@@ -1,5 +1,5 @@
-:py:mod:`gritulator.model`
-==========================
+gritulator.model
+================
 
 .. py:module:: gritulator.model
 
@@ -29,19 +29,16 @@
 
 Subpackages
 -----------
+
 .. toctree::
-   :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
-   ac_grid/index.rst
-   dc_bus/index.rst
+   /autoapi/gritulator/model/ac_grid/index
+   /autoapi/gritulator/model/dc_bus/index
 
-
-Package Contents
-----------------
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -55,10 +52,10 @@ Classes
    gritulator.model.Simulation
 
 
-
+Package Contents
+----------------
 
 .. py:class:: StiffSource(w_N=2 * np.pi * 50, e_g_abs=lambda t: 400 * np.sqrt(2 / 3))
-
 
    
    Grid subsystem.
@@ -86,6 +83,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: voltages(t)
 
       
@@ -113,6 +111,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_voltages(t)
 
@@ -144,7 +143,6 @@ Classes
 
 
 .. py:class:: FlexSource(T_D=10, T_N=3, H_g=3, D_g=0, r_d=0.05, T_gov=0.5, w_N=2 * np.pi * 50, S_grid=500000000.0, e_g_abs=lambda t: 400 * np.sqrt(2 / 3), p_m_ref=lambda t: 0, p_e=lambda t: 0)
-
 
    
    Grid subsystem.
@@ -195,6 +193,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: f(t, err_w_g, p_gov, x_turb)
 
       
@@ -231,6 +230,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: voltages(t, theta_g)
 
       
@@ -261,6 +261,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_voltages(t)
 
       
@@ -285,6 +286,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_freq()
 
@@ -312,6 +314,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_angle()
 
@@ -342,7 +345,6 @@ Classes
 
 
 .. py:class:: LFilter(U_gN=400 * np.sqrt(2 / 3), L_f=0.006, R_f=0, L_g=0, R_g=0)
-
 
    
    Dynamic model for an inductive L filter and an inductive-resistive grid.
@@ -378,6 +380,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: pcc_voltages(i_gs, u_cs, e_gs)
 
       
@@ -409,6 +412,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(i_gs, u_cs, e_gs)
 
@@ -442,6 +446,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_currents()
 
       
@@ -466,6 +471,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_pcc_voltage()
 
@@ -494,7 +500,6 @@ Classes
 
 
 .. py:class:: LCLFilter(U_gN=400 * np.sqrt(2 / 3), L_fc=0.006, R_fc=0, L_fg=0.003, R_fg=0, C_f=1e-05, G_f=0, L_g=0, R_g=0)
-
 
    
    Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.
@@ -539,6 +544,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: pcc_voltages(i_gs, u_fs, e_gs)
 
       
@@ -570,6 +576,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(i_cs, u_fs, i_gs, u_cs, e_gs)
 
@@ -607,6 +614,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_currents()
 
       
@@ -631,6 +639,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_grid_currents()
 
@@ -657,6 +666,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_cap_voltage()
 
       
@@ -681,6 +691,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: meas_pcc_voltage()
 
@@ -710,8 +721,8 @@ Classes
 
 .. py:class:: FrequencyConverter(L, C, U_g, f_g)
 
-
    Bases: :py:obj:`Inverter`
+
 
    
    Frequency converter.
@@ -745,6 +756,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: grid_voltages(t)
 
       
@@ -772,6 +784,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, u_dc, i_L, i_dc)
 
@@ -810,7 +823,6 @@ Classes
 
 .. py:class:: Inverter(u_dc)
 
-
    
    Inverter with constant DC-bus voltage and switching-cycle averaging.
 
@@ -833,8 +845,10 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: ac_voltage(q, u_dc)
       :staticmethod:
+
 
       
       Compute the AC-side voltage of a lossless inverter.
@@ -864,8 +878,10 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: dc_current(q, i_ac)
       :staticmethod:
+
 
       
       Compute the DC-side current of a lossless inverter.
@@ -895,6 +911,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_dc_voltage()
 
       
@@ -922,7 +939,6 @@ Classes
 
 
 .. py:class:: CarrierComparison(N=2**12, return_complex=True)
-
 
    
    Carrier comparison.
@@ -994,7 +1010,6 @@ Classes
 
 .. py:class:: Simulation(mdl=None, ctrl=None, delay=1, pwm=False)
 
-
    
    Simulation environment.
 
@@ -1025,6 +1040,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: simulate(t_stop=1, max_step=np.inf)
 
       
@@ -1056,6 +1072,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: save_mat(name='sim')
 

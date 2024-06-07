@@ -1,5 +1,5 @@
-:py:mod:`gritulator.control.grid_forming`
-=========================================
+gritulator.control.grid_forming
+===============================
 
 .. py:module:: gritulator.control.grid_forming
 
@@ -27,11 +27,8 @@
        !! processed by numpydoc !!
 
 
-Package Contents
-----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -39,12 +36,13 @@ Classes
    gritulator.control.grid_forming.PSCCtrlPars
 
 
-
+Package Contents
+----------------
 
 .. py:class:: PSCCtrl(pars)
 
-
    Bases: :py:obj:`gritulator.control._common.Ctrl`
+
 
    
    power synchronization control for grid converters.
@@ -84,7 +82,6 @@ Classes
        !! processed by numpydoc !!
 
 .. py:class:: PSCCtrlPars
-
 
    
    Parameters for the control system.

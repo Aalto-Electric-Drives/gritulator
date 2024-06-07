@@ -143,14 +143,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../usage.html">Usage</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../autoapi/gritulator/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/gritulator/control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/control/grid_following/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_following</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/control/grid_forming/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/gritulator/control/index.html">gritulator.control</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/control/grid_following/index.html">gritulator.control.grid_following</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/control/grid_forming/index.html">gritulator.control.grid_forming</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/gritulator/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/model/ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/model/dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../autoapi/gritulator/model/index.html">gritulator.model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/model/ac_grid/index.html">gritulator.model.ac_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../autoapi/gritulator/model/dc_bus/index.html">gritulator.model.dc_bus</a></li>
 </ul>
 </li>
 </ul>
@@ -312,7 +312,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">gritulator._utils</span> <span class="kn">import</span> <span class="n">Bunch</span>
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="DCBusAndLFilterModel"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel">[docs]</a><span class="k">class</span> <span class="nc">DCBusAndLFilterModel</span><span class="p">:</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel">[docs]</a><span class="k">class</span> <span class="nc">DCBusAndLFilterModel</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Continuous-time model for a stiff grid model with an RL impedance model.</span>
 
@@ -347,7 +347,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">u_dc</span> <span class="o">=</span> <span class="p">[]</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">i_dc</span> <span class="o">=</span> <span class="p">[]</span>
         
-<div class="viewcode-block" id="DCBusAndLFilterModel.get_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel.get_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel.get_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel.get_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the initial values.</span>
 
@@ -360,7 +360,7 @@ document.write(`
         <span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">i_gs0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dc_model</span><span class="o">.</span><span class="n">u_dc0</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">x0</span></div>
 
-<div class="viewcode-block" id="DCBusAndLFilterModel.set_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel.set_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">set_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel.set_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel.set_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">set_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the initial values.</span>
 
@@ -382,7 +382,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">u_gs0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">pcc_voltages</span><span class="p">(</span>
                                                 <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u_cs0</span><span class="p">,</span> <span class="n">e_gs0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DCBusAndLFilterModel.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the complete state derivative list for the solver.</span>
 
@@ -413,7 +413,7 @@ document.write(`
         <span class="c1"># List of state derivatives</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">rl_f</span><span class="p">,</span> <span class="n">dc_f</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="DCBusAndLFilterModel.save"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sol</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel.save"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sol</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the solution.</span>
 
@@ -432,7 +432,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">i_dc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
             <span class="n">q_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
                                     
-<div class="viewcode-block" id="DCBusAndLFilterModel.post_process"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLFilterModel.post_process">[docs]</a>    <span class="k">def</span> <span class="nf">post_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLFilterModel.post_process"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLFilterModel.post_process">[docs]</a>    <span class="k">def</span> <span class="nf">post_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transform the lists to the ndarray format and post-process them.</span>
 
@@ -456,7 +456,7 @@ document.write(`
 
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="DCBusAndLCLFilterModel"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel">[docs]</a><span class="k">class</span> <span class="nc">DCBusAndLCLFilterModel</span><span class="p">:</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel">[docs]</a><span class="k">class</span> <span class="nc">DCBusAndLCLFilterModel</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Continuous-time model for a stiff grid model with an LCL impedance model.</span>
 
@@ -493,7 +493,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">u_dc</span> <span class="o">=</span> <span class="p">[]</span> 
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">i_dc</span> <span class="o">=</span> <span class="p">[]</span>
         
-<div class="viewcode-block" id="DCBusAndLCLFilterModel.get_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel.get_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel.get_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel.get_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the initial values.</span>
 
@@ -511,7 +511,7 @@ document.write(`
 
         <span class="k">return</span> <span class="n">x0</span></div>
 
-<div class="viewcode-block" id="DCBusAndLCLFilterModel.set_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel.set_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">set_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel.set_initial_values"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel.set_initial_values">[docs]</a>    <span class="k">def</span> <span class="nf">set_initial_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the initial values.</span>
 
@@ -533,7 +533,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">u_gs0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_filter</span><span class="o">.</span><span class="n">pcc_voltages</span><span class="p">(</span>
                                                     <span class="n">x0</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">e_gs0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DCBusAndLCLFilterModel.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel.f"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the complete state derivative list for the solver.</span>
 
@@ -565,7 +565,7 @@ document.write(`
         <span class="n">all_f</span> <span class="o">=</span> <span class="p">[</span><span class="n">lcl_f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lcl_f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lcl_f</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">dc_f</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">all_f</span></div>
 
-<div class="viewcode-block" id="DCBusAndLCLFilterModel.save"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sol</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel.save"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sol</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the solution.</span>
 
@@ -586,7 +586,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">i_dc</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
             <span class="n">q_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">i_c_abc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
                                 
-<div class="viewcode-block" id="DCBusAndLCLFilterModel.post_process"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus._dc_dyn_model.DCBusAndLCLFilterModel.post_process">[docs]</a>    <span class="k">def</span> <span class="nf">post_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DCBusAndLCLFilterModel.post_process"><a class="viewcode-back" href="../../../../autoapi/gritulator/model/dc_bus/index.html#gritulator.model.dc_bus.DCBusAndLCLFilterModel.post_process">[docs]</a>    <span class="k">def</span> <span class="nf">post_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transform the lists to the ndarray format and post-process them.</span>
 

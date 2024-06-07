@@ -1,5 +1,5 @@
-:py:mod:`gritulator.control.grid_following`
-===========================================
+gritulator.control.grid_following
+=================================
 
 .. py:module:: gritulator.control.grid_following
 
@@ -27,11 +27,8 @@
        !! processed by numpydoc !!
 
 
-Package Contents
-----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -39,12 +36,13 @@ Classes
    gritulator.control.grid_following.GridFollowingCtrlPars
 
 
-
+Package Contents
+----------------
 
 .. py:class:: GridFollowingCtrl(pars)
 
-
    Bases: :py:obj:`gritulator.control._common.Ctrl`
+
 
    
    Grid following control for power converters.
@@ -70,7 +68,6 @@ Classes
        !! processed by numpydoc !!
 
 .. py:class:: GridFollowingCtrlPars
-
 
    
    grid-following control parameters.

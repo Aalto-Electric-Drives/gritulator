@@ -1,5 +1,5 @@
-:py:mod:`gritulator.model.dc_bus`
-=================================
+gritulator.model.dc_bus
+=======================
 
 .. py:module:: gritulator.model.dc_bus
 
@@ -27,11 +27,8 @@
        !! processed by numpydoc !!
 
 
-Package Contents
-----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -40,10 +37,10 @@ Classes
    gritulator.model.dc_bus.DCBusAndLCLFilterModel
 
 
-
+Package Contents
+----------------
 
 .. py:class:: DCBus(C_dc=0.001, G_dc=0, i_ext=lambda t: 0, u_dc0=650)
-
 
    
    DC bus model
@@ -76,8 +73,10 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: dc_current(i_c_abc, q)
       :staticmethod:
+
 
       
       Compute the converter DC current from the switching states and phase
@@ -109,6 +108,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, u_dc, i_dc)
 
@@ -142,6 +142,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: meas_dc_voltage()
 
       
@@ -169,7 +170,6 @@ Classes
 
 
 .. py:class:: DCBusAndLFilterModel(grid_filter=None, grid_model=None, dc_model=None, converter=None)
-
 
    
    Continuous-time model for a stiff grid model with an RL impedance model.
@@ -199,6 +199,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -224,6 +225,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -248,6 +250,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -279,6 +282,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -303,6 +307,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 
@@ -329,7 +334,6 @@ Classes
 
 
 .. py:class:: DCBusAndLCLFilterModel(grid_filter=None, grid_model=None, dc_model=None, converter=None)
-
 
    
    Continuous-time model for a stiff grid model with an LCL impedance model.
@@ -359,6 +363,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: get_initial_values()
 
       
@@ -384,6 +389,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: set_initial_values(t0, x0)
 
       
@@ -408,6 +414,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: f(t, x)
 
@@ -439,6 +446,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
+
    .. py:method:: save(sol)
 
       
@@ -463,6 +471,7 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
 
    .. py:method:: post_process()
 

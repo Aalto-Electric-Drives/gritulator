@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -154,7 +154,7 @@ Set the time-dependent reference and disturbance signals.
  .. code-block:: none
 
 
-    Execution time: 5.54 s
+    Execution time: 5.49 s
 
 
 
@@ -196,7 +196,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.689 seconds)
+   **Total running time of the script:** (0 minutes 6.628 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_reference_feedforward_power_synchronization_control_grid_converter_6.9kVA.py:

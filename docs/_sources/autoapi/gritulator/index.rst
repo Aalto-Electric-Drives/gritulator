@@ -1,5 +1,5 @@
-:py:mod:`gritulator`
-====================
+gritulator
+==========
 
 .. py:module:: gritulator
 
@@ -32,19 +32,16 @@
 
 Subpackages
 -----------
+
 .. toctree::
-   :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
-   control/index.rst
-   model/index.rst
+   /autoapi/gritulator/control/index
+   /autoapi/gritulator/model/index
 
-
-Package Contents
-----------------
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -54,9 +51,8 @@ Classes
    gritulator.Step
 
 
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -65,6 +61,8 @@ Functions
    gritulator.plot_grid
 
 
+Package Contents
+----------------
 
 .. py:function:: abc2complex(u)
 
@@ -137,7 +135,6 @@ Functions
        !! processed by numpydoc !!
 
 .. py:class:: BaseValues
-
 
    
    Base values.
@@ -225,7 +222,6 @@ Functions
 
 .. py:class:: BaseValuesElectrical
 
-
    
    Base values.
 
@@ -250,7 +246,6 @@ Functions
        !! processed by numpydoc !!
 
 .. py:class:: Sequence(times, values, periodic=False)
-
 
    
    Sequence generator.
@@ -283,7 +278,6 @@ Functions
        !! processed by numpydoc !!
 
 .. py:class:: Step(step_time, step_value, initial_value=0)
-
 
    
    Step function.

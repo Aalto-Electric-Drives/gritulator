@@ -143,14 +143,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../autoapi/gritulator/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_following/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_following</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_forming/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/control/index.html">gritulator.control</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_following/index.html">gritulator.control.grid_following</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_forming/index.html">gritulator.control.grid_forming</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/model/index.html">gritulator.model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/ac_grid/index.html">gritulator.model.ac_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/dc_bus/index.html">gritulator.model.dc_bus</a></li>
 </ul>
 </li>
 </ul>
@@ -314,7 +314,7 @@ document.write(`
     <span class="p">)</span>
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="StiffSource"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.StiffSource">[docs]</a><span class="k">class</span> <span class="nc">StiffSource</span><span class="p">:</span>
+<div class="viewcode-block" id="StiffSource"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.StiffSource">[docs]</a><span class="k">class</span> <span class="nc">StiffSource</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Grid subsystem.</span>
 
@@ -333,7 +333,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">w_N</span> <span class="o">=</span> <span class="n">w_N</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">e_g_abs</span> <span class="o">=</span> <span class="n">e_g_abs</span>
 
-<div class="viewcode-block" id="StiffSource.voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.StiffSource.voltages">[docs]</a>    <span class="k">def</span> <span class="nf">voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="viewcode-block" id="StiffSource.voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.StiffSource.voltages">[docs]</a>    <span class="k">def</span> <span class="nf">voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the grid voltage in stationary frame.</span>
 <span class="sd">           </span>
@@ -361,7 +361,7 @@ document.write(`
         <span class="k">return</span> <span class="n">e_gs</span></div>
 
 
-<div class="viewcode-block" id="StiffSource.meas_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.StiffSource.meas_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">meas_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="viewcode-block" id="StiffSource.meas_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.StiffSource.meas_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">meas_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the phase voltages at the end of the sampling period.</span>
 <span class="sd">        </span>
@@ -381,7 +381,7 @@ document.write(`
         <span class="k">return</span> <span class="n">e_g_abc</span></div></div>
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="FlexSource"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource">[docs]</a><span class="k">class</span> <span class="nc">FlexSource</span><span class="p">:</span>
+<div class="viewcode-block" id="FlexSource"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource">[docs]</a><span class="k">class</span> <span class="nc">FlexSource</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Grid subsystem.</span>
 <span class="sd">    </span>
@@ -445,7 +445,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">w_g0</span> <span class="o">=</span> <span class="n">w_N</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">err_w_g0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_gov0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_turb0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta_g0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 
-<div class="viewcode-block" id="FlexSource.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">err_w_g</span><span class="p">,</span> <span class="n">p_gov</span><span class="p">,</span> <span class="n">x_turb</span><span class="p">):</span>
+<div class="viewcode-block" id="FlexSource.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">err_w_g</span><span class="p">,</span> <span class="n">p_gov</span><span class="p">,</span> <span class="n">x_turb</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the state derivatives.</span>
 <span class="sd">        </span>
@@ -480,7 +480,7 @@ document.write(`
         <span class="n">dtheta_g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_N</span> <span class="o">+</span> <span class="n">err_w_g</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">derr_w_g</span><span class="p">,</span> <span class="n">dp_gov</span><span class="p">,</span> <span class="n">dx_turb</span><span class="p">,</span> <span class="n">dtheta_g</span><span class="p">]</span></div>
     
-<div class="viewcode-block" id="FlexSource.voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource.voltages">[docs]</a>    <span class="k">def</span> <span class="nf">voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">theta_g</span><span class="p">):</span>
+<div class="viewcode-block" id="FlexSource.voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource.voltages">[docs]</a>    <span class="k">def</span> <span class="nf">voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">theta_g</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the grid voltage in stationary frame:</span>
 <span class="sd">           </span>
@@ -507,7 +507,7 @@ document.write(`
         <span class="k">return</span> <span class="n">e_gs</span></div>
 
 
-<div class="viewcode-block" id="FlexSource.meas_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource.meas_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">meas_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="viewcode-block" id="FlexSource.meas_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource.meas_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">meas_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the phase voltages at the end of the sampling period.</span>
 
@@ -522,7 +522,7 @@ document.write(`
         <span class="k">return</span> <span class="n">e_g_abc</span></div>
     
     
-<div class="viewcode-block" id="FlexSource.meas_freq"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource.meas_freq">[docs]</a>    <span class="k">def</span> <span class="nf">meas_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FlexSource.meas_freq"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource.meas_freq">[docs]</a>    <span class="k">def</span> <span class="nf">meas_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the grid frequency.</span>
 <span class="sd">        </span>
@@ -537,7 +537,7 @@ document.write(`
         <span class="n">w_g0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_g0</span>
         <span class="k">return</span> <span class="n">w_g0</span></div>
 
-<div class="viewcode-block" id="FlexSource.meas_angle"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_volt_source.FlexSource.meas_angle">[docs]</a>    <span class="k">def</span> <span class="nf">meas_angle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FlexSource.meas_angle"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.FlexSource.meas_angle">[docs]</a>    <span class="k">def</span> <span class="nf">meas_angle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the grid angle.</span>
 <span class="sd">        </span>

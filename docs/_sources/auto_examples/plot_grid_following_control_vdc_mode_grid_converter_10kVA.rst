@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -194,7 +194,7 @@ Create the simulation object and simulate it.
  .. code-block:: none
 
 
-    Execution time: 0.96 s
+    Execution time: 0.94 s
 
 
 
@@ -236,7 +236,7 @@ Plot results in SI or per unit values.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.589 seconds)
+   **Total running time of the script:** (0 minutes 1.600 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grid_following_control_vdc_mode_grid_converter_10kVA.py:

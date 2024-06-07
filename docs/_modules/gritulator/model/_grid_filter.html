@@ -143,14 +143,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../autoapi/gritulator/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_following/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_following</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_forming/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/control/index.html">gritulator.control</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_following/index.html">gritulator.control.grid_following</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/control/grid_forming/index.html">gritulator.control.grid_forming</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/gritulator/model/index.html">gritulator.model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/ac_grid/index.html">gritulator.model.ac_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/gritulator/model/dc_bus/index.html">gritulator.model.dc_bus</a></li>
 </ul>
 </li>
 </ul>
@@ -309,7 +309,7 @@ document.write(`
 
 
 <span class="c1"># %%</span>
-<div class="viewcode-block" id="LFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter">[docs]</a><span class="k">class</span> <span class="nc">LFilter</span><span class="p">:</span>
+<div class="viewcode-block" id="LFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LFilter">[docs]</a><span class="k">class</span> <span class="nc">LFilter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dynamic model for an inductive L filter and an inductive-resistive grid.</span>
 
@@ -342,7 +342,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">i_gs0</span> <span class="o">=</span> <span class="mi">0</span><span class="n">j</span>
 
 
-<div class="viewcode-block" id="LFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
+<div class="viewcode-block" id="LFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the PCC voltage between the L filter and grid impedance.</span>
 <span class="sd">        </span>
@@ -369,7 +369,7 @@ document.write(`
         <span class="k">return</span> <span class="n">u_gs</span></div>
     
     
-<div class="viewcode-block" id="LFilter.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
+<div class="viewcode-block" id="LFilter.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LFilter.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
         <span class="c1"># pylint: disable=R0913</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the state derivatives.</span>
@@ -395,7 +395,7 @@ document.write(`
         <span class="n">di_gs</span> <span class="o">=</span> <span class="p">(</span><span class="n">u_cs</span> <span class="o">-</span> <span class="n">e_gs</span> <span class="o">-</span> <span class="n">R_t</span><span class="o">*</span><span class="n">i_gs</span><span class="p">)</span><span class="o">/</span><span class="n">L_t</span>
         <span class="k">return</span> <span class="n">di_gs</span></div>
 
-<div class="viewcode-block" id="LFilter.meas_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter.meas_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LFilter.meas_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LFilter.meas_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the phase currents at the end of the sampling period.</span>
 
@@ -410,7 +410,7 @@ document.write(`
         <span class="k">return</span> <span class="n">i_g_abc</span></div>
     
     
-<div class="viewcode-block" id="LFilter.meas_pcc_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LFilter.meas_pcc_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_pcc_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LFilter.meas_pcc_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LFilter.meas_pcc_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_pcc_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the phase voltages at PCC at the end of the sampling period.</span>
 
@@ -426,7 +426,7 @@ document.write(`
     
     
     <span class="c1"># %%</span>
-<div class="viewcode-block" id="LCLFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter">[docs]</a><span class="k">class</span> <span class="nc">LCLFilter</span><span class="p">:</span>
+<div class="viewcode-block" id="LCLFilter"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter">[docs]</a><span class="k">class</span> <span class="nc">LCLFilter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dynamic model for an inductive-capacitive-inductive (LCL) filter and a grid.</span>
 
@@ -477,7 +477,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">u_fs0</span> <span class="o">=</span> <span class="n">U_gN</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
 
 
-<div class="viewcode-block" id="LCLFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_fs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.pcc_voltages"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.pcc_voltages">[docs]</a>    <span class="k">def</span> <span class="nf">pcc_voltages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_fs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the PCC voltage between the LCL filter and the grid impedance.</span>
 
@@ -502,7 +502,7 @@ document.write(`
         
         <span class="k">return</span> <span class="n">u_gs</span></div>
     
-<div class="viewcode-block" id="LCLFilter.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_cs</span><span class="p">,</span> <span class="n">u_fs</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.f"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.f">[docs]</a>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_cs</span><span class="p">,</span> <span class="n">u_fs</span><span class="p">,</span> <span class="n">i_gs</span><span class="p">,</span> <span class="n">u_cs</span><span class="p">,</span> <span class="n">e_gs</span><span class="p">):</span>
         <span class="c1"># pylint: disable=R0913</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the state derivatives.</span>
@@ -538,7 +538,7 @@ document.write(`
 
         <span class="k">return</span> <span class="p">[</span><span class="n">di_cs</span><span class="p">,</span> <span class="n">du_fs</span><span class="p">,</span> <span class="n">di_gs</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="LCLFilter.meas_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.meas_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.meas_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.meas_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the converter phase currents at the end of the sampling period.</span>
 
@@ -553,7 +553,7 @@ document.write(`
 
         <span class="k">return</span> <span class="n">i_c_abc</span></div>
     
-<div class="viewcode-block" id="LCLFilter.meas_grid_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.meas_grid_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_grid_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.meas_grid_currents"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.meas_grid_currents">[docs]</a>    <span class="k">def</span> <span class="nf">meas_grid_currents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the grid phase currents at the end of the sampling period.</span>
 
@@ -567,7 +567,7 @@ document.write(`
         <span class="n">i_g_abc</span> <span class="o">=</span> <span class="n">complex2abc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i_gs0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">i_g_abc</span></div>
 
-<div class="viewcode-block" id="LCLFilter.meas_cap_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.meas_cap_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_cap_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.meas_cap_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.meas_cap_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_cap_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the capacitor phase voltages at the end of the sampling period.</span>
 
@@ -581,7 +581,7 @@ document.write(`
         <span class="n">u_f_abc</span> <span class="o">=</span> <span class="n">complex2abc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">u_fs0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">u_f_abc</span></div>
     
-<div class="viewcode-block" id="LCLFilter.meas_pcc_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model._grid_filter.LCLFilter.meas_pcc_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_pcc_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="LCLFilter.meas_pcc_voltage"><a class="viewcode-back" href="../../../autoapi/gritulator/model/index.html#gritulator.model.LCLFilter.meas_pcc_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">meas_pcc_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Measure the PCC voltages at the end of the sampling period.</span>
 

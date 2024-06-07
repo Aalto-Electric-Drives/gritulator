@@ -146,14 +146,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/grid_following/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_following</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/grid_forming/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/index.html">gritulator.control</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/grid_following/index.html">gritulator.control.grid_following</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/grid_forming/index.html">gritulator.control.grid_forming</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">gritulator.model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ac_grid/index.html">gritulator.model.ac_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dc_bus/index.html">gritulator.model.dc_bus</a></li>
 </ul>
 </li>
 </ul>
@@ -345,54 +345,52 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-contents">Package Contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource"><code class="docutils literal notranslate"><span class="pre">StiffSource</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.meas_voltages()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource"><code class="docutils literal notranslate"><span class="pre">StiffSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.meas_voltages()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource"><code class="docutils literal notranslate"><span class="pre">FlexSource</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.f"><code class="docutils literal notranslate"><span class="pre">FlexSource.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_freq"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_freq()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_angle"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_angle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource"><code class="docutils literal notranslate"><span class="pre">FlexSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.f"><code class="docutils literal notranslate"><span class="pre">FlexSource.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_freq"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_freq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_angle"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_angle()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter"><code class="docutils literal notranslate"><span class="pre">LFilter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LFilter.pcc_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.f"><code class="docutils literal notranslate"><span class="pre">LFilter.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_pcc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter"><code class="docutils literal notranslate"><span class="pre">LFilter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LFilter.pcc_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.f"><code class="docutils literal notranslate"><span class="pre">LFilter.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_pcc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter"><code class="docutils literal notranslate"><span class="pre">LCLFilter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LCLFilter.pcc_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.f"><code class="docutils literal notranslate"><span class="pre">LCLFilter.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_grid_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_grid_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_cap_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_cap_voltage()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_pcc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter"><code class="docutils literal notranslate"><span class="pre">LCLFilter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LCLFilter.pcc_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.f"><code class="docutils literal notranslate"><span class="pre">LCLFilter.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_grid_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_grid_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_cap_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_cap_voltage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_pcc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.grid_voltages"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.grid_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.f"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.f()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.grid_voltages"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.grid_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.f"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.f()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter"><code class="docutils literal notranslate"><span class="pre">Inverter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.ac_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.ac_voltage()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.dc_current"><code class="docutils literal notranslate"><span class="pre">Inverter.dc_current()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.meas_dc_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.meas_dc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter"><code class="docutils literal notranslate"><span class="pre">Inverter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.ac_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.ac_voltage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.dc_current"><code class="docutils literal notranslate"><span class="pre">Inverter.dc_current()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.meas_dc_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.meas_dc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.CarrierComparison"><code class="docutils literal notranslate"><span class="pre">CarrierComparison</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.simulate"><code class="docutils literal notranslate"><span class="pre">Simulation.simulate()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.save_mat"><code class="docutils literal notranslate"><span class="pre">Simulation.save_mat()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.CarrierComparison"><code class="docutils literal notranslate"><span class="pre">CarrierComparison</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.simulate"><code class="docutils literal notranslate"><span class="pre">Simulation.simulate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.save_mat"><code class="docutils literal notranslate"><span class="pre">Simulation.save_mat()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -409,21 +407,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="module-gritulator.model">
-<span id="gritulator-model"></span><h1><a class="reference internal" href="#module-gritulator.model" title="gritulator.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model</span></code></a><a class="headerlink" href="#module-gritulator.model" title="Permalink to this heading">#</a></h1>
+<span id="gritulator-model"></span><h1>gritulator.model<a class="headerlink" href="#module-gritulator.model" title="Permalink to this heading">#</a></h1>
 <p>Continuous-time system models.</p>
 <section id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ac_grid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dc_bus/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.dc_bus</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ac_grid/index.html">gritulator.model.ac_grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dc_bus/index.html">gritulator.model.dc_bus</a></li>
 </ul>
 </div>
 </section>
-<section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h2>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#gritulator.model.StiffSource" title="gritulator.model.StiffSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StiffSource</span></code></a></p></td>
@@ -452,6 +448,9 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gritulator.model.StiffSource">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gritulator.model.</span></span><span class="sig-name descname"><span class="pre">StiffSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">np.pi</span> <span class="pre">*</span> <span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_g_abs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">lambda</span> <span class="pre">t:</span> <span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gritulator/model/_grid_volt_source.html#StiffSource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gritulator.model.StiffSource" title="Permalink to this definition">#</a></dt>
@@ -1022,7 +1021,7 @@ phase switching states are returned. The default is True.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mdl</strong> (<em>Drive</em>) – Continuous-time system model.</p></li>
-<li><p><strong>ctrl</strong> (<a class="reference internal" href="../control/_common/index.html#gritulator.control._common.Ctrl" title="gritulator.control._common.Ctrl"><em>Ctrl</em></a>) – Discrete-time controller.</p></li>
+<li><p><strong>ctrl</strong> (<em>Ctrl</em>) – Discrete-time controller.</p></li>
 <li><p><strong>delay</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount of computational delays. The default is 1.</p></li>
 <li><p><strong>pwm</strong> (<em>bool</em><em>, </em><em>optional</em>) – Enable carrier comparison. The default is False.</p></li>
 </ul>
@@ -1060,7 +1059,6 @@ simplicity, only <cite>max_step</cite> is included as an option of this method.<
 
 </section>
 </section>
-</section>
 
 
                 </article>
@@ -1079,7 +1077,7 @@ simplicity, only <cite>max_step</cite> is included as an option of this method.<
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.control.grid_forming</span></code></p>
+        <p class="prev-next-title">gritulator.control.grid_forming</p>
       </div>
     </a>
     <a class="right-next"
@@ -1087,7 +1085,7 @@ simplicity, only <cite>max_step</cite> is included as an option of this method.<
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gritulator.model.ac_grid</span></code></p>
+        <p class="prev-next-title">gritulator.model.ac_grid</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1107,54 +1105,52 @@ simplicity, only <cite>max_step</cite> is included as an option of this method.<
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-contents">Package Contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource"><code class="docutils literal notranslate"><span class="pre">StiffSource</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.meas_voltages()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource"><code class="docutils literal notranslate"><span class="pre">StiffSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.StiffSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">StiffSource.meas_voltages()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource"><code class="docutils literal notranslate"><span class="pre">FlexSource</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.f"><code class="docutils literal notranslate"><span class="pre">FlexSource.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_freq"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_freq()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_angle"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_angle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource"><code class="docutils literal notranslate"><span class="pre">FlexSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.f"><code class="docutils literal notranslate"><span class="pre">FlexSource.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_voltages"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_freq"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_freq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FlexSource.meas_angle"><code class="docutils literal notranslate"><span class="pre">FlexSource.meas_angle()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter"><code class="docutils literal notranslate"><span class="pre">LFilter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LFilter.pcc_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.f"><code class="docutils literal notranslate"><span class="pre">LFilter.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_pcc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter"><code class="docutils literal notranslate"><span class="pre">LFilter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LFilter.pcc_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.f"><code class="docutils literal notranslate"><span class="pre">LFilter.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LFilter.meas_pcc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter"><code class="docutils literal notranslate"><span class="pre">LCLFilter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LCLFilter.pcc_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.f"><code class="docutils literal notranslate"><span class="pre">LCLFilter.f()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_grid_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_grid_currents()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_cap_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_cap_voltage()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_pcc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter"><code class="docutils literal notranslate"><span class="pre">LCLFilter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.pcc_voltages"><code class="docutils literal notranslate"><span class="pre">LCLFilter.pcc_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.f"><code class="docutils literal notranslate"><span class="pre">LCLFilter.f()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_grid_currents"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_grid_currents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_cap_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_cap_voltage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.LCLFilter.meas_pcc_voltage"><code class="docutils literal notranslate"><span class="pre">LCLFilter.meas_pcc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.grid_voltages"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.grid_voltages()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.f"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.f()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.grid_voltages"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.grid_voltages()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.FrequencyConverter.f"><code class="docutils literal notranslate"><span class="pre">FrequencyConverter.f()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter"><code class="docutils literal notranslate"><span class="pre">Inverter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.ac_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.ac_voltage()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.dc_current"><code class="docutils literal notranslate"><span class="pre">Inverter.dc_current()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.meas_dc_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.meas_dc_voltage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter"><code class="docutils literal notranslate"><span class="pre">Inverter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.ac_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.ac_voltage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.dc_current"><code class="docutils literal notranslate"><span class="pre">Inverter.dc_current()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Inverter.meas_dc_voltage"><code class="docutils literal notranslate"><span class="pre">Inverter.meas_dc_voltage()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.CarrierComparison"><code class="docutils literal notranslate"><span class="pre">CarrierComparison</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.simulate"><code class="docutils literal notranslate"><span class="pre">Simulation.simulate()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.save_mat"><code class="docutils literal notranslate"><span class="pre">Simulation.save_mat()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.CarrierComparison"><code class="docutils literal notranslate"><span class="pre">CarrierComparison</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.simulate"><code class="docutils literal notranslate"><span class="pre">Simulation.simulate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gritulator.model.Simulation.save_mat"><code class="docutils literal notranslate"><span class="pre">Simulation.save_mat()</span></code></a></li>
 </ul>
 </li>
 </ul>

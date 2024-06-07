@@ -11,6 +11,7 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
@@ -113,6 +114,8 @@ A collection of Python scripts that demonstrate how to use *gritulator*.
       <div class="sphx-glr-thumbnail-title">10-kVA grid following converter, dc-bus voltage control</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
